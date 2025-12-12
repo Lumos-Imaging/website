@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The Power of Spectral Intelligence – Lumos Imaging</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ef9176d5b3a494f395673aa65efdea21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script>
+// Custom Scrollspy for fixed sidebar
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebar = document.querySelector('#quarto-margin-sidebar');
+  if (!sidebar) return;
+
+  const links = sidebar.querySelectorAll('.nav-link');
+  const sections = [];
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const id = href.substring(1);
+      const section = document.getElementById(id);
+      if (section) {
+        sections.push({ link, section });
+      }
+    }
+  });
+
+  function updateActive() {
+    const scrollPos = window.scrollY || document.documentElement.scrollTop;
+    // Offset for navbar + some buffer
+    const offset = 150; 
+    
+    let current = null;
+
+    // Find the current section
+    for (let i = 0; i < sections.length; i++) {
+        const { section } = sections[i];
+        if (section.offsetTop <= scrollPos + offset) {
+            current = sections[i];
+        }
+    }
+
+    // Apply classes
+    links.forEach(link => link.classList.remove('custom-active'));
+    if (current) {
+        current.link.classList.add('custom-active');
+    } else if (sections.length > 0 && scrollPos < sections[0].section.offsetTop) {
+        // Highlight first if near top? Optional. Quarto usually does first.
+        sections[0].link.classList.add('custom-active');
+    }
+  }
+
+  window.addEventListener('scroll', updateActive);
+  updateActive(); // Init
+});
+</script>
+<script>
+// Set alt text for navbar logo images
+document.addEventListener('DOMContentLoaded', function() {
+  const logoImages = document.querySelectorAll('.navbar-logo');
+  logoImages.forEach(function(img) {
+    if (!img.alt || img.alt === '') {
+      img.alt = 'Lumos Imaging';
+    }
+  });
+  
+  // Ensure navbar has light theme
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    navbar.setAttribute('data-bs-theme', 'light');
+  }
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/logos/Logo_LumosImaging_whitebackground.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/logos/Logo_LumosImaging_whitebackground.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Lumos Imaging</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./why_spectral_imaging.html" aria-current="page"> 
+<span class="menu-text">Why Spectral Imaging?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./barriers_to_HSI_adoption.html"> 
+<span class="menu-text">Barriers to Wider Adoption</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./lumos_solution.html"> 
+<span class="menu-text">The Lumos Solution</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
+<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./validation_and_examples.html"> 
+<span class="menu-text">Validation and Examples</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about_us.html"> 
+<span class="menu-text">About Us</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#the-information-gap-in-modern-sensing" id="toc-the-information-gap-in-modern-sensing" class="nav-link active" data-scroll-target="#the-information-gap-in-modern-sensing">The information gap in modern sensing</a></li>
+  <li><a href="#the-chemistry-of-light" id="toc-the-chemistry-of-light" class="nav-link" data-scroll-target="#the-chemistry-of-light">The chemistry of light</a></li>
+  <li><a href="#industrial-impact-solving-the-invisible-problems" id="toc-industrial-impact-solving-the-invisible-problems" class="nav-link" data-scroll-target="#industrial-impact-solving-the-invisible-problems">Industrial impact: Solving the invisible problems</a></li>
+  <li><a href="#the-universality-of-spectral-intelligence" id="toc-the-universality-of-spectral-intelligence" class="nav-link" data-scroll-target="#the-universality-of-spectral-intelligence">The Universality of Spectral Intelligence</a></li>
+  <li><a href="#the-lumos-difference" id="toc-the-lumos-difference" class="nav-link" data-scroll-target="#the-lumos-difference">The Lumos Difference</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Power of Spectral Intelligence</h1>
+<p class="subtitle lead">From Computer Vision to Material Intelligence</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-information-gap-in-modern-sensing" class="level2">
+<h2 class="anchored" data-anchor-id="the-information-gap-in-modern-sensing">The information gap in modern sensing</h2>
+<p>Most computer vision systems use RGB cameras built for photography, mimicking human vision, rather than for true sensing. By compressing the spectrum into three broad channels, RGB throws away crucial physical information from light. This often means different materials can appear identical to a machine, creating a fundamental spectral ambiguity that undermines critical applications like sorting, agriculture, and diagnostics.</p>
+</section>
+<section id="the-chemistry-of-light" class="level2">
+<h2 class="anchored" data-anchor-id="the-chemistry-of-light">The chemistry of light</h2>
+<p><img src="assets/images/icon_chemistry_of_light.png" class="section-icon img-fluid"> Hyperspectral imaging (HSI) pivots from imaging (appearance) to spectroscopy (composition). Molecules have unique spectral signatures: electronic transitions in the visible–NIR reveal pigments like chlorophyll, melanin, and hemoglobin, while SWIR vibrational overtones of bonds (C–H, O–H) expose plastics, water, and lipids. Resolving light into many narrow bands lets machines “see” chemistry rather than color.</p>
+<hr>
+</section>
+<section id="industrial-impact-solving-the-invisible-problems" class="level2">
+<h2 class="anchored" data-anchor-id="industrial-impact-solving-the-invisible-problems">Industrial impact: Solving the invisible problems</h2>
+<p>Spectral imaging detects properties that standard cameras cannot, enabling quantitative, label-free assessment across critical sectors.</p>
+<section id="healthcare-label-free-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="healthcare-label-free-diagnostics">1. Healthcare: Label-free diagnostics</h3>
+<p><img src="assets/images/icon_applicability_healthcare.png" class="section-icon img-fluid"></p>
+<p>Spectral imaging uses intrinsic biomarkers as contrast, mapping hemoglobin dynamics and tissue chemistry non-invasively. This enables real-time perfusion and oxygenation mapping, dye-free tumor margin assessment, retinal biomarker screening, and digital histopathology on unstained slides.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Clinical applications: Examples and sources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Perfusion &amp; oxygenation (SpO₂ mapping):</strong><br>
+Reflectance spectra of oxy-/deoxyhemoglobin enable surface oxygenation and burn-depth assessment through total hemoglobin and saturation maps.<br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4727700/">Hyperspectral Imaging for Burn Depth Assessment in an Animal Model (NIH/PMC)</a><br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5572439/">Label-free reflectance HSI for tumor margin assessment (NIH/PMC)</a></p></li>
+<li><p><strong>Tumor margin assessment (label-free):</strong><br>
+Malignant tissue shows altered scattering and absorption from metabolic and structural changes, allowing discrimination without dyes.<br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5572439/">Label-free reflectance HSI for tumor margin assessment (NIH/PMC)</a><br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12649839/">Review: HSI in Medical Endoscopy (NIH/PMC)</a></p></li>
+<li><p><strong>Retinal screening (early biomarkers):</strong><br>
+Spectral markers of vascular and protein aggregation changes support early detection of diabetic retinopathy and neurodegenerative risk via ocular imaging.<br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12649839/">Review: HSI in Medical Endoscopy (NIH/PMC)</a><br>
+[Ophthalmic spectroscopy reviews and diagnostics via reputable journals—example scope via MDPI/Frontiers/IOVS]</p></li>
+<li><p><strong>Digital histopathology (unstained slides):</strong><br>
+Biochemical spectral signatures differentiate tissue components (e.g., cancer vs.&nbsp;stroma), expediting analysis without staining.<br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5572439/">Label-free reflectance HSI for tumor margin assessment (NIH/PMC)</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="precision-agriculture-predicting-the-future" class="level3">
+<h3 class="anchored" data-anchor-id="precision-agriculture-predicting-the-future">2. Precision agriculture: Predicting the future</h3>
+<p><img src="assets/images/icon_applicability_agrotech.png" class="section-icon img-fluid"></p>
+<p>HSI detects plant stress before visual symptoms. Red-edge shifts track chlorophyll dynamics, SWIR water bands quantify canopy moisture, and NIR/SWIR spectra differentiate weeds for targeted spraying. Light scattering correlates with internal fruit quality, enabling sorting by taste, not appearance.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Plant physiology: Examples and sources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Stress detection (red-edge shifts):</strong><br>
+Early spectral changes in the 670–780 nm region anticipate chlorophyll fluorescence alterations and stress before yellowing.<br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7760370/">Proximal Methods for Plant Stress Detection (NIH/PMC)</a></p></li>
+<li><p><strong>Moisture content (970 nm O–H overtone):</strong><br>
+Water absorption features enable retrieval of Equivalent Water Thickness for precision irrigation.<br>
+<a href="https://www.researchgate.net/publication/283118548_Vegetation_Water_Content_at_970_nm_Estimation_Using_Hyperspectral_Vegetation_Indices">Vegetation Water Content at 970 nm (ResearchGate)</a></p></li>
+<li><p><strong>Smart spraying (weed detection):</strong><br>
+“Green-on-green” spectral discrimination reduces herbicide use by targeting weeds amid crops.<br>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7760370/">Proximal Methods for Plant Stress Detection (NIH/PMC)</a><br>
+[Additional agronomic HSI studies via Elsevier/MDPI/IEEE GRSS]</p></li>
+<li><p><strong>Fruit quality (Brix &amp; firmness proxies):</strong><br>
+Scattering and spectral indices correlate with sugar content and texture for taste-aligned sorting.<br>
+[Representative postharvest HSI literature via MDPI/Elsevier—fruits quality and internal defects]</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="machine-vision-sorting-the-indistinguishable" class="level3">
+<h3 class="anchored" data-anchor-id="machine-vision-sorting-the-indistinguishable">3. Machine vision: Sorting the indistinguishable</h3>
+<p><img src="assets/images/icon_applicability_industrial_machine_vision.png" class="section-icon img-fluid"></p>
+<p>HSI separates lookalike materials through their chemistry. SWIR bands distinguish polymers like PET vs.&nbsp;PVC, reveal foreign objects in food streams, and quantify process moisture for energy-efficient drying.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Material sorting: Examples and sources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Polymer sorting (SWIR):</strong><br>
+C–H overtone features in 1000–1700 nm discriminate PET, PVC, and other clear plastics for high-speed recycling.<br>
+<a href="https://www.researchgate.net/publication/269045631_PET_and_PVC_Separation_with_Hyperspectral_Imaging">PET and PVC Separation with HSI (ResearchGate)</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="remote-sensing-quantitative-earth-observation" class="level3">
+<h3 class="anchored" data-anchor-id="remote-sensing-quantitative-earth-observation">4. Remote Sensing: Quantitative Earth Observation</h3>
+<p><img src="assets/images/icon_applicability_remotesensing.png" class="section-icon img-fluid"></p>
+<p>Satellites today are excellent at mapping <em>where</em> things are. Spectral imaging allows them to measure <em>what</em> is there.</p>
+<ul>
+<li><strong>Mineralogy:</strong> Different minerals (lithium, copper, iron oxides) have distinct spectral reflectance curves, allowing for efficient geological surveying from orbit.</li>
+<li><strong>Environmental Monitoring:</strong> Tracking algal blooms, methane leaks, or oil spills based on their specific spectral absorption features rather than just their visual presence.</li>
+<li><strong>On-Orbit Edge AI:</strong> Addressing the “Data Bottleneck”. Lumos enables satellites to process spectral cubes <em>on-orbit</em> and downlink only actionable alerts (e.g., “Fire Detected”) instead of raw terabytes.</li>
+<li><strong>UAV Sensing:</strong> The snapshot architecture eliminates the motion artifacts (“wobble”) common in push-broom scanners, facilitating drone-based monitoring without heavy gimbals.</li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Earth Observation: Examples and sources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Geology:</strong> <em>Hyperspectral Imaging for Lithology Mapping</em> outlines the identification of alteration minerals (e.g., <span class="math inline">\(Fe^{3+}\)</span> transitions) using VNIR-SWIR bands. <a href="https://hyspex.com/use-cases-application-notes/lithology-mapping">Read Technical Note (HySpex)</a></li>
+<li><strong>Methane:</strong> <em>Methane Mapping with Future Satellite Imaging Spectrometers</em> discusses the detection of <span class="math inline">\(CH_4\)</span> absorption features approx. 2300 nm for leak quantification. <a href="https://www.mdpi.com/2072-4292/11/24/3054">Read Paper (MDPI)</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-universality-of-spectral-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="the-universality-of-spectral-intelligence">The Universality of Spectral Intelligence</h2>
+<p>Hyperspectral imaging is a platform technology. Beyond the major pillars above, it is rapidly disrupting niche high-value verticals.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="microscopy-endoscopy" class="level3">
+<h3 class="anchored" data-anchor-id="microscopy-endoscopy">🔬 Microscopy &amp; Endoscopy</h3>
+<p><strong>In-Vivo Biopsy:</strong> Bringing the lab to the patient. HSI endoscopes can identify tumor boundaries in real-time during surgery, reducing the need for repeat excisions. In microscopy, it allows for label-free histopathology, identifying cell types without staining.</p>
+<p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12649839/">📄 <em>Review: HSI in Medical Endoscopy</em></a></p>
+</section>
+<section id="defense-security" class="level3">
+<h3 class="anchored" data-anchor-id="defense-security">🛡️ Defense &amp; Security</h3>
+<p><strong>De-Camouflage:</strong> Seeing the unseen. Man-made camouflage materials (nets, paints) attempt to mimic natural backgrounds in the visible spectrum but fail to match the complex spectral curves of chlorophyll in the NIR/SWIR. HSI makes camouflaged targets “pop” against natural foliage.</p>
+<p><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13673/1367308/Evaluation-of-military-camouflage-using-hyperspectral-satellite-data/10.1117/12.3069545.full">📄 <em>Military Camouflage Evaluation via HSI</em></a></p>
+</section>
+<section id="forensics" class="level3">
+<h3 class="anchored" data-anchor-id="forensics">🕵️ Forensics</h3>
+<p><strong>Trace Evidence Analysis:</strong> Non-destructive investigation. From estimating the age of bloodstains (via hemoglobin oxidation states) to visualizing gunshot residue and detecting forged signatures on documents where different inks were used.</p>
+<p><a href="https://www.specim.com/forensics-with-hyperspectral-imaging/">📄 <em>Forensics with Hyperspectral Imaging</em></a></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="pharmaceuticals" class="level3">
+<h3 class="anchored" data-anchor-id="pharmaceuticals">💊 Pharmaceuticals</h3>
+<p><strong>Quality Assurance:</strong> 100% Inspection. Regulatory standards require uniform API distribution. Lumos provides 100% inspection of blister packs, identifying mixing errors or counterfeits based on chemical composition rather than color.</p>
+<p><a href="https://hyspex.com/use-cases-application-notes/pharmaceuticals">📄 <em>Pharmaceutical Quality Control with HSI</em></a></p>
+</section>
+<section id="art-conservation" class="level3">
+<h3 class="anchored" data-anchor-id="art-conservation">🎨 Art Conservation</h3>
+<p><strong>Non-Invasive Restoration:</strong> Identifying pigments and binders used by old masters without taking physical samples. HSI reveals underdrawings (sketches beneath the paint) and previous restoration attempts.</p>
+<p><a href="https://www.specim.com/hyperspectral-imaging-applications/art-and-archaeology/">📄 <em>HSI in Art and Archaeology</em></a></p>
+</section>
+<section id="cosmetics-skin-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="cosmetics-skin-analysis">💄 Cosmetics &amp; Skin Analysis</h3>
+<p><strong>Quantifying Efficacy:</strong> Measuring skin hydration, melanin distribution, and collagen structure to objectively quantify the effects of cosmetic products, moving beyond subjective “before and after” photos.</p>
+<p><a href="https://www.livingoptics.com/demonstrating-the-capabilities-of-hyperspectral-imaging-for-dermatological-diagnostics/">📄 <em>HSI for Dermatological Diagnostics</em></a></p>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-lumos-difference" class="level2">
+<h2 class="anchored" data-anchor-id="the-lumos-difference">The Lumos Difference</h2>
+<p>Traditionally, accessing this “Material Intelligence” required bulky, expensive ($50k+), and slow line-scanning cameras.</p>
+<p><strong>Lumos democratizes this power.</strong> By packaging a high-performance spectrometer into a snapshot camera form factor, we allow these advanced diagnostic capabilities to be deployed on drones, production lines, and handheld devices for the first time.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

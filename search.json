@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "why_spectral_imaging.html",
+    "href": "why_spectral_imaging.html",
+    "title": "The Power of Spectral Intelligence",
+    "section": "",
+    "text": "Most computer vision systems use RGB cameras built for photography, mimicking human vision, rather than for true sensing. By compressing the spectrum into three broad channels, RGB throws away crucial physical information from light. This often means different materials can appear identical to a machine, creating a fundamental spectral ambiguity that undermines critical applications like sorting, agriculture, and diagnostics."
+  },
+  {
+    "objectID": "why_spectral_imaging.html#the-information-gap-in-modern-sensing",
+    "href": "why_spectral_imaging.html#the-information-gap-in-modern-sensing",
+    "title": "The Power of Spectral Intelligence",
+    "section": "",
+    "text": "Most computer vision systems use RGB cameras built for photography, mimicking human vision, rather than for true sensing. By compressing the spectrum into three broad channels, RGB throws away crucial physical information from light. This often means different materials can appear identical to a machine, creating a fundamental spectral ambiguity that undermines critical applications like sorting, agriculture, and diagnostics."
+  },
+  {
+    "objectID": "why_spectral_imaging.html#the-chemistry-of-light",
+    "href": "why_spectral_imaging.html#the-chemistry-of-light",
+    "title": "The Power of Spectral Intelligence",
+    "section": "The chemistry of light",
+    "text": "The chemistry of light\n Hyperspectral imaging (HSI) pivots from imaging (appearance) to spectroscopy (composition). Molecules have unique spectral signatures: electronic transitions in the visible–NIR reveal pigments like chlorophyll, melanin, and hemoglobin, while SWIR vibrational overtones of bonds (C–H, O–H) expose plastics, water, and lipids. Resolving light into many narrow bands lets machines “see” chemistry rather than color."
+  },
+  {
+    "objectID": "why_spectral_imaging.html#industrial-impact-solving-the-invisible-problems",
+    "href": "why_spectral_imaging.html#industrial-impact-solving-the-invisible-problems",
+    "title": "The Power of Spectral Intelligence",
+    "section": "Industrial impact: Solving the invisible problems",
+    "text": "Industrial impact: Solving the invisible problems\nSpectral imaging detects properties that standard cameras cannot, enabling quantitative, label-free assessment across critical sectors.\n\n1. Healthcare: Label-free diagnostics\n\nSpectral imaging uses intrinsic biomarkers as contrast, mapping hemoglobin dynamics and tissue chemistry non-invasively. This enables real-time perfusion and oxygenation mapping, dye-free tumor margin assessment, retinal biomarker screening, and digital histopathology on unstained slides.\n\n\n\n\n\n\nNoteClinical applications: Examples and sources\n\n\n\n\n\n\nPerfusion & oxygenation (SpO₂ mapping):\nReflectance spectra of oxy-/deoxyhemoglobin enable surface oxygenation and burn-depth assessment through total hemoglobin and saturation maps.\nHyperspectral Imaging for Burn Depth Assessment in an Animal Model (NIH/PMC)\nLabel-free reflectance HSI for tumor margin assessment (NIH/PMC)\nTumor margin assessment (label-free):\nMalignant tissue shows altered scattering and absorption from metabolic and structural changes, allowing discrimination without dyes.\nLabel-free reflectance HSI for tumor margin assessment (NIH/PMC)\nReview: HSI in Medical Endoscopy (NIH/PMC)\nRetinal screening (early biomarkers):\nSpectral markers of vascular and protein aggregation changes support early detection of diabetic retinopathy and neurodegenerative risk via ocular imaging.\nReview: HSI in Medical Endoscopy (NIH/PMC)\n[Ophthalmic spectroscopy reviews and diagnostics via reputable journals—example scope via MDPI/Frontiers/IOVS]\nDigital histopathology (unstained slides):\nBiochemical spectral signatures differentiate tissue components (e.g., cancer vs. stroma), expediting analysis without staining.\nLabel-free reflectance HSI for tumor margin assessment (NIH/PMC)\n\n\n\n\n\n\n2. Precision agriculture: Predicting the future\n\nHSI detects plant stress before visual symptoms. Red-edge shifts track chlorophyll dynamics, SWIR water bands quantify canopy moisture, and NIR/SWIR spectra differentiate weeds for targeted spraying. Light scattering correlates with internal fruit quality, enabling sorting by taste, not appearance.\n\n\n\n\n\n\nNotePlant physiology: Examples and sources\n\n\n\n\n\n\nStress detection (red-edge shifts):\nEarly spectral changes in the 670–780 nm region anticipate chlorophyll fluorescence alterations and stress before yellowing.\nProximal Methods for Plant Stress Detection (NIH/PMC)\nMoisture content (970 nm O–H overtone):\nWater absorption features enable retrieval of Equivalent Water Thickness for precision irrigation.\nVegetation Water Content at 970 nm (ResearchGate)\nSmart spraying (weed detection):\n“Green-on-green” spectral discrimination reduces herbicide use by targeting weeds amid crops.\nProximal Methods for Plant Stress Detection (NIH/PMC)\n[Additional agronomic HSI studies via Elsevier/MDPI/IEEE GRSS]\nFruit quality (Brix & firmness proxies):\nScattering and spectral indices correlate with sugar content and texture for taste-aligned sorting.\n[Representative postharvest HSI literature via MDPI/Elsevier—fruits quality and internal defects]\n\n\n\n\n\n\n3. Machine vision: Sorting the indistinguishable\n\nHSI separates lookalike materials through their chemistry. SWIR bands distinguish polymers like PET vs. PVC, reveal foreign objects in food streams, and quantify process moisture for energy-efficient drying.\n\n\n\n\n\n\nNoteMaterial sorting: Examples and sources\n\n\n\n\n\n\nPolymer sorting (SWIR):\nC–H overtone features in 1000–1700 nm discriminate PET, PVC, and other clear plastics for high-speed recycling.\nPET and PVC Separation with HSI (ResearchGate)\n\n\n\n\n\n\n4. Remote Sensing: Quantitative Earth Observation\n\nSatellites today are excellent at mapping where things are. Spectral imaging allows them to measure what is there.\n\nMineralogy: Different minerals (lithium, copper, iron oxides) have distinct spectral reflectance curves, allowing for efficient geological surveying from orbit.\nEnvironmental Monitoring: Tracking algal blooms, methane leaks, or oil spills based on their specific spectral absorption features rather than just their visual presence.\nOn-Orbit Edge AI: Addressing the “Data Bottleneck”. Lumos enables satellites to process spectral cubes on-orbit and downlink only actionable alerts (e.g., “Fire Detected”) instead of raw terabytes.\nUAV Sensing: The snapshot architecture eliminates the motion artifacts (“wobble”) common in push-broom scanners, facilitating drone-based monitoring without heavy gimbals.\n\n\n\n\n\n\n\nNoteEarth Observation: Examples and sources\n\n\n\n\n\n\nGeology: Hyperspectral Imaging for Lithology Mapping outlines the identification of alteration minerals (e.g., \\(Fe^{3+}\\) transitions) using VNIR-SWIR bands. Read Technical Note (HySpex)\nMethane: Methane Mapping with Future Satellite Imaging Spectrometers discusses the detection of \\(CH_4\\) absorption features approx. 2300 nm for leak quantification. Read Paper (MDPI)"
+  },
+  {
+    "objectID": "why_spectral_imaging.html#the-universality-of-spectral-intelligence",
+    "href": "why_spectral_imaging.html#the-universality-of-spectral-intelligence",
+    "title": "The Power of Spectral Intelligence",
+    "section": "The Universality of Spectral Intelligence",
+    "text": "The Universality of Spectral Intelligence\nHyperspectral imaging is a platform technology. Beyond the major pillars above, it is rapidly disrupting niche high-value verticals.\n\n\n\n🔬 Microscopy & Endoscopy\nIn-Vivo Biopsy: Bringing the lab to the patient. HSI endoscopes can identify tumor boundaries in real-time during surgery, reducing the need for repeat excisions. In microscopy, it allows for label-free histopathology, identifying cell types without staining.\n📄 Review: HSI in Medical Endoscopy\n\n\n🛡️ Defense & Security\nDe-Camouflage: Seeing the unseen. Man-made camouflage materials (nets, paints) attempt to mimic natural backgrounds in the visible spectrum but fail to match the complex spectral curves of chlorophyll in the NIR/SWIR. HSI makes camouflaged targets “pop” against natural foliage.\n📄 Military Camouflage Evaluation via HSI\n\n\n🕵️ Forensics\nTrace Evidence Analysis: Non-destructive investigation. From estimating the age of bloodstains (via hemoglobin oxidation states) to visualizing gunshot residue and detecting forged signatures on documents where different inks were used.\n📄 Forensics with Hyperspectral Imaging\n\n\n\n💊 Pharmaceuticals\nQuality Assurance: 100% Inspection. Regulatory standards require uniform API distribution. Lumos provides 100% inspection of blister packs, identifying mixing errors or counterfeits based on chemical composition rather than color.\n📄 Pharmaceutical Quality Control with HSI\n\n\n🎨 Art Conservation\nNon-Invasive Restoration: Identifying pigments and binders used by old masters without taking physical samples. HSI reveals underdrawings (sketches beneath the paint) and previous restoration attempts.\n📄 HSI in Art and Archaeology\n\n\n💄 Cosmetics & Skin Analysis\nQuantifying Efficacy: Measuring skin hydration, melanin distribution, and collagen structure to objectively quantify the effects of cosmetic products, moving beyond subjective “before and after” photos.\n📄 HSI for Dermatological Diagnostics"
+  },
+  {
+    "objectID": "why_spectral_imaging.html#the-lumos-difference",
+    "href": "why_spectral_imaging.html#the-lumos-difference",
+    "title": "The Power of Spectral Intelligence",
+    "section": "The Lumos Difference",
+    "text": "The Lumos Difference\nTraditionally, accessing this “Material Intelligence” required bulky, expensive ($50k+), and slow line-scanning cameras.\nLumos democratizes this power. By packaging a high-performance spectrometer into a snapshot camera form factor, we allow these advanced diagnostic capabilities to be deployed on drones, production lines, and handheld devices for the first time."
+  },
+  {
+    "objectID": "reconstruction_and_direct_inference.html",
+    "href": "reconstruction_and_direct_inference.html",
+    "title": "Algorithmic Processing & Inference",
+    "section": "",
+    "text": "Once the Diffractogram is captured, the Lumos software stack offers two distinct processing pathways. This flexibility allows the system to adapt to the specific requirements of the application—optimizing for either human interpretation (Reconstruction) or data efficiency and machine speed (Direct Inference)."
+  },
+  {
+    "objectID": "reconstruction_and_direct_inference.html#option-1-multispectral-cube-reconstruction",
+    "href": "reconstruction_and_direct_inference.html#option-1-multispectral-cube-reconstruction",
+    "title": "Algorithmic Processing & Inference",
+    "section": "Option 1: Multispectral Cube Reconstruction",
+    "text": "Option 1: Multispectral Cube Reconstruction\nFor applications requiring traditional spectral analysis, scientific visualization, or compatibility with legacy software (like ENVI), we computationally reconstruct the full Hyperspectral Cube.\n\n\n\nPath A: Spectral Reconstruction. The raw diffractogram is processed by the inverse solver to recover the spatio-spectral 3D cube.\n\n\n\nAdvantages of Computational Decoding\nThis approach offers significant flexibility over traditional hardware-fixed systems:\n\nOn-Demand Decoding: We can choose to reconstruct the full image or only a specific Region of Interest (ROI). This saves massive amounts of compute power.\nLean Storage: We only need to store the raw Diffractograms (which are small and efficient). The heavy 3D cubes can be generated only when needed, and discarded afterwards.\nLegacy Compatibility: The output is a standard .HDR/.ENVI spectral cube, making it instantly compatible with decades of existing spectral analysis software.\nUser-Defined Bands: The spectral discretization happens in software. A user can request 4 bands, 20 bands, or 50 bands from the same raw data. This allows for optimization based on the specific application, avoiding the waste of processing hundreds of unnecessary bands (a common inefficiency in traditional HSI)."
+  },
+  {
+    "objectID": "reconstruction_and_direct_inference.html#option-2-direct-inference-efficient-transmission",
+    "href": "reconstruction_and_direct_inference.html#option-2-direct-inference-efficient-transmission",
+    "title": "Algorithmic Processing & Inference",
+    "section": "Option 2: Direct Inference & Efficient Transmission",
+    "text": "Option 2: Direct Inference & Efficient Transmission\nThis pathway leverages the Diffractogram as a highly efficient data container. It is the optimal choice for bandwidth-constrained environments (Satellites, UAVs) or high-speed automation.\n\n\n\nPath B: Direct Inference. Deep Learning models ingest the raw diffractogram and directly output the desired variable (Class, Abundance, etc.), skipping the reconstruction step.\n\n\n\nUse Case A: Efficient Transmission (Satellite & Cloud)\nIn scenarios like Earth Observation or Drone Inspection, the bottleneck is the radio link. Transmitting a full 50-band hyperspectral cube is often impossible. * Workflow: The satellite captures and transmits only the raw Diffractogram (2D Grayscale). * Benefit: This reduces the downlink data volume by ~50x. * Processing: The heavy computational lifting (Reconstruction) is performed on the ground (in the Cloud) where power and compute are abundant. This enables high-fidelity spectral monitoring from platforms with limited telemetry.\n\n\nUse Case B: Edge AI (Real-Time Automation)\nFor machine vision, a sorting robot does not need to “see” the spectrum; it needs to know “Is this object Plastic A or Plastic B?” * Latent Space Logic: The Diffractogram contains all the information of the scene, compressed optically. We train Deep Learning models (Deep Neural Networks) to map the textures of the Diffractogram directly to the desired output labels. * Benefit: Bypasses the computational cost of reconstruction, enabling inference in milliseconds (e.g., &gt;60 FPS on standard edge hardware).\n\nBenefit: Bypasses the computational cost of reconstruction, enabling inference in milliseconds (e.g., &gt;60 FPS on standard edge hardware).\n\n\n\nInteractive Inference Examples\nExplore how the same Lumos hardware can answer different questions just by changing the software model.\n\nSemantic SegmentationSpecies Identification\n\n\nGoal: Identify regions of the image (Butterfly vs. Background). Input: Single Diffractogram Frame. Output: Binary Mask.\n\n\n\nSegmentation Example: The model learns to distinguish the texture of the main subject from the background.\n\n\n\n\nGoal: Classify the specific type of object. Input: Single Diffractogram Frame. Output: Class Label (e.g., “Monarch Butterfly”).\nUnlike RGB, which might be fooled by a similar-looking mimic, the spectral signature in the diffractogram provides a chemical fingerprint for accurate ID.\n\n\n\nClassification Example: The system outputs a confidence score for the species.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOption 1: Reconstruction\nOption 2: Direct Inference & Transmission\n\n\n\n\nPrimary Goal\nHuman Interpretation / Science\nBandwidth Efficiency / Automation\n\n\nData Output\n3D Data Cube\nRaw Diffractogram OR Class Label\n\n\nTypical Workflow\nCapture \\(\\to\\) Reconstruct \\(\\to\\) Analyze\nCapture \\(\\to\\) Transmit \\(\\to\\) Cloud Process\n\n\nLatency\nSeconds / Minutes\nMilliseconds (Inference) / Real-time (Transmission)\n\n\nData Volume\nExpands to GBs\nRemains Compressed (MBs)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Democratizing Spectral Intelligence",
+    "section": "",
+    "text": "Lumos Imaging replaces complex optical assemblies with a Hardware-Software Co-Design. We combine diffractive nanophotonics with inverse algorithms to democratize access to spectral intelligence."
+  },
+  {
+    "objectID": "index.html#the-engineering-problem-the-data-hardware-economics-paradox",
+    "href": "index.html#the-engineering-problem-the-data-hardware-economics-paradox",
+    "title": "Democratizing Spectral Intelligence",
+    "section": "The Engineering Problem: The Data-Hardware-Economics Paradox",
+    "text": "The Engineering Problem: The Data-Hardware-Economics Paradox\nIn the field of optical sensing, there has historically been a zero-sum trade-off between Information Density, System Scalability, and Economic Viability.\n\nRGB Sensors are highly scalable (low cost, high speed, robust) and economically viable but suffer from low information density (metamerism, chemical specificity).\nHyperspectral Imagers (HSI) offer high information density (chemical specificity) but suffer from poor scalability (mechanical fragility, massive data bandwidth) and low economic viability (high cost).\n\nAs industries move toward Autonomous Sensing, Satellite Constellations, and Cloud Analytics, this three-way trade-off has become a critical bottleneck. Systems require the chemical discrimination of HSI but demand the form factor, data efficiency, and cost-effectiveness of RGB."
+  },
+  {
+    "objectID": "index.html#the-lumos-architecture",
+    "href": "index.html#the-lumos-architecture",
+    "title": "Democratizing Spectral Intelligence",
+    "section": "The Lumos Architecture",
+    "text": "The Lumos Architecture\nLumos Imaging addresses this paradox through Computational Imaging. Instead of relying solely on complex glass optics to separate light, we utilize a hybrid approach that distributes the workload between nanophotonic hardware and algorithmic software.\nOur core innovation is the Diffractive Filter Array (DFA)—a passive, transparent optical element that encodes spectral information into the spatial domain. This allows us to convert standard monochrome sensors (CMOS or InGaAs) into high-definition snapshot hyperspectral cameras.\n\nKey Architectural Advantages\n\nSolid-State Physics: We replace prisms, gratings, and moving filter wheels with a single wafer-level optic. This eliminates mechanical failure modes and drastically reduces unit cost.\nOptical Compression: By encoding spectral data into a 2D “Diffractogram” rather than a 3D data cube, we achieve native compression at the optical level, reducing data volume by orders of magnitude.\nSnapshot Acquisition: Unlike push-broom scanners that require relative motion, the Lumos architecture captures the full spatial-spectral field in a single integration period, making it immune to vibration and motion artifacts.\n\n\n\n\nWhy Spectral Imaging? →\nUnderstanding the limitations of RGB sensors (Metamerism) and the hidden data in the spectrum.\n\n\nBarriers to Spectral Imaging →\nWhy traditional HSI has failed to scale: Cost, Complexity, and Bandwidth bottlenecks.\n\n\nThe Lumos Solution →\nHardware-Software Co-Design: The Diffractive Filter Array (DFA) and computational encoding.\n\n\nData Efficiency →\nMultispectral Reconstruction and Direct Inference pipelines for cloud and edge applications.\n\n\nValidation & Examples →\nExperimental results, video demonstrations, and scientific publications.\n\n\nAbout Us →\nOur Team, Vision, and Patent Portfolio."
+  },
+  {
+    "objectID": "about_us.html",
+    "href": "about_us.html",
+    "title": "About Us",
+    "section": "",
+    "text": "Lumos Imaging is a spin-off from the University of Utah. We hold a robust IP portfolio covering diffractive optics, nanofabrication, and computational imaging."
+  },
+  {
+    "objectID": "about_us.html#leadership-team",
+    "href": "about_us.html#leadership-team",
+    "title": "About Us",
+    "section": "Leadership Team",
+    "text": "Leadership Team\n\n\n\n\n\n\nRajesh Menon \n\nRajesh is a Professor at the University of Utah with a PhD in Diffractive Optics from MIT. He is a Fellow of OSA and SPIE, and a serial entrepreneur having founded LumArray and PointSpectrum. With over 100 publications and 40+ patents in nanophotonics and lithography, Rajesh brings deep technical expertise and a proven track record of translating research into commercial products.\n\n\n\n\n\n\n\n\nLaurent Node-Langlois \n\nLaurent brings over 25 years of high-tech Product Management experience. Formerly in executive leadership at GE Healthcare, where he led Medical Imaging and Surgical Navigation products, his extensive P&L responsibility includes guiding deep-tech products from R&D through market exit, bringing critical commercial execution expertise to the team.\n\n\n\n\n\n\n\n\nFernando Guevara Vásquez, PhD \n\nFernando holds a PhD in Computational & Applied Mathematics from Rice University. His research in mathematical modeling of wave propagation and inverse problems has been fundamental to developing the theoretical foundations of Lumos’s diffractive computational imaging technology. His work on optimization algorithms enables the robust reconstruction of spectral information from optically encoded data.\n\n\n\n\n\n\n\n\nFernando González del Cueto, PhD \n\nFernando holds a PhD in Computational & Applied Mathematics from Rice University. His expertise in imaging science and numerical optimization has been instrumental in developing Lumos’s reconstruction algorithms and neural network architectures. His work bridges the gap between computational theory and practical implementation, creating the software foundation that makes Lumos technology viable."
+  },
+  {
+    "objectID": "about_us.html#intellectual-property-portfolio",
+    "href": "about_us.html#intellectual-property-portfolio",
+    "title": "About Us",
+    "section": "Intellectual Property Portfolio",
+    "text": "Intellectual Property Portfolio\nLumos Imaging holds an exclusive, worldwide license to a comprehensive patent portfolio developed at the University of Utah. The IP protects the entire vertical stack, creating a defensive moat around the technology.\n\nPatent Table\n\nPatent Portfolio\n\n\n\n\n\n\n\nPatent ID\nTitle\nScope of Protection\n\n\n\n\nUS 9,723,230\nMulti-spectral imaging with diffractive optics\nHardware Architecture: Protects the physical combination of a sensor array and a diffractive element in the optical path.\n\n\nUS 11,300,449\nImaging device creating a spatially coded image\nData Format: Protects the “Diffractogram” data structure and the forward model logic.\n\n\nUS 8,953,239\nNanophotonic scattering structure\nDesign Algorithms: Protects the computational methods used to optimize the geometry of the DFA for specific spectral responses.\n\n\nUS 10,395,134\nExtraction of spectral information\nSoftware/Reconstruction: Protects the inverse problem algorithms used to recover the spectral cube from the raw data.\n\n\nUS 12,052,518\nMulti-modal computational imaging via metasurfaces\nAdvanced Modalities: Protects the extension of the DFA technology to other imaging modalities like Lightfield and Depth sensing."
+  },
+  {
+    "objectID": "about_us.html#contact",
+    "href": "about_us.html#contact",
+    "title": "About Us",
+    "section": "Contact",
+    "text": "Contact\nWe are actively seeking strategic partners taking our technology to market.\nLumos Imaging\nSalt Lake City, Utah\n📧 info@lumosimaging.com"
+  },
+  {
+    "objectID": "barriers_to_HSI_adoption.html",
+    "href": "barriers_to_HSI_adoption.html",
+    "title": "Barriers to Wider Adoption",
+    "section": "",
+    "text": "While the utility of hyperspectral data is well-established in the laboratory, three fundamental engineering barriers have prevented its widespread adoption in deployed environments. These barriers are Cost, Mechanics, and Data."
+  },
+  {
+    "objectID": "barriers_to_HSI_adoption.html#the-optical-complexity-barrier-cost",
+    "href": "barriers_to_HSI_adoption.html#the-optical-complexity-barrier-cost",
+    "title": "Barriers to Wider Adoption",
+    "section": "1. The Optical Complexity Barrier (Cost)",
+    "text": "1. The Optical Complexity Barrier (Cost)\n Traditional high-performance hyperspectral cameras (such as Offner or Dyson spectrometers) rely on complex optical trains.\n\nComponents: These systems require precision slits, collimating mirrors, diffraction gratings, and re-focusing optics.\nAlignment: The optical path requires sub-micron alignment stability across a wide temperature range.\nConsequence: This complexity drives high unit costs ($20k–$150k USD) and makes miniaturization extremely difficult. It effectively limits HSI to high-budget research labs or military assets.\n\nLumos Solution: We replace the entire optical train with a single, wafer-level diffractive chip. By leveraging semiconductor manufacturing techniques (Nano-Imprint Lithography), we drive the cost structure down to a level compatible with mass-market sensors."
+  },
+  {
+    "objectID": "barriers_to_HSI_adoption.html#the-acquisition-constraint-mechanics",
+    "href": "barriers_to_HSI_adoption.html#the-acquisition-constraint-mechanics",
+    "title": "Barriers to Wider Adoption",
+    "section": "2. The Acquisition Constraint (Mechanics)",
+    "text": "2. The Acquisition Constraint (Mechanics)\n The dominant architecture for high-resolution HSI is the Push-broom (Line-scan) sensor.\n\nMechanism: The sensor captures one spatial line (\\(\\lambda-x\\)) at a time. To build a 2D image (\\(x, y, \\lambda\\)), the sensor must move relative to the scene (or vice versa) in a perfectly linear fashion.\nFailure Modes:\n\nVibration: Any unmodeled vibration (e.g., from a drone or vehicle) results in “wobbly” images that are geometrically distorted.\nDynamic Scenes: If objects in the scene move during the scan, they become sheared or artifacted.\n\nConsequence: Push-broom sensors are notoriously difficult to deploy on UAVs, handheld devices, or in dynamic industrial settings.\n\nLumos Solution: We utilize a Snapshot architecture. We capture the full spatial-spectral volume \\((x, y, \\lambda)\\) in a single integration period. This makes the system immune to vibration and motion artifacts, treating spectral video just like standard video."
+  },
+  {
+    "objectID": "barriers_to_HSI_adoption.html#the-dimensionality-curse-data",
+    "href": "barriers_to_HSI_adoption.html#the-dimensionality-curse-data",
+    "title": "Barriers to Wider Adoption",
+    "section": "3. The Dimensionality Curse (Data)",
+    "text": "3. The Dimensionality Curse (Data)\n One understated barrier to widespread spectral adoption is the massive size of hyperpectral volumes. An uncompressed image array must be stored and processed for every spectral band.\nConsider a 512×512 image, the corresponding (uncompressed) sizes are:\n\none frame RGB (3 channels, 8-bit uint): 0.75MB; a 1000 frame video: 750 MB\none frame HSI (25 channels, 16-bit float): 12.5MB; a 1000 frame video: 12.5 GB\none frame HSI (120 channels, 16-bit float): 60MB; a 1000 frame video: 60 GB\none frame diffractogram (12-bit grayscale embedded in a 16-bit signal): 0.5MB; a 1000 frame video: 500 MB\n\nThe Consequences:\n\nSatellite Downlinks: An earth-observation satellite creates terabytes of data. Downlinking this via limited radio bandwidth is prohibitively expensive or slow. Operators often discard 90% of the data.\nDrone Telemetry: A UAV cannot transmit live spectral video to a ground station because the bitrate exceeds standard wireless protocols.\nEdge Compute: Embedded processors cannot reconstruct and analyze heavy 3D data cubes in real-time (60 FPS).\nArchival: Storing petabytes of raw hyperspectral cubes for historical analysis is cost-prohibitive.\n\nLumos Solution: Analog Optical Compression. Instead of digitizing redundant data, our optics compress the signal before it hits the sensor. The Lumos Diffractogram is a 2D grayscale image (~1.3 MB) that encodes the full spectral context. This represents a ~50x reduction in raw data volume, enabling efficient transmission from space, cloud archival, and real-time processing."
+  },
+  {
+    "objectID": "lumos_solution.html",
+    "href": "lumos_solution.html",
+    "title": "Hardware-Software Co-Design",
+    "section": "",
+    "text": "Lumos employs Computational Imaging. We shift the complexity from the hardware (optics) to the software (algorithms). By coupling a specialized diffractive element with rigorous inverse-problem solvers, we can recover high-fidelity spatial-spectral information using simple, robust hardware."
+  },
+  {
+    "objectID": "lumos_solution.html#the-hardware-stack",
+    "href": "lumos_solution.html#the-hardware-stack",
+    "title": "Hardware-Software Co-Design",
+    "section": "1. The Hardware Stack",
+    "text": "1. The Hardware Stack\nThe physical architecture is a “Drop-In” replacement for standard machine vision cameras. It consists of three layers, designed for modularity and scalability:\n\nStandard Lens: We utilize off-the-shelf refractive optics (C-Mount). The system is compatible with a wide range of focal lengths.\nThe DFA (Diffractive Filter Array): This is the core IP. It is a nanofabricated, transparent, phase-modulating optical element.\nStandard Sensor: The system works with off-the-shelf monochrome sensors.\n\nVisible/NIR: Standard CMOS sensors (e.g., Sony IMX series).\nSWIR: InGaAs sensors.\n\n\n\n\n\nFigure 1: The Acquisition Hardware. Light from the object (e.g., a butterfly) passes through the transparent DFA placed ~50µm from the sensor. The DFA diffracts the light, creating a wavelength-dependent interference pattern on the sensor pixels.\n\n\n\nThe Diffractive Filter Array (DFA)\nThe DFA is fundamentally different from the Bayer filters found in consumer cameras.\n\nPhase Modulation: Bayer filters work by Amplitude Modulation (absorption)—they block photons that don’t match the color filter. This wastes ~66% of the light. The Lumos DFA works by Phase Modulation—it delays the light to create diffraction patterns. It is transparent and transmits \\(\\ge 90\\%\\) of the incident photons.\nFabrication: The DFA is a surface-relief microstructure fabricated using Nano-Imprint Lithography (NIL). This is a wafer-level process, allowing thousands of optics to be stamped simultaneously, similar to semiconductor manufacturing.\nIntegration: The DFA is bonded in close proximity (\\(\\sim 50\\mu m\\)) to the sensor pixels. This specific gap distance is optimized to balance spatial resolution with spectral dispersion."
+  },
+  {
+    "objectID": "lumos_solution.html#the-physics-of-encoding-the-diffractogram",
+    "href": "lumos_solution.html#the-physics-of-encoding-the-diffractogram",
+    "title": "Hardware-Software Co-Design",
+    "section": "2. The Physics of Encoding (The Diffractogram)",
+    "text": "2. The Physics of Encoding (The Diffractogram)\nWhen light from the scene passes through the DFA, it is diffracted. The angle at which light bends is strictly determined by its wavelength. Blue light bends at a shallow angle; Red light bends at a steep angle.\nInstead of forming a direct “sharp” image, the system forms a Diffractogram. This is a 12-bit grayscale image where spectral information is encoded into local spatial interference patterns.\n\nVisual Appearance: To the human eye, a Diffractogram looks like a slightly blurry or textured grayscale image.\n\n\n\nExample: A raw diffractogram of a butterfly. While it looks like a standard grayscale image, it contains hidden spectral information encoded in the local texture.\n\n\nInformation Content: The “blur” is actually a deterministic structure. A point source of green light creates a specific point-spread function (PSF) pattern. A point source of red light creates a different, wider pattern. By analyzing these local patterns, algorithms can mathematically disentangle the colors.\n\n\nAdvantages of the Diffractogram\n\nData Efficiency: The Diffractogram is a single 2D array. It is significantly smaller (10x-100x) than the 3D data cube it represents.\nSnapshot Acquisition: Because the encoding happens optically and instantaneously, the system captures the full spatial-spectral volume in a single integration period.\n\n\n    \n        Data Explosion Calculator\n        See how quickly hyperspectral data scales compared to Lumos.\n    \n    \n    \n        \n            Resolution (Side Length)\n            \n                \n                    128 x 128 px\n                    256 x 256 px\n                    512 x 512 px\n                    1024 x 1024 px\n                \n            \n        \n        \n            Video Duration\n            \n                \n                    30 Seconds\n                    1 Minute\n                    5 Minutes\n                    30 Minutes\n                \n            \n        \n    \n\n    \n        \n\n\n\nFormat\nBands\nBit Depth\nRelative Size\nSingle Frame\nVideo Stream\n\n\n\n\n\n\n    \n\n\n\n\n\n\n\nVideo Demonstration: Encoding in Motion\nThe following video illustrates the encoding process for a dynamic scene (a butterfly).\n\nNote on Frame Sizes & Data Volume:\n\nHyperspectral (Top Right): The full 3D spectral cube is massive. In the video, you see the “unfolded” bands. Storing or transmitting this raw stream requires gigabits per second.\nRGB (Top Left): The standard color image we are used to. Low bandwidth, but low spectral information.\nDiffractogram (Bottom): This is the actual raw data captured by the Lumos sensor.\n\nResolution: It is a single monochrome frame, identical in pixel count to a standard b/w camera.\nInformation Density: Despite being just one frame (like the RGB or smaller), it encodes the entire spectral complexity of the scene shown in the Hyperspectral view.\nCompression: This illustrates the massive optical compression: we capture the complexity of the top-right video using the data budget of the bottom video."
+  },
+  {
+    "objectID": "lumos_solution.html#calibration",
+    "href": "lumos_solution.html#calibration",
+    "title": "Hardware-Software Co-Design",
+    "section": "3. Calibration",
+    "text": "3. Calibration\nTo decode the Diffractogram, we must perfectly characterize the optical system. We perform a one-time Point Spread Function (PSF) Calibration.\nWe measure the system’s response to point sources at various wavelengths and spatial positions. This builds the Forward Model—a rigorous mathematical description of exactly how the optics transform a spectral scene into a Diffractogram. This calibration step allows us to treat the camera not just as an imager, but as a precise linear measurement operator."
+  },
+  {
+    "objectID": "lumos_solution.html#system-comparison",
+    "href": "lumos_solution.html#system-comparison",
+    "title": "Hardware-Software Co-Design",
+    "section": "4. System Comparison",
+    "text": "4. System Comparison\nWe position Lumos not merely as a cost-reduction play, but as a fundamentally different architectural approach to spectral acquisition suited for modern data pipelines.\n\n\n\n\n\n\n\n\n\nFeature\nTraditional HSI (Push-broom)\nSnapshot Mosaic (Fabry-Pérot)\nLumos Imaging (Diffractive)\n\n\n\n\nAcquisition Mode\nLine-Scan (Requires precise motion)\nSnapshot\nSnapshot\n\n\nOptical Efficiency\nLow (Slit-limited)\nLow (Resonant/Absorptive)\nHigh (Transparent Phase Mask)\n\n\nAngle Sensitivity\nLow\nHigh (Blue shift at edges)\nLow (Wide FOV compatible)\n\n\nFabrication\nPrecision Assembly\nMulti-layer Deposition\nSingle-Step Lithography\n\n\nData Format\nRaw Data Cube (Heavy)\nRaw Data Cube (Heavy)\nEncoded Diffractogram (Light)\n\n\nSpectral Bands\nFixed by Hardware\nFixed by Hardware\nSoftware-Defined (Post-Capture)"
+  },
+  {
+    "objectID": "lumos_solution.html#manufacturing-scalability",
+    "href": "lumos_solution.html#manufacturing-scalability",
+    "title": "Hardware-Software Co-Design",
+    "section": "5. Manufacturing & Scalability",
+    "text": "5. Manufacturing & Scalability\nA key differentiator of the Lumos approach is the fabrication method. Traditional spectral cameras require the assembly of discrete optical components (prisms, gratings, lenses) with tight mechanical tolerances. This manual assembly limits scalability.\nLumos utilizes Nano-Imprint Lithography (NIL) to fabricate the Diffractive Filter Arrays (DFA).\n\nWafer-Level Optics: The DFAs are manufactured on standard 8-inch or 12-inch wafers. Thousands of optics are created in a single process step.\nRobustness: The diffractive features are surface-relief structures on the order of micrometers. This scale makes them robust to minor fabrication errors, unlike metasurfaces which require nanometer-precision and are extremely sensitive to fabrication variance.\nCost Structure: This process allows the optics to be produced at volumes and costs comparable to standard consumer electronics components, enabling a path to ubiquity.\n\n\n\n\nMicroscope view of a fabricated DFA. The scale bar indicates the micro-scale features that diffract light."
+  },
+  {
+    "objectID": "validation_and_examples.html",
+    "href": "validation_and_examples.html",
+    "title": "Gallery & Results",
+    "section": "",
+    "text": "Our technology transforms standard cameras into high-definition spectral sensors. Below are validation experiments demonstrating how Lumos diffractograms capture invisible decision-making information across industrial, medical, agricultural, and scientific fields."
+  },
+  {
+    "objectID": "validation_and_examples.html#validated-performance-optica-2025",
+    "href": "validation_and_examples.html#validated-performance-optica-2025",
+    "title": "Gallery & Results",
+    "section": "Validated Performance (Optica 2025)",
+    "text": "Validated Performance (Optica 2025)\nOur technology has been validated through rigorous peer-reviewed research, most notably in our 2025 Optica publication (“High-definition (HD) snapshot diffractive computational spectral imaging and inferencing”).\n\nResolution: We have demonstrated High-Definition (HD) reconstruction at 1 Megapixel (1304×744 spatial pixels). This is a significant leap over previous snapshot spectral cameras which were often limited to very low resolutions (e.g., 64x64 or 512x512).\nSpectral Bands: The system is configurable, typically demonstrating 25+ bands in the Vis-NIR range (440–800 nm).\nField of View (FOV): Validated with standard C-mount lenses. The system maintains spectral accuracy across the FOV, overcoming the angle-sensitivity issues (blue shift) common in Fabry-Pérot or Interference-based filters.\nAccuracy: Spectral reproduction error is consistently &lt;15%, which is sufficient for the vast majority of classification and discrimination tasks."
+  },
+  {
+    "objectID": "validation_and_examples.html#industrial-quality-control-detecting-invisible-contaminants",
+    "href": "validation_and_examples.html#industrial-quality-control-detecting-invisible-contaminants",
+    "title": "Gallery & Results",
+    "section": "1. Industrial Quality Control: Detecting Invisible Contaminants",
+    "text": "1. Industrial Quality Control: Detecting Invisible Contaminants\nThe Challenge: In manufacturing, contaminants often look identical to the product in the visible spectrum. Traditional RGB cameras cannot distinguish them, and traditional hyperspectral cameras are too slow and data-heavy for high-speed sorting.\nThe Experiment: We imaged a stream of mixed plastic pellets. Half were pure, and half were “tainted” with a clear varnish invisible to the naked eye.\n\nRGB Camera: Failed. The pure and tainted pellets appear identical.\nHyperspectral Camera: Succeeded, but required 15.87 MB of data per frame.\nLumos Camera: Succeeded with just 0.37 MB per frame (a 43:1 compression ratio).\n\nThe Result: Despite the massive data compression, the Lumos diffractogram retained the distinct spectral signature of the varnish. We achieved accurate, real-time classification of the “fake” pellets matching the ground truth.\nWhy it Matters: This proves that high-speed optical sorting and anomaly detection can be achieved with low-bandwidth hardware, reducing infrastructure costs for factories."
+  },
+  {
+    "objectID": "validation_and_examples.html#biomedical-imaging-label-free-tissue-classification",
+    "href": "validation_and_examples.html#biomedical-imaging-label-free-tissue-classification",
+    "title": "Gallery & Results",
+    "section": "2. Biomedical Imaging: Label-Free Tissue Classification",
+    "text": "2. Biomedical Imaging: Label-Free Tissue Classification\nThe Challenge: Distinguishing between different tissue types during surgery often requires invasive biopsies or chemical dyes. Surgeons need real-time, label-free tools to identify tissue boundaries.\nThe Experiment: We imaged ex-vivo chicken tissue containing both lung and trachea. While visually similar (both are pink/red tissues), they have different chemical compositions and light absorption properties.\n\nMethod: We captured a single snapshot diffractogram and reconstructed the spectral data.\nAnalysis: Using Linear Discriminant Analysis (LDA), we mapped the spectral signatures of the pixels.\nOutcome: The system successfully segmented the image, clearly differentiating the trachea (red overlay) from the lungs (green overlay) based solely on their spectral fingerprints.\n\nWhy it Matters: This validates the potential for computational staining—giving surgeons “superhuman” vision to differentiate healthy tissue from tumors or critical structures without dyes or delays.\n\n\n\n\n\nTissue Classification Results. (A) RGB image with classification overlay (Trachea=Red, Lung=Green). (B) Spectral curves showing distinct signatures for each tissue type."
+  },
+  {
+    "objectID": "validation_and_examples.html#smart-agriculture-predicting-shelf-life",
+    "href": "validation_and_examples.html#smart-agriculture-predicting-shelf-life",
+    "title": "Gallery & Results",
+    "section": "3. Smart Agriculture: Predicting Shelf-Life",
+    "text": "3. Smart Agriculture: Predicting Shelf-Life\nThe Challenge: Visual inspection of produce is reactive—you only see rot after it has happened. Supply chains need to predict spoilage before it becomes visible to optimize routing and reduce waste.\nThe Experiment: We monitored 21 strawberries continuously over an 8-day period as they aged.\n\nSpectral Evolution: The Lumos sensor detected a decline in the “Green Peak” (chlorophyll fluorescence/reflectance) and a shift in the “Red Edge” days before the fruit appeared spoiled to the eye.\nPredictive Modeling: We trained a regression model on the reconstructed spectra.\nOutcome: The system could predict the exact age of the fruit (in days) and classify it as “Fresh” vs. “Spoiled” with high accuracy.\n\nWhy it Matters: This enables predictive quality control. Distributors can route produce based on its physiological ripeness (e.g., “sell immediately” vs. “safe to ship”), significantly reducing global food waste.\n\n\n\n\n\nStrawberry Aging. (Left) Spectral decay over 8 days. (Right) ROC curve showing high accuracy in fresh vs. spoiled classification."
+  },
+  {
+    "objectID": "validation_and_examples.html#astronomy-simultaneous-multi-band-photometry",
+    "href": "validation_and_examples.html#astronomy-simultaneous-multi-band-photometry",
+    "title": "Gallery & Results",
+    "section": "4. Astronomy: Simultaneous Multi-Band Photometry",
+    "text": "4. Astronomy: Simultaneous Multi-Band Photometry\nThe Challenge: Astronomers typically use filter wheels to capture stars in different wavebands (Blue, Visual, Red, Infrared). This mechanical process is slow, risks motion artifacts, and discards photons (light) at the filter.\nThe Experiment: We simulated a stellar field using pinholes and specific color filters (Johnson-Cousins BVRI standards) to mimic stars with different spectral temperatures.\n\nSnapshot Capture: Instead of rotating a filter wheel 4 times, the Lumos sensor captured all spectral data in a single snapshot.\nA Posteriori Selection: We computationally applied the B, V, R, and I transmission curves after capture.\nOutcome: We recovered accurate photometric ratios for the “stars” that matched reference measurements from a traditional spectrometer.\n\nWhy it Matters: This increases observation efficiency. Telescopes can capture multi-band data simultaneously, maximizing the utility of expensive observation time and eliminating complex moving parts.\n\n\n\nSynthetic Stellar Imaging. (Top) Raw Diffractograms of simulated stars. (Bottom) Accurate recovery of photometric data across B, V, R, and I bands."
+  },
+  {
+    "objectID": "validation_and_examples.html#remote-sensing-on-orbit-intelligence",
+    "href": "validation_and_examples.html#remote-sensing-on-orbit-intelligence",
+    "title": "Gallery & Results",
+    "section": "5. Remote Sensing: “On-Orbit” Intelligence",
+    "text": "5. Remote Sensing: “On-Orbit” Intelligence\nThe Challenge: Satellites generate massive amounts of hyperspectral data (Terabytes), but downlinking this data to Earth is slow and expensive.\nThe Experiment: We simulated a Lumos sensor in orbit using public Landsat 8 data.\n\nTask: Estimate the abundance (0-100%) of vegetation directly from the compressed diffractogram, without sending the full data cube to Earth.\nMethod: A Deep Neural Network mapped the monochromatic diffractogram directly to an abundance map.\nOutcome: The predicted vegetation map matched the ground truth with high fidelity, but the data required to generate it was ~1000x smaller than the raw hyperspectral file.\n\nWhy it Matters: This enables direct inference. Satellites can process data on the edge and transmit only the actionable intelligence (e.g., “crop yield map”) rather than raw noise, solving the downlink bottleneck.\n\n\n\n\n\n\n\n\nInput: Simulated Diffractogram\n\n\n\n\n\n\n\nPrediction: Estimated Abundance\n\n\n\n\n\n\n\nGround Truth: From Full Spectrum\n\n\n\n\n\n\n\n\n\nInput (Ex 2): Simulated Diffractogram\n\n\n\n\n\n\n\nPrediction (Ex 2): Estimated Abundance\n\n\n\n\n\n\n\nGround Truth (Ex 2): From Full Spectrum"
+  },
+  {
+    "objectID": "validation_and_examples.html#dynamic-3d-analysis-the-rotating-avocado",
+    "href": "validation_and_examples.html#dynamic-3d-analysis-the-rotating-avocado",
+    "title": "Gallery & Results",
+    "section": "6. Dynamic 3D Analysis: The Rotating Avocado",
+    "text": "6. Dynamic 3D Analysis: The Rotating Avocado\nThe Challenge: Many spectral scanning technologies (like push-broom scanners) require the object to be perfectly still or moving on a flat belt. They fail with complex, rotating 3D objects.\nThe Experiment: We captured an avocado rotating on a turntable every 10 minutes for 7 days.\n\nSnapshot Capability: Because the Lumos technology captures the whole scene instantly (2D snapshot), it is immune to the motion artifacts that plague scanning lines.\n4D Data: We successfully mapped the ripening process in both space (3D surface) and time.\n\nWhy it Matters: This proves the technology is robust enough for complex, dynamic environments—from tumbling fruit on a conveyor belt to drone-based inspection of moving targets.\n ## Publications\n\nApratim Majumder, Monjurul Meem, Fernando Gonzalez del Cueto, Fernando Guevara Vasquez, Syed N. Qadri, Freddie Santiago, and Rajesh Menon, “High-definition (HD) snapshot diffractive computational spectral imaging and inferencing,” Optica 12, 1539-1547 (2025). Read Paper"
+  }
+]

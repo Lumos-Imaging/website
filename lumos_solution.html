@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hardware-Software Co-Design – Lumos Imaging</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ef9176d5b3a494f395673aa65efdea21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script>
+// Custom Scrollspy for fixed sidebar
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebar = document.querySelector('#quarto-margin-sidebar');
+  if (!sidebar) return;
+
+  const links = sidebar.querySelectorAll('.nav-link');
+  const sections = [];
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const id = href.substring(1);
+      const section = document.getElementById(id);
+      if (section) {
+        sections.push({ link, section });
+      }
+    }
+  });
+
+  function updateActive() {
+    const scrollPos = window.scrollY || document.documentElement.scrollTop;
+    // Offset for navbar + some buffer
+    const offset = 150; 
+    
+    let current = null;
+
+    // Find the current section
+    for (let i = 0; i < sections.length; i++) {
+        const { section } = sections[i];
+        if (section.offsetTop <= scrollPos + offset) {
+            current = sections[i];
+        }
+    }
+
+    // Apply classes
+    links.forEach(link => link.classList.remove('custom-active'));
+    if (current) {
+        current.link.classList.add('custom-active');
+    } else if (sections.length > 0 && scrollPos < sections[0].section.offsetTop) {
+        // Highlight first if near top? Optional. Quarto usually does first.
+        sections[0].link.classList.add('custom-active');
+    }
+  }
+
+  window.addEventListener('scroll', updateActive);
+  updateActive(); // Init
+});
+</script>
+<script>
+// Set alt text for navbar logo images
+document.addEventListener('DOMContentLoaded', function() {
+  const logoImages = document.querySelectorAll('.navbar-logo');
+  logoImages.forEach(function(img) {
+    if (!img.alt || img.alt === '') {
+      img.alt = 'Lumos Imaging';
+    }
+  });
+  
+  // Ensure navbar has light theme
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    navbar.setAttribute('data-bs-theme', 'light');
+  }
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/logos/Logo_LumosImaging_whitebackground.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/logos/Logo_LumosImaging_whitebackground.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Lumos Imaging</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./why_spectral_imaging.html"> 
+<span class="menu-text">Why Spectral Imaging?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./barriers_to_HSI_adoption.html"> 
+<span class="menu-text">Barriers to Wider Adoption</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./lumos_solution.html" aria-current="page"> 
+<span class="menu-text">The Lumos Solution</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
+<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./validation_and_examples.html"> 
+<span class="menu-text">Validation and Examples</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about_us.html"> 
+<span class="menu-text">About Us</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-hardware-stack" id="toc-the-hardware-stack" class="nav-link active" data-scroll-target="#the-hardware-stack">1. The Hardware Stack</a>
+  <ul class="collapse">
+  <li><a href="#the-diffractive-filter-array-dfa" id="toc-the-diffractive-filter-array-dfa" class="nav-link" data-scroll-target="#the-diffractive-filter-array-dfa">The Diffractive Filter Array (DFA)</a></li>
+  </ul></li>
+  <li><a href="#the-physics-of-encoding-the-diffractogram" id="toc-the-physics-of-encoding-the-diffractogram" class="nav-link" data-scroll-target="#the-physics-of-encoding-the-diffractogram">2. The Physics of Encoding (The Diffractogram)</a>
+  <ul class="collapse">
+  <li><a href="#advantages-of-the-diffractogram" id="toc-advantages-of-the-diffractogram" class="nav-link" data-scroll-target="#advantages-of-the-diffractogram">Advantages of the Diffractogram</a></li>
+  <li><a href="#video-demonstration-encoding-in-motion" id="toc-video-demonstration-encoding-in-motion" class="nav-link" data-scroll-target="#video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</a></li>
+  </ul></li>
+  <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">3. Calibration</a></li>
+  <li><a href="#system-comparison" id="toc-system-comparison" class="nav-link" data-scroll-target="#system-comparison">4. System Comparison</a></li>
+  <li><a href="#manufacturing-scalability" id="toc-manufacturing-scalability" class="nav-link" data-scroll-target="#manufacturing-scalability">5. Manufacturing &amp; Scalability</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hardware-Software Co-Design</h1>
+<p class="subtitle lead">Diffractive Optical Element + Computational Imaging</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Lumos employs <strong>Computational Imaging</strong>. We shift the complexity from the hardware (optics) to the software (algorithms). By coupling a specialized diffractive element with rigorous inverse-problem solvers, we can recover high-fidelity spatial-spectral information using simple, robust hardware.</p>
+<section id="the-hardware-stack" class="level2">
+<h2 class="anchored" data-anchor-id="the-hardware-stack">1. The Hardware Stack</h2>
+<p>The physical architecture is a “Drop-In” replacement for standard machine vision cameras. It consists of three layers, designed for modularity and scalability:</p>
+<ol type="1">
+<li><strong>Standard Lens:</strong> We utilize off-the-shelf refractive optics (C-Mount). The system is compatible with a wide range of focal lengths.</li>
+<li><strong>The DFA (Diffractive Filter Array):</strong> This is the core IP. It is a nanofabricated, transparent, phase-modulating optical element.</li>
+<li><strong>Standard Sensor:</strong> The system works with off-the-shelf monochrome sensors.
+<ul>
+<li><strong>Visible/NIR:</strong> Standard CMOS sensors (e.g., Sony IMX series).</li>
+<li><strong>SWIR:</strong> InGaAs sensors.</li>
+</ul></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/butterfly_dfa_sensor_with_diffractogram.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Figure 1: The Acquisition Hardware.</strong> Light from the object (e.g., a butterfly) passes through the transparent DFA placed ~50µm from the sensor. The DFA diffracts the light, creating a wavelength-dependent interference pattern on the sensor pixels.</figcaption>
+</figure>
+</div>
+<section id="the-diffractive-filter-array-dfa" class="level3">
+<h3 class="anchored" data-anchor-id="the-diffractive-filter-array-dfa">The Diffractive Filter Array (DFA)</h3>
+<p>The DFA is fundamentally different from the Bayer filters found in consumer cameras.</p>
+<ul>
+<li><strong>Phase Modulation:</strong> Bayer filters work by <strong>Amplitude Modulation</strong> (absorption)—they block photons that don’t match the color filter. This wastes ~66% of the light. The Lumos DFA works by <strong>Phase Modulation</strong>—it delays the light to create diffraction patterns. It is transparent and transmits <span class="math inline">\(\ge 90\%\)</span> of the incident photons.</li>
+<li><strong>Fabrication:</strong> The DFA is a surface-relief microstructure fabricated using <strong>Nano-Imprint Lithography (NIL)</strong>. This is a wafer-level process, allowing thousands of optics to be stamped simultaneously, similar to semiconductor manufacturing.</li>
+<li><strong>Integration:</strong> The DFA is bonded in close proximity (<span class="math inline">\(\sim 50\mu m\)</span>) to the sensor pixels. This specific gap distance is optimized to balance spatial resolution with spectral dispersion.</li>
+</ul>
+</section>
+</section>
+<section id="the-physics-of-encoding-the-diffractogram" class="level2">
+<h2 class="anchored" data-anchor-id="the-physics-of-encoding-the-diffractogram">2. The Physics of Encoding (The Diffractogram)</h2>
+<p>When light from the scene passes through the DFA, it is diffracted. The angle at which light bends is strictly determined by its wavelength. Blue light bends at a shallow angle; Red light bends at a steep angle.</p>
+<p>Instead of forming a direct “sharp” image, the system forms a <strong>Diffractogram</strong>. This is a 12-bit grayscale image where spectral information is encoded into local spatial interference patterns.</p>
+<ul>
+<li><p><strong>Visual Appearance:</strong> To the human eye, a Diffractogram looks like a slightly blurry or textured grayscale image.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/butterfly_diffractogram.png" class="img-fluid figure-img"></p>
+<figcaption><em>Example: A raw diffractogram of a butterfly. While it looks like a standard grayscale image, it contains hidden spectral information encoded in the local texture.</em></figcaption>
+</figure>
+</div></li>
+<li><p><strong>Information Content:</strong> The “blur” is actually a deterministic structure. A point source of green light creates a specific point-spread function (PSF) pattern. A point source of red light creates a different, wider pattern. By analyzing these local patterns, algorithms can mathematically disentangle the colors.</p></li>
+</ul>
+<section id="advantages-of-the-diffractogram" class="level3">
+<h3 class="anchored" data-anchor-id="advantages-of-the-diffractogram">Advantages of the Diffractogram</h3>
+<ul>
+<li><strong>Data Efficiency:</strong> The Diffractogram is a single 2D array. It is significantly smaller (10x-100x) than the 3D data cube it represents.</li>
+<li><strong>Snapshot Acquisition:</strong> Because the encoding happens optically and instantaneously, the system captures the full spatial-spectral volume in a single integration period.</li>
+</ul>
+<div class="demo-card">
+    <div class="demo-header">
+        <h3 class="anchored">Data Explosion Calculator</h3>
+        <p>See how quickly hyperspectral data scales compared to Lumos.</p>
+    </div>
+    
+    <div class="demo-controls">
+        <div class="control-group">
+            <label for="side-length">Resolution (Side Length)</label>
+            <div class="select-wrapper">
+                <select id="side-length">
+                    <option value="128">128 x 128 px</option>
+                    <option value="256">256 x 256 px</option>
+                    <option value="512" selected="">512 x 512 px</option>
+                    <option value="1024">1024 x 1024 px</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="duration">Video Duration</label>
+            <div class="select-wrapper">
+                <select id="duration">
+                    <option value="0.5">30 Seconds</option>
+                    <option value="1" selected="">1 Minute</option>
+                    <option value="5">5 Minutes</option>
+                    <option value="30">30 Minutes</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        
+<table id="data-table" class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="width: 25%">Format</th>
+<th class="center-col" data-quarto-table-cell-role="th">Bands</th>
+<th class="center-col" data-quarto-table-cell-role="th">Bit Depth</th>
+<th data-quarto-table-cell-role="th" style="width: 20%">Relative Size</th>
+<th class="num-col" data-quarto-table-cell-role="th">Single Frame</th>
+<th class="num-col" data-quarto-table-cell-role="th">Video Stream</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+    </div>
+</div>
+
+<style>
+    .demo-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid rgba(0,0,0,0.05);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .demo-header h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+
+    .demo-header p {
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .demo-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        background: #f8f9fa;
+        padding: 1.25rem;
+        border-radius: 8px;
+    }
+
+    .control-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #444;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Custom Select Styling */
+    .select-wrapper {
+        position: relative;
+    }
+
+    .select-wrapper::after {
+        content: "▼";
+        font-size: 0.8rem;
+        color: #666;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .demo-controls select {
+        width: 100%;
+        appearance: none;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        color: #333;
+        cursor: pointer;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .demo-controls select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+
+    /* Table Styling */
+    #data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+    }
+
+    #data-table th {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border-bottom: 2px solid #eee;
+        color: #888;
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+
+    #data-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #f0f0f0;
+        color: #333;
+        vertical-align: middle;
+    }
+
+    #data-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    #data-table .num-col {
+        text-align: right;
+        font-family: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    #data-table .center-col {
+        text-align: center;
+    }
+
+    /* Highlight the Lumos Row */
+    .highlight-row {
+        background-color: #e6fffa; /* Light Green */
+        color: #0d5f49 !important;
+    }
+    
+    .highlight-row td {
+        color: inherit !important;
+        border-top: 1px solid #b7ebd5;
+        border-bottom: 1px solid #b7ebd5 !important;
+        font-weight: 500;
+    }
+
+    .row-label {
+        font-weight: 600;
+    }
+
+    /* Bar Chart Styling */
+    .bar-container {
+        width: 100%;
+        height: 8px;
+        background-color: #eee;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .bar-fill {
+        height: 100%;
+        background-color: #cbd5e0;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    .highlight-row .bar-fill {
+        background-color: #38b2ac; /* Green Bar */
+    }
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Reordered: Lumos first
+    const scenarios = [
+        { name: "Lumos Diffractogram", bpp: 16, channels: 1, type: "uint16", isLumos: true },
+        { name: "RGB Standard", bpp: 8, channels: 3, type: "uint8" },
+        { name: "Hyperspectral (Low)", bpp: 16, channels: 25, type: "float16" },
+        { name: "Hyperspectral (Med)", bpp: 16, channels: 100, type: "float16" },
+        { name: "Hyperspectral (High)", bpp: 16, channels: 200, type: "float16" }
+    ];
+
+    const lSelect = document.getElementById("side-length");
+    const mSelect = document.getElementById("duration");
+    const tbody = document.querySelector("#data-table tbody");
+
+    function formatBytes(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function calculate() {
+        const l = parseInt(lSelect.value);
+        const mins = parseFloat(mSelect.value);
+        const fps = 24;
+
+        tbody.innerHTML = ""; // Clear table
+
+        // First pass: Calculate sizes to find max for normalization
+        let maxBytes = 0;
+        const results = scenarios.map(s => {
+            const pixels = l * l;
+            const bitsPerFrame = pixels * s.bpp * s.channels;
+            const bytesPerFrame = bitsPerFrame / 8;
+            if (bytesPerFrame > maxBytes) maxBytes = bytesPerFrame;
+            return {
+                ...s,
+                bytesPerFrame,
+                totalVideoBytes: bytesPerFrame * mins * 60 * fps
+            };
+        });
+
+        results.forEach(r => {
+            const tr = document.createElement("tr");
+            if (r.isLumos) tr.classList.add("highlight-row");
+            
+            // Calculate bar width (min 1% visible)
+            const barWidth = Math.max(1, (r.bytesPerFrame / maxBytes) * 100);
+
+            tr.innerHTML = `
+                <td>
+                    <div class="row-label">${r.name}</div>
+                </td>
+                <td class="center-col">${r.channels}</td>
+                <td class="center-col">${r.bpp}-bit <span style="color:#888; font-size:0.8em">(${r.type})</span></td>
+                <td>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: ${barWidth}%"></div>
+                    </div>
+                </td>
+                <td class="num-col">${formatBytes(r.bytesPerFrame)}</td>
+                <td class="num-col">${formatBytes(r.totalVideoBytes)}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Attach listeners
+    lSelect.addEventListener("change", calculate);
+    mSelect.addEventListener("change", calculate);
+
+    // Initial run
+    calculate();
+});
+</script>
+</section>
+<section id="video-demonstration-encoding-in-motion" class="level3">
+<h3 class="anchored" data-anchor-id="video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</h3>
+<p>The following video illustrates the encoding process for a dynamic scene (a butterfly).</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="assets/videos/butterfly.mp4"></video></div>
+<p><strong>Note on Frame Sizes &amp; Data Volume:</strong></p>
+<ul>
+<li><strong>Hyperspectral (Top Right):</strong> The full 3D spectral cube is massive. In the video, you see the “unfolded” bands. Storing or transmitting this raw stream requires gigabits per second.</li>
+<li><strong>RGB (Top Left):</strong> The standard color image we are used to. Low bandwidth, but low spectral information.</li>
+<li><strong>Diffractogram (Bottom):</strong> This is the actual raw data captured by the Lumos sensor.
+<ul>
+<li><strong>Resolution:</strong> It is a single monochrome frame, identical in pixel count to a standard b/w camera.</li>
+<li><strong>Information Density:</strong> Despite being just one frame (like the RGB or smaller), it encodes the <em>entire</em> spectral complexity of the scene shown in the Hyperspectral view.</li>
+<li><strong>Compression:</strong> This illustrates the massive optical compression: we capture the complexity of the top-right video using the data budget of the bottom video.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="calibration" class="level2">
+<h2 class="anchored" data-anchor-id="calibration">3. Calibration</h2>
+<p>To decode the Diffractogram, we must perfectly characterize the optical system. We perform a one-time <strong>Point Spread Function (PSF) Calibration</strong>.</p>
+<p>We measure the system’s response to point sources at various wavelengths and spatial positions. This builds the <strong>Forward Model</strong>—a rigorous mathematical description of exactly how the optics transform a spectral scene into a Diffractogram. This calibration step allows us to treat the camera not just as an imager, but as a precise linear measurement operator.</p>
+</section>
+<section id="system-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="system-comparison">4. System Comparison</h2>
+<p>We position Lumos not merely as a cost-reduction play, but as a fundamentally different architectural approach to spectral acquisition suited for modern data pipelines.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Traditional HSI (Push-broom)</th>
+<th style="text-align: left;">Snapshot Mosaic (Fabry-Pérot)</th>
+<th style="text-align: left;">Lumos Imaging (Diffractive)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Acquisition Mode</strong></td>
+<td style="text-align: left;">Line-Scan (Requires precise motion)</td>
+<td style="text-align: left;">Snapshot</td>
+<td style="text-align: left;"><strong>Snapshot</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Optical Efficiency</strong></td>
+<td style="text-align: left;">Low (Slit-limited)</td>
+<td style="text-align: left;">Low (Resonant/Absorptive)</td>
+<td style="text-align: left;"><strong>High</strong> (Transparent Phase Mask)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Angle Sensitivity</strong></td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">High (Blue shift at edges)</td>
+<td style="text-align: left;"><strong>Low</strong> (Wide FOV compatible)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Fabrication</strong></td>
+<td style="text-align: left;">Precision Assembly</td>
+<td style="text-align: left;">Multi-layer Deposition</td>
+<td style="text-align: left;"><strong>Single-Step Lithography</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Data Format</strong></td>
+<td style="text-align: left;">Raw Data Cube (Heavy)</td>
+<td style="text-align: left;">Raw Data Cube (Heavy)</td>
+<td style="text-align: left;"><strong>Encoded Diffractogram</strong> (Light)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Spectral Bands</strong></td>
+<td style="text-align: left;">Fixed by Hardware</td>
+<td style="text-align: left;">Fixed by Hardware</td>
+<td style="text-align: left;"><strong>Software-Defined</strong> (Post-Capture)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="manufacturing-scalability" class="level2">
+<h2 class="anchored" data-anchor-id="manufacturing-scalability">5. Manufacturing &amp; Scalability</h2>
+<p>A key differentiator of the Lumos approach is the fabrication method. Traditional spectral cameras require the assembly of discrete optical components (prisms, gratings, lenses) with tight mechanical tolerances. This manual assembly limits scalability.</p>
+<p>Lumos utilizes <strong>Nano-Imprint Lithography (NIL)</strong> to fabricate the Diffractive Filter Arrays (DFA).</p>
+<ul>
+<li><strong>Wafer-Level Optics:</strong> The DFAs are manufactured on standard 8-inch or 12-inch wafers. Thousands of optics are created in a single process step.</li>
+<li><strong>Robustness:</strong> The diffractive features are surface-relief structures on the order of micrometers. This scale makes them robust to minor fabrication errors, unlike metasurfaces which require nanometer-precision and are extremely sensitive to fabrication variance.</li>
+<li><strong>Cost Structure:</strong> This process allows the optics to be produced at volumes and costs comparable to standard consumer electronics components, enabling a path to ubiquity.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/dfa_microscopic_photo.png" class="img-fluid figure-img"></p>
+<figcaption><em>Microscope view of a fabricated DFA. The scale bar indicates the micro-scale features that diffract light.</em></figcaption>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
