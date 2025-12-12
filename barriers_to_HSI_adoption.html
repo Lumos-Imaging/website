@@ -291,19 +291,63 @@ window.Quarto = {
 <section id="the-dimensionality-curse-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-dimensionality-curse-data">3. The Dimensionality Curse (Data)</h2>
 <p><img src="assets/images/icon_barrier_bandwidth.png" class="section-icon-large img-fluid"> One understated barrier to widespread spectral adoption is the massive size of hyperpectral volumes. An uncompressed image array must be stored and processed for every spectral band.</p>
-<p>Consider a 512×512 image, the corresponding (uncompressed) sizes are:</p>
+<p>For a standard <span class="math inline">\(512 \times 512\)</span> pixel sensor, the uncompressed data requirements vary drastically:</p>
+<div class="dimensionality-curse-table">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Architecture</th>
+<th style="text-align: center;">Channels</th>
+<th style="text-align: center;">Bit Depth</th>
+<th style="text-align: center;">Frame Size</th>
+<th style="text-align: center;">1000-Frame Video</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Standard RGB</strong></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8-bit</td>
+<td style="text-align: center;">0.75 MB</td>
+<td style="text-align: center;">0.75 GB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Common HSI</strong></td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">16-bit</td>
+<td style="text-align: center;">12.5 MB</td>
+<td style="text-align: center;">12.5 GB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>High-Res HSI</strong></td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;">16-bit</td>
+<td style="text-align: center;">60.0 MB</td>
+<td style="text-align: center;">60.0 GB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Lumos Diffractogram</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>12-bit</strong></td>
+<td style="text-align: center;"><strong>0.50 MB</strong></td>
+<td style="text-align: center;"><strong>0.50 GB</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Consequences:</strong></p>
 <ul>
-<li><strong>one frame RGB</strong> (3 channels, 8-bit uint): 0.75MB; a 1000 frame video: 750 MB</li>
-<li><strong>one frame HSI</strong> (25 channels, 16-bit float): 12.5MB; a 1000 frame video: 12.5 GB</li>
-<li><strong>one frame HSI</strong> (120 channels, 16-bit float): 60MB; a 1000 frame video: 60 GB</li>
-<li><strong>one frame diffractogram</strong> (12-bit grayscale embedded in a 16-bit signal): 0.5MB; a 1000 frame video: 500 MB</li>
-</ul>
-<p><strong>The Consequences:</strong></p>
-<ul>
-<li><strong>Satellite Downlinks:</strong> An earth-observation satellite creates terabytes of data. Downlinking this via limited radio bandwidth is prohibitively expensive or slow. Operators often discard 90% of the data.</li>
-<li><strong>Drone Telemetry:</strong> A UAV cannot transmit live spectral video to a ground station because the bitrate exceeds standard wireless protocols.</li>
+<li><strong>Satellite Downlinks:</strong> An earth-observation satellite creates terabytes of data. Downlinking this via limited radio bandwidth is prohibitively expensive or slow. Operators often discard 90% of the data. Ironically, analysts sometimes discard a lot of these data which is unnecessary for some applications since they’re only interested in a few wavelengths, or end up combining them to an end product that is much smaller than the original datasets. Spectral data cubes are not only huge, but information is encoded very redundantly in them, making it inefficient!</li>
+<li><strong>Drone Telemetry:</strong> A UAV many not be able transmit live spectral video to a ground station because the bitrate can easily exceed standard wireless protocols.</li>
 <li><strong>Edge Compute:</strong> Embedded processors cannot reconstruct and analyze heavy 3D data cubes in real-time (60 FPS).</li>
-<li><strong>Archival:</strong> Storing petabytes of raw hyperspectral cubes for historical analysis is cost-prohibitive.</li>
+<li><strong>Archival:</strong> Storing petabytes of raw hyperspectral cubes for historical analysis is very expensive.</li>
 </ul>
 <p><strong>Lumos Solution:</strong> <strong>Analog Optical Compression.</strong> Instead of digitizing redundant data, our optics compress the signal <em>before</em> it hits the sensor. The Lumos Diffractogram is a 2D grayscale image (~1.3 MB) that encodes the full spectral context. This represents a <strong>~50x reduction</strong> in raw data volume, enabling efficient transmission from space, cloud archival, and real-time processing.</p>
 
