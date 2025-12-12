@@ -323,28 +323,24 @@ window.Quarto = {
 <li><strong>Data Efficiency:</strong> The Diffractogram is a single 2D array. It is significantly smaller (10x-100x) than the 3D data cube it represents.</li>
 <li><strong>Snapshot Acquisition:</strong> Because the encoding happens optically and instantaneously, the system captures the full spatial-spectral volume in a single integration period.</li>
 </ul>
-<div class="demo-card">
-    <div class="demo-header">
-        <h3 class="anchored">Data Explosion Calculator</h3>
-        <p>See how quickly hyperspectral data scales compared to Lumos.</p>
-    </div>
-    
-    <div class="demo-controls">
-        <div class="control-group">
-            <label for="side-length">Resolution (Side Length)</label>
-            <div class="select-wrapper">
-                <select id="side-length">
+<div class="card shadow-sm mb-5">
+    <div class="card-body p-4">
+        <h3 class="card-title h4 fw-bold anchored">Data Explosion Calculator</h3>
+        <p class="card-text text-muted mb-4">See how quickly hyperspectral data scales compared to Lumos.</p>
+        
+        <div class="row g-3 bg-light p-3 rounded mb-4">
+            <div class="col-md-6">
+                <label for="side-length" class="form-label text-uppercase fw-bold small text-secondary">Resolution (Side Length)</label>
+                <select id="side-length" class="form-select">
                     <option value="128">128 x 128 px</option>
                     <option value="256">256 x 256 px</option>
                     <option value="512" selected="">512 x 512 px</option>
                     <option value="1024">1024 x 1024 px</option>
                 </select>
             </div>
-        </div>
-        <div class="control-group">
-            <label for="duration">Video Duration</label>
-            <div class="select-wrapper">
-                <select id="duration">
+            <div class="col-md-6">
+                <label for="duration" class="form-label text-uppercase fw-bold small text-secondary">Video Duration</label>
+                <select id="duration" class="form-select">
                     <option value="0.5">30 Seconds</option>
                     <option value="1" selected="">1 Minute</option>
                     <option value="5">5 Minutes</option>
@@ -352,263 +348,29 @@ window.Quarto = {
                 </select>
             </div>
         </div>
-    </div>
 
-    <div class="table-responsive">
-        
-<table id="data-table" class="caption-top">
-<thead>
+        <div class="table-responsive">
+            
+<table id="data-table" class="table table-hover align-middle caption-top">
+<thead class="table-light">
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="width: 25%">Format</th>
-<th class="center-col" data-quarto-table-cell-role="th">Bands</th>
-<th class="center-col" data-quarto-table-cell-role="th">Bit Depth</th>
+<th class="text-center" data-quarto-table-cell-role="th">Bands</th>
+<th class="text-center" data-quarto-table-cell-role="th">Bit Depth</th>
 <th data-quarto-table-cell-role="th" style="width: 20%">Relative Size</th>
-<th class="num-col" data-quarto-table-cell-role="th">Single Frame</th>
-<th class="num-col" data-quarto-table-cell-role="th">Video Stream</th>
+<th class="text-end" data-quarto-table-cell-role="th">Single Frame</th>
+<th class="text-end" data-quarto-table-cell-role="th">Video Stream</th>
 </tr>
 </thead>
 <tbody>
 </tbody>
 </table>
 
+        </div>
     </div>
 </div>
 
-<style>
-    .demo-card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        padding: 2rem;
-        margin: 2rem 0;
-        border: 1px solid rgba(0,0,0,0.05);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    .demo-header h3 {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        color: #1a1a1a;
-        font-weight: 700;
-        font-size: 1.25rem;
-    }
-
-    .demo-header p {
-        color: #666;
-        margin-bottom: 1.5rem;
-        font-size: 0.95rem;
-    }
-
-    .demo-controls {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        background: #f8f9fa;
-        padding: 1.25rem;
-        border-radius: 8px;
-    }
-
-    .control-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #444;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    /* Custom Select Styling */
-    .select-wrapper {
-        position: relative;
-    }
-
-    .select-wrapper::after {
-        content: "▼";
-        font-size: 0.8rem;
-        color: #666;
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
-
-    .demo-controls select {
-        width: 100%;
-        appearance: none;
-        background: white;
-        border: 1px solid #ddd;
-        padding: 0.75rem 1rem;
-        border-radius: 6px;
-        font-size: 1rem;
-        color: #333;
-        cursor: pointer;
-        transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .demo-controls select:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
-    }
-
-    /* Table Styling */
-    #data-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-    }
-
-    #data-table th {
-        text-align: left;
-        padding: 0.75rem 1rem;
-        border-bottom: 2px solid #eee;
-        color: #888;
-        font-weight: 600;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-    }
-
-    #data-table td {
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid #f0f0f0;
-        color: #333;
-        vertical-align: middle;
-    }
-
-    #data-table tr:last-child td {
-        border-bottom: none;
-    }
-
-    #data-table .num-col {
-        text-align: right;
-        font-family: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
-        font-weight: 500;
-        white-space: nowrap;
-    }
-
-    #data-table .center-col {
-        text-align: center;
-    }
-
-    /* Highlight the Lumos Row */
-    .highlight-row {
-        background-color: #e6fffa; /* Light Green */
-        color: #0d5f49 !important;
-    }
-    
-    .highlight-row td {
-        color: inherit !important;
-        border-top: 1px solid #b7ebd5;
-        border-bottom: 1px solid #b7ebd5 !important;
-        font-weight: 500;
-    }
-
-    .row-label {
-        font-weight: 600;
-    }
-
-    /* Bar Chart Styling */
-    .bar-container {
-        width: 100%;
-        height: 8px;
-        background-color: #eee;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-
-    .bar-fill {
-        height: 100%;
-        background-color: #cbd5e0;
-        border-radius: 4px;
-        transition: width 0.3s ease;
-    }
-
-    .highlight-row .bar-fill {
-        background-color: #38b2ac; /* Green Bar */
-    }
-
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Reordered: Lumos first
-    const scenarios = [
-        { name: "Lumos Diffractogram", bpp: 16, channels: 1, type: "uint16", isLumos: true },
-        { name: "RGB Standard", bpp: 8, channels: 3, type: "uint8" },
-        { name: "Hyperspectral (Low)", bpp: 16, channels: 25, type: "float16" },
-        { name: "Hyperspectral (Med)", bpp: 16, channels: 100, type: "float16" },
-        { name: "Hyperspectral (High)", bpp: 16, channels: 200, type: "float16" }
-    ];
-
-    const lSelect = document.getElementById("side-length");
-    const mSelect = document.getElementById("duration");
-    const tbody = document.querySelector("#data-table tbody");
-
-    function formatBytes(bytes) {
-        if (bytes === 0) return '0 B';
-        const k = 1024;
-        const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-    }
-
-    function calculate() {
-        const l = parseInt(lSelect.value);
-        const mins = parseFloat(mSelect.value);
-        const fps = 24;
-
-        tbody.innerHTML = ""; // Clear table
-
-        // First pass: Calculate sizes to find max for normalization
-        let maxBytes = 0;
-        const results = scenarios.map(s => {
-            const pixels = l * l;
-            const bitsPerFrame = pixels * s.bpp * s.channels;
-            const bytesPerFrame = bitsPerFrame / 8;
-            if (bytesPerFrame > maxBytes) maxBytes = bytesPerFrame;
-            return {
-                ...s,
-                bytesPerFrame,
-                totalVideoBytes: bytesPerFrame * mins * 60 * fps
-            };
-        });
-
-        results.forEach(r => {
-            const tr = document.createElement("tr");
-            if (r.isLumos) tr.classList.add("highlight-row");
-            
-            // Calculate bar width (min 1% visible)
-            const barWidth = Math.max(1, (r.bytesPerFrame / maxBytes) * 100);
-
-            tr.innerHTML = `
-                <td>
-                    <div class="row-label">${r.name}</div>
-                </td>
-                <td class="center-col">${r.channels}</td>
-                <td class="center-col">${r.bpp}-bit <span style="color:#888; font-size:0.8em">(${r.type})</span></td>
-                <td>
-                    <div class="bar-container">
-                        <div class="bar-fill" style="width: ${barWidth}%"></div>
-                    </div>
-                </td>
-                <td class="num-col">${formatBytes(r.bytesPerFrame)}</td>
-                <td class="num-col">${formatBytes(r.totalVideoBytes)}</td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }
-
-    // Attach listeners
-    lSelect.addEventListener("change", calculate);
-    mSelect.addEventListener("change", calculate);
-
-    // Initial run
-    calculate();
-});
-</script>
+<script src="assets/js/data_calculator.js"></script>
 </section>
 <section id="video-demonstration-encoding-in-motion" class="level3">
 <h3 class="anchored" data-anchor-id="video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</h3>

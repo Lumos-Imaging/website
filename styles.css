@@ -141,7 +141,8 @@ p.lead {
 @media (min-width: 1200px) {
   #quarto-margin-sidebar {
     position: fixed !important;
-    right: 0 !important;
+    right: 15px !important;
+    /* Added right spacing */
     top: 115px;
     /* Adjust based on navbar height */
     width: 220px;
@@ -158,6 +159,17 @@ p.lead {
 }
 
 /* Enhanced TOC Highlighting */
+#toc-title {
+  font-size: 1.35rem;
+  /* Larger title */
+  padding-left: 10px;
+  /* Align with items */
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
 #quarto-margin-sidebar .nav-link.custom-active {
   color: #007bff !important;
   /* Lumos Blue */
