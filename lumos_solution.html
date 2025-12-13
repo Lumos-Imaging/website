@@ -312,11 +312,10 @@ window.Quarto = {
 </section>
 <section id="the-physics-of-encoding-the-diffractogram" class="level2">
 <h2 class="anchored" data-anchor-id="the-physics-of-encoding-the-diffractogram">2. The Physics of Encoding (The Diffractogram)</h2>
-<p><img src="assets/images/butterfly_diffractogram.png" class="section-icon-large img-fluid"> When light from the scene passes through the DFA, it is diffracted. The angle at which light bends is strictly determined by its wavelength. Blue light bends at a shallow angle; Red light bends at a steep angle.</p>
+<p><img src="assets/images/butterfly_diffractogram.png" class="section-icon-large-square img-fluid"> When light from the scene passes through the DFA, it is diffracted. The angle at which light bends is strictly determined by its wavelength. Blue light bends at a shallow angle; Red light bends at a steep angle.</p>
 <p>Instead of forming a direct “sharp” image, the system forms a <strong>Diffractogram</strong>. This is a 12-bit grayscale image where spectral information is encoded into local spatial interference patterns.</p>
 <ul>
-<li><p><strong>Visual Appearance:</strong> To the human eye, a Diffractogram looks like a slightly blurry or textured grayscale image.</p></li>
-<li><p><strong>Information Content:</strong> The “blur” is actually a deterministic structure. A point source of green light creates a specific point-spread function (PSF) pattern. A point source of red light creates a different, wider pattern. By analyzing these local patterns, algorithms can mathematically disentangle the colors.</p></li>
+<li><strong>Information Content:</strong> The patterned <em>blur</em> is actually a deterministic feature which encodes the spatial and spectral information in the scene.</li>
 </ul>
 <section id="advantages-of-the-diffractogram" class="level3">
 <h3 class="anchored" data-anchor-id="advantages-of-the-diffractogram">Advantages of the Diffractogram</h3>
