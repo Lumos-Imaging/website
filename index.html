@@ -70,70 +70,77 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script>
-// Custom Scrollspy for fixed sidebar
-document.addEventListener('DOMContentLoaded', function() {
-  const sidebar = document.querySelector('#quarto-margin-sidebar');
-  if (!sidebar) return;
+  // Custom Scrollspy for fixed sidebar
+  document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.querySelector('#quarto-margin-sidebar');
+    if (!sidebar) return;
 
-  const links = sidebar.querySelectorAll('.nav-link');
-  const sections = [];
+    const links = sidebar.querySelectorAll('.nav-link');
+    const sections = [];
 
-  links.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      const id = href.substring(1);
-      const section = document.getElementById(id);
-      if (section) {
-        sections.push({ link, section });
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const id = href.substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          sections.push({ link, section });
+        }
       }
-    }
-  });
+    });
 
-  function updateActive() {
-    const scrollPos = window.scrollY || document.documentElement.scrollTop;
-    // Offset for navbar + some buffer
-    const offset = 150; 
-    
-    let current = null;
+    function updateActive() {
+      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+      // Offset for navbar + some buffer
+      const offset = 150;
 
-    // Find the current section
-    for (let i = 0; i < sections.length; i++) {
+      let current = null;
+
+      // Find the current section
+      for (let i = 0; i < sections.length; i++) {
         const { section } = sections[i];
         if (section.offsetTop <= scrollPos + offset) {
-            current = sections[i];
+          current = sections[i];
         }
-    }
+      }
 
-    // Apply classes
-    links.forEach(link => link.classList.remove('custom-active'));
-    if (current) {
+      // Apply classes
+      links.forEach(link => link.classList.remove('custom-active'));
+      if (current) {
         current.link.classList.add('custom-active');
-    } else if (sections.length > 0 && scrollPos < sections[0].section.offsetTop) {
+      } else if (sections.length > 0 && scrollPos < sections[0].section.offsetTop) {
         // Highlight first if near top? Optional. Quarto usually does first.
         sections[0].link.classList.add('custom-active');
+      }
     }
-  }
 
-  window.addEventListener('scroll', updateActive);
-  updateActive(); // Init
-});
+    window.addEventListener('scroll', updateActive);
+    updateActive(); // Init
+  });
 </script>
 <script>
-// Set alt text for navbar logo images
-document.addEventListener('DOMContentLoaded', function() {
-  const logoImages = document.querySelectorAll('.navbar-logo');
-  logoImages.forEach(function(img) {
-    if (!img.alt || img.alt === '') {
-      img.alt = 'Lumos Imaging';
+  // Set alt text for navbar logo images
+  document.addEventListener('DOMContentLoaded', function () {
+    const logoImages = document.querySelectorAll('.navbar-logo');
+    logoImages.forEach(function (img) {
+      if (!img.alt || img.alt === '') {
+        img.alt = 'Lumos Imaging';
+      }
+    });
+
+    // Ensure navbar has light theme
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      navbar.setAttribute('data-bs-theme', 'light');
     }
   });
-  
-  // Ensure navbar has light theme
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    navbar.setAttribute('data-bs-theme', 'light');
-  }
-});
+</script>
+<script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "uklxny5jsc");
 </script>
 
 

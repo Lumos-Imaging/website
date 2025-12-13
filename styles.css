@@ -7,8 +7,27 @@
 
 .wide-media {
   display: block;
-  margin: 0 auto;
+  /* Default for mobile: fit container */
   width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .wide-media {
+    /* Force breakout using viewport width */
+    width: 90vw;
+    /* Center based on viewport */
+    margin-left: calc(50% - 45vw);
+    margin-right: calc(50% - 45vw);
+    max-width: none;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    /* Reset left/right to rely on margin calculator or transform for absolute centering */
+    transform: translateX(-50%);
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* Navbar styling */
@@ -324,4 +343,17 @@ h3 {
 .interactive-term:hover::before {
   visibility: visible;
   opacity: 1;
+}
+
+/* Dimensionality Curse Table Styling */
+.dimensionality-curse-table table tbody tr {
+  background-color: #ffecec;
+  /* Light Red background for all rows (Comparison/Bad) */
+}
+
+.dimensionality-curse-table table tbody tr:last-child {
+  background-color: #e8f5e9;
+  /* Light Green background for the last row (Lumos/Good) */
+  font-weight: bold;
+  /* Optional: make it pop a bit more */
 }

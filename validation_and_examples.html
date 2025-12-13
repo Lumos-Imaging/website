@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Gallery &amp; Results – Lumos Imaging</title>
+<title>Gallery of Experiments – Lumos Imaging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,70 +72,77 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script>
-// Custom Scrollspy for fixed sidebar
-document.addEventListener('DOMContentLoaded', function() {
-  const sidebar = document.querySelector('#quarto-margin-sidebar');
-  if (!sidebar) return;
+  // Custom Scrollspy for fixed sidebar
+  document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.querySelector('#quarto-margin-sidebar');
+    if (!sidebar) return;
 
-  const links = sidebar.querySelectorAll('.nav-link');
-  const sections = [];
+    const links = sidebar.querySelectorAll('.nav-link');
+    const sections = [];
 
-  links.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      const id = href.substring(1);
-      const section = document.getElementById(id);
-      if (section) {
-        sections.push({ link, section });
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const id = href.substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          sections.push({ link, section });
+        }
       }
-    }
-  });
+    });
 
-  function updateActive() {
-    const scrollPos = window.scrollY || document.documentElement.scrollTop;
-    // Offset for navbar + some buffer
-    const offset = 150; 
-    
-    let current = null;
+    function updateActive() {
+      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+      // Offset for navbar + some buffer
+      const offset = 150;
 
-    // Find the current section
-    for (let i = 0; i < sections.length; i++) {
+      let current = null;
+
+      // Find the current section
+      for (let i = 0; i < sections.length; i++) {
         const { section } = sections[i];
         if (section.offsetTop <= scrollPos + offset) {
-            current = sections[i];
+          current = sections[i];
         }
-    }
+      }
 
-    // Apply classes
-    links.forEach(link => link.classList.remove('custom-active'));
-    if (current) {
+      // Apply classes
+      links.forEach(link => link.classList.remove('custom-active'));
+      if (current) {
         current.link.classList.add('custom-active');
-    } else if (sections.length > 0 && scrollPos < sections[0].section.offsetTop) {
+      } else if (sections.length > 0 && scrollPos < sections[0].section.offsetTop) {
         // Highlight first if near top? Optional. Quarto usually does first.
         sections[0].link.classList.add('custom-active');
+      }
     }
-  }
 
-  window.addEventListener('scroll', updateActive);
-  updateActive(); // Init
-});
+    window.addEventListener('scroll', updateActive);
+    updateActive(); // Init
+  });
 </script>
 <script>
-// Set alt text for navbar logo images
-document.addEventListener('DOMContentLoaded', function() {
-  const logoImages = document.querySelectorAll('.navbar-logo');
-  logoImages.forEach(function(img) {
-    if (!img.alt || img.alt === '') {
-      img.alt = 'Lumos Imaging';
+  // Set alt text for navbar logo images
+  document.addEventListener('DOMContentLoaded', function () {
+    const logoImages = document.querySelectorAll('.navbar-logo');
+    logoImages.forEach(function (img) {
+      if (!img.alt || img.alt === '') {
+        img.alt = 'Lumos Imaging';
+      }
+    });
+
+    // Ensure navbar has light theme
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      navbar.setAttribute('data-bs-theme', 'light');
     }
   });
-  
-  // Ensure navbar has light theme
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    navbar.setAttribute('data-bs-theme', 'light');
-  }
-});
+</script>
+<script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "uklxny5jsc");
 </script>
 
 
@@ -218,11 +225,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gallery &amp; Results</h1>
+<h1 class="title">Gallery of Experiments</h1>
 <p class="subtitle lead">Validation Experiments: From Lab to Real-World Applications</p>
 </div>
 
@@ -251,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>Accuracy:</strong> Spectral reproduction error is consistently &lt;15%, which is sufficient for the vast majority of classification and discrimination tasks.</li>
 </ul>
 </section>
-<section id="industrial-quality-control-detecting-invisible-contaminants" class="level2 page-columns page-full">
+<section id="industrial-quality-control-detecting-invisible-contaminants" class="level2">
 <h2 class="anchored" data-anchor-id="industrial-quality-control-detecting-invisible-contaminants">1. Industrial Quality Control: Detecting Invisible Contaminants</h2>
 <p><strong>The Challenge:</strong> In manufacturing, contaminants often look identical to the product in the visible spectrum. Traditional RGB cameras cannot distinguish them, and traditional hyperspectral cameras are too slow and data-heavy for high-speed sorting.</p>
 <p><strong>The Experiment:</strong> We imaged a stream of mixed plastic pellets. Half were pure, and half were “tainted” with a clear varnish invisible to the naked eye.</p>
@@ -262,14 +269,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <p><strong>The Result:</strong> Despite the massive data compression, the Lumos diffractogram retained the distinct spectral signature of the varnish. We achieved accurate, real-time classification of the “fake” pellets matching the ground truth.</p>
 <p><strong>Why it Matters:</strong> This proves that high-speed optical sorting and anomaly detection can be achieved with low-bandwidth hardware, reducing infrastructure costs for factories.</p>
-<div class="column-body-outset">
 <div class="wide-media">
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="assets/videos/pellets.mp4"></video></div>
-</div>
+<video src="assets/videos/pellets.mp4" controls="" loop="" autoplay="" muted="" playsinline="" style="width: 100%;">
+</video>
 </div>
 <hr>
 </section>
-<section id="biomedical-imaging-label-free-tissue-classification" class="level2 page-columns page-full">
+<section id="biomedical-imaging-label-free-tissue-classification" class="level2">
 <h2 class="anchored" data-anchor-id="biomedical-imaging-label-free-tissue-classification">2. Biomedical Imaging: Label-Free Tissue Classification</h2>
 <p><strong>The Challenge:</strong> Distinguishing between different tissue types during surgery often requires invasive biopsies or chemical dyes. Surgeons need real-time, label-free tools to identify tissue boundaries.</p>
 <p><strong>The Experiment:</strong> We imaged ex-vivo chicken tissue containing both <strong>lung</strong> and <strong>trachea</strong>. While visually similar (both are pink/red tissues), they have different chemical compositions and light absorption properties.</p>
@@ -279,19 +285,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>Outcome:</strong> The system successfully segmented the image, clearly differentiating the trachea (red overlay) from the lungs (green overlay) based solely on their spectral fingerprints.</li>
 </ul>
 <p><strong>Why it Matters:</strong> This validates the potential for <strong>computational staining</strong>—giving surgeons “superhuman” vision to differentiate healthy tissue from tumors or critical structures without dyes or delays.</p>
-<div class="page-columns page-full">
-<div class="wide-media page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="assets/images/chicken_lungs.png" class="img-fluid figure-img column-body-outset"></p>
+<div class="wide-media">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/chicken_lungs.png" class="img-fluid figure-img"></p>
 <figcaption><em>Tissue Classification Results. (A) RGB image with classification overlay (Trachea=Red, Lung=Green). (B) Spectral curves showing distinct signatures for each tissue type.</em></figcaption>
 </figure>
 </div>
 </div>
-</div>
 <hr>
 </section>
-<section id="smart-agriculture-predicting-shelf-life" class="level2 page-columns page-full">
+<section id="smart-agriculture-predicting-shelf-life" class="level2">
 <h2 class="anchored" data-anchor-id="smart-agriculture-predicting-shelf-life">3. Smart Agriculture: Predicting Shelf-Life</h2>
 <p><strong>The Challenge:</strong> Visual inspection of produce is reactive—you only see rot after it has happened. Supply chains need to predict spoilage <em>before</em> it becomes visible to optimize routing and reduce waste.</p>
 <p><strong>The Experiment:</strong> We monitored 21 strawberries continuously over an 8-day period as they aged.</p>
@@ -301,14 +305,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>Outcome:</strong> The system could predict the exact age of the fruit (in days) and classify it as “Fresh” vs.&nbsp;“Spoiled” with high accuracy.</li>
 </ul>
 <p><strong>Why it Matters:</strong> This enables <strong>predictive quality control</strong>. Distributors can route produce based on its physiological ripeness (e.g., “sell immediately” vs.&nbsp;“safe to ship”), significantly reducing global food waste.</p>
-<div class="page-columns page-full">
-<div class="wide-media page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="assets/images/strawberry_experiment.png" class="img-fluid figure-img column-body-outset"></p>
+<div class="wide-media">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/strawberry_experiment.png" class="img-fluid figure-img"></p>
 <figcaption><em>Strawberry Aging. (Left) Spectral decay over 8 days. (Right) ROC curve showing high accuracy in fresh vs.&nbsp;spoiled classification.</em></figcaption>
 </figure>
-</div>
 </div>
 </div>
 <hr>
@@ -331,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <hr>
 </section>
-<section id="remote-sensing-on-orbit-intelligence" class="level2 page-columns page-full">
+<section id="remote-sensing-on-orbit-intelligence" class="level2">
 <h2 class="anchored" data-anchor-id="remote-sensing-on-orbit-intelligence">5. Remote Sensing: “On-Orbit” Intelligence</h2>
 <p><strong>The Challenge:</strong> Satellites generate massive amounts of hyperspectral data (Terabytes), but downlinking this data to Earth is slow and expensive.</p>
 <p><strong>The Experiment:</strong> We simulated a Lumos sensor in orbit using public <strong>Landsat 8</strong> data.</p>
@@ -341,7 +343,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>Outcome:</strong> The predicted vegetation map matched the ground truth with high fidelity, but the data required to generate it was <strong>~1000x smaller</strong> than the raw hyperspectral file.</li>
 </ul>
 <p><strong>Why it Matters:</strong> This enables <strong>direct inference</strong>. Satellites can process data on the edge and transmit only the actionable intelligence (e.g., “crop yield map”) rather than raw noise, solving the downlink bottleneck.</p>
-<div class="column-body-outset">
 <div class="wide-media">
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
@@ -398,7 +399,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 </div>
-</div>
 <hr>
 </section>
 <section id="dynamic-3d-analysis-the-rotating-avocado" class="level2">
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>4D Data:</strong> We successfully mapped the ripening process in both space (3D surface) and time.</li>
 </ul>
 <p><strong>Why it Matters:</strong> This proves the technology is robust enough for complex, dynamic environments—from tumbling fruit on a conveyor belt to drone-based inspection of moving targets.</p>
-<p></p><div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="assets/videos/avocado.mp4"></video></div> ## Publications<p></p>
+<p></p><div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="assets/videos/avocado.mp4"></video></div> ## Publications<p></p>
 <ul>
 <li>Apratim Majumder, Monjurul Meem, Fernando Gonzalez del Cueto, Fernando Guevara Vasquez, Syed N. Qadri, Freddie Santiago, and Rajesh Menon, <strong>“High-definition (HD) snapshot diffractive computational spectral imaging and inferencing,”</strong> <em>Optica</em> 12, 1539-1547 (2025). <a href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-12-9-1539">Read Paper</a></li>
 </ul>
@@ -821,7 +821,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </div> <!-- /content -->
 <script>videojs(video_shortcode_videojs_video1);</script>
-<script>videojs(video_shortcode_videojs_video2);</script>
 
 
 
