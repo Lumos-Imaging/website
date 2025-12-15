@@ -295,7 +295,7 @@ window.Quarto = {
 <li><strong>Consequence:</strong> Push-broom sensors are notoriously difficult to deploy on UAVs, handheld devices, or in dynamic industrial settings.</li>
 </ul>
 <div class="lumos-solution">
-<p><strong>Lumos Solution:</strong> We utilize a <strong>Snapshot</strong> architecture. We capture the full spatial-spectral volume <span class="math inline">\((x, y, \lambda)\)</span> in a single integration period. This makes the system immune to vibration and motion artifacts, treating spectral video just like standard video.</p>
+<p><strong>Lumos Solution:</strong> We utilize a <strong>Snapshot</strong> architecture. We capture the full spatial-spectral volume <span class="math inline">\((x, y, \lambda)\)</span> in a single integration period. We can take pictures and video like standard cameras.</p>
 </div>
 </section>
 <section id="the-dimensionality-curse-data" class="level2">
@@ -308,6 +308,8 @@ window.Quarto = {
 <li><strong>Edge Compute:</strong> Embedded processors cannot reconstruct and analyze heavy 3D data cubes in real-time (60 FPS).</li>
 <li><strong>Archival:</strong> Storing petabytes of raw hyperspectral cubes for historical analysis is very expensive.</li>
 </ul>
+<p><strong>The “Data Tax” of Traditional Imaging</strong> In traditional systems, spectral resolution is tied to data volume. If you want 100x more spectral detail, you must transmit 100x more data. This makes real-time applications impossible.</p>
+<p><strong>The Lumos Decoupling</strong> Lumos breaks this linear relationship. Because we capture the continuous light field encoded in a single frame, our file size is constant. Whether you need 5 bands or 25 bands, the transmission cost is identical—roughly the size of a standard black-and-white photo.</p>
 <p>For a standard <span class="math inline">\(512 \times 512\)</span> pixel sensor, the uncompressed data requirements vary drastically:</p>
 <div class="card shadow-sm mb-5">
     <div class="card-body p-4">
@@ -356,9 +358,11 @@ window.Quarto = {
 </table>
 
         </div>
+    
         <p class="small text-muted mt-2">
-            * <strong>Note on Lumos Bands:</strong> Unlike traditional sensors that capture specific, pre-defined wavebands (which increases data size linearly), Lumos captures the <em>entire continuous light field</em> compressed into a single 16-bit diffractogram. We do not capture "bands"; we capture the physics of light itself. Any number of bands can be mathematically reconstructed, if desired, from this single frame later, meaning our raw data footprint remains constant regardless of spectral resolution. However, we have shown that the intrinsic dimensionality of the spectral space is at least 25. 
+            * <strong>Software-Defined:</strong> Traditional cameras pay a "data tax" for spectral resolution—adding bands increases file size linearly. Lumos <strong>decouples</strong> storage from resolution. We capture the continuous spectrum encoded in a single frame, meaning your raw transmission cost is <strong>constant</strong> regardless of how many bands you extract later. While you can mathematically define any basis (e.g., simulating 5 specific agricultural filters or a standard RGB curve), our hardware is validated to resolve ≈26 independent equally-spaced spectral channels in the 400–800 nm range.
         </p>
+  
     </div>
 </div>
 

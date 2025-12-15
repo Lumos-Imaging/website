@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Reordered: Lumos first
     const scenarios = [
-        { name: "Lumos Diffractogram", bpp: 16, channels: 1, bands: "N/A*", type: "uint16", isLumos: true },
+        { name: "Lumos Diffractogram", bpp: 16, channels: 1, bands: "Software-Defined*", type: "uint16", isLumos: true },
         { name: "RGB Standard", bpp: 8, channels: 3, bands: "3", type: "uint8" },
         { name: "Hyperspectral (Low)", bpp: 16, channels: 25, bands: "25", type: "float16" },
         { name: "Hyperspectral (Med)", bpp: 16, channels: 100, bands: "100", type: "float16" },
