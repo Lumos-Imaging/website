@@ -63,7 +63,7 @@
 }
 
 
-.nav-link {
+.navbar-nav .nav-link {
   font-weight: 500;
   color: #333 !important;
   margin-left: 15px;
@@ -76,7 +76,7 @@
   height: 100%;
 }
 
-.nav-link:hover {
+.navbar-nav .nav-link:hover {
   color: #007bff !important;
   /* Lumos Blue accent */
 }
@@ -204,32 +204,25 @@ p.lead {
   color: #2c3e50;
 }
 
+#quarto-margin-sidebar .nav-link.active,
 #quarto-margin-sidebar .nav-link.custom-active {
-  color: #007bff !important;
-  /* Lumos Blue */
+  color: #0056b3 !important;
   font-weight: 700 !important;
+  background-color: #e7f1ff;
   border-left: 3px solid #007bff;
   padding-left: 10px;
-  background-color: rgba(0, 123, 255, 0.05);
-}
-
-/* Force override default active to look normal (suppress Quarto's wrong selection) */
-#quarto-margin-sidebar .nav-link.active:not(.custom-active) {
-  color: #333 !important;
-  font-weight: 500 !important;
-  border-left: 3px solid transparent;
-  background-color: transparent;
+  border-radius: 0 4px 4px 0;
 }
 
 #quarto-margin-sidebar .nav-link {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  padding-left: 13px;
   border-left: 3px solid transparent;
-  /* Reserve space for border to prevent layout shift */
-  padding-left: 10px;
   transition: all 0.2s ease;
-  margin-bottom: 0.5rem;
-  /* Add vertical space */
+  margin-bottom: 0.2rem;
   display: block;
+  text-align: left;
+  line-height: 1.4;
 }
 
 /* Section Icons */
@@ -404,4 +397,13 @@ h3 {
   margin-bottom: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border-left: 5px solid #007bff;
+}
+
+/* Value Proposition Icons */
+.value-prop-icon {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  object-fit: contain;
 }
