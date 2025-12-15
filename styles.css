@@ -399,10 +399,11 @@ h3 {
   border-left: 5px solid #007bff;
 }
 
-/* Value Proposition Icons */
+/* Value Proposition Icons round crop*/
 .value-prop-icon {
-  width: 100px;
+  width: 120px;
   height: auto;
+  border-radius: 50%;
   margin-bottom: 1.5rem;
   display: inline-block;
   object-fit: contain;
