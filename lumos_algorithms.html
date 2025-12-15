@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Software &amp; Algorithms – Lumos Imaging</title>
+<title>A Paradigm Shift in Spectral Imaging: Accessible Optical Compression – Lumos Imaging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -212,12 +212,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-paradigm-shift-optical-compression" id="toc-the-paradigm-shift-optical-compression" class="nav-link active" data-scroll-target="#the-paradigm-shift-optical-compression">The Paradigm Shift: Optical Compression</a>
+  <li><a href="#video-demonstration-encoding-in-motion" id="toc-video-demonstration-encoding-in-motion" class="nav-link active" data-scroll-target="#video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</a></li>
+  <li><a href="#pathway-a-direct-inference" id="toc-pathway-a-direct-inference" class="nav-link" data-scroll-target="#pathway-a-direct-inference">Pathway A: Direct Inference</a>
   <ul class="collapse">
-  <li><a href="#video-demonstration-encoding-in-motion" id="toc-video-demonstration-encoding-in-motion" class="nav-link" data-scroll-target="#video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</a></li>
+  <li><a href="#accessing-spectral-information-without-spectral-cubes" id="toc-accessing-spectral-information-without-spectral-cubes" class="nav-link" data-scroll-target="#accessing-spectral-information-without-spectral-cubes">Accessing spectral information without spectral cubes</a></li>
   </ul></li>
-  <li><a href="#pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes" id="toc-pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes" class="nav-link" data-scroll-target="#pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes">Pathway A: Direct Inference (accessing spectral information without spectral cubes)</a></li>
-  <li><a href="#pathway-b-traditional-spectral-cube-reconstruction" id="toc-pathway-b-traditional-spectral-cube-reconstruction" class="nav-link" data-scroll-target="#pathway-b-traditional-spectral-cube-reconstruction">Pathway B: Traditional Spectral Cube Reconstruction</a></li>
+  <li><a href="#pathway-b-traditional-spectral-cube-reconstruction" id="toc-pathway-b-traditional-spectral-cube-reconstruction" class="nav-link" data-scroll-target="#pathway-b-traditional-spectral-cube-reconstruction">Pathway B: Traditional Spectral Cube Reconstruction</a>
+  <ul class="collapse">
+  <li><a href="#when-having-a-spectral-cube-makes-sense" id="toc-when-having-a-spectral-cube-makes-sense" class="nav-link" data-scroll-target="#when-having-a-spectral-cube-makes-sense">When having a spectral cube makes sense</a></li>
+  </ul></li>
   <li><a href="#workflow-comparison" id="toc-workflow-comparison" class="nav-link" data-scroll-target="#workflow-comparison">Workflow Comparison</a></li>
   </ul>
 </nav>
@@ -227,8 +230,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Software &amp; Algorithms</h1>
-<p class="subtitle lead">The Universal Spectral Container</p>
+<h1 class="title">A Paradigm Shift in Spectral Imaging: Accessible Optical Compression</h1>
 </div>
 
 
@@ -245,8 +247,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-paradigm-shift-optical-compression" class="level2">
-<h2 class="anchored" data-anchor-id="the-paradigm-shift-optical-compression">The Paradigm Shift: Optical Compression</h2>
 <p>In traditional spectral imaging, the hardware dictates the data format. You are forced to capture, store, and process massive 3D data cubes, even if you only need a fraction of that information.</p>
 <p>Lumos flips this model.</p>
 <p>Our hardware captures a <strong>Diffractogram</strong>—a raw, 2D grayscale image where spatial and spectral information is inextricably encoded by the laws of physics.</p>
@@ -269,12 +269,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-</section>
-<section id="pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes" class="level2">
-<h2 class="anchored" data-anchor-id="pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes">Pathway A: Direct Inference (accessing spectral information without spectral cubes)</h2>
+<section id="pathway-a-direct-inference" class="level2">
+<h2 class="anchored" data-anchor-id="pathway-a-direct-inference">Pathway A: Direct Inference</h2>
+<section id="accessing-spectral-information-without-spectral-cubes" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-spectral-information-without-spectral-cubes">Accessing spectral information without spectral cubes</h3>
 <p><strong>“Why reconstruct a 50GB data cube just to answer a ‘Yes/No’ question?”</strong></p>
-<p>For all applications, the goal is not to <em>see</em> the spectrum; the goal is to <em>act</em> on it. A sorting robot needs to know “Is this plastic PVC?” A satellite needs to know “Is this crop stressed?” A microscope needs to know “Is this cell cancerous?”</p>
-<p>Lumos enables <strong>Direct Inference</strong>. We can use modern data-driven machine-learning frameworks and pipelines to use diffractograms directly, mapping the unique texture of the optical code to the desired answer, completely skipping the heavy reconstruction step. Unlike hyperspectral cubes which quickly become too big even for modern GPUs, diffractograms are even smaller than RGB images, making them ideal for edge devices, drones, satellites or on-demand cloud processing.</p>
+<p>For all applications, the goal is not to <em>see</em> the spectrum; the goal is to <em>act</em> on it. A sorting facility needs to know “Is this glass or plastic?” A satellite needs to know “Is this crop stressed?” A microscope needs to know “Is this cell cancerous?”</p>
+<p>Lumos enables <strong>Direct Inference</strong> from its lean data format, the diffractogram. We can use modern data-driven machine-learning frameworks and pipelines to use diffractograms directly, mapping the unique texture of the optical code to the desired answer, completely skipping the heavy reconstruction step. Unlike hyperspectral cubes which quickly become too big even for modern GPUs, diffractograms are even smaller than RGB images, making them ideal for edge devices, drones, satellites or on-demand cloud processing.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/path_B_direct_inference.png" class="img-fluid figure-img"></p>
@@ -291,8 +292,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <hr>
 </section>
+</section>
 <section id="pathway-b-traditional-spectral-cube-reconstruction" class="level2">
 <h2 class="anchored" data-anchor-id="pathway-b-traditional-spectral-cube-reconstruction">Pathway B: Traditional Spectral Cube Reconstruction</h2>
+<section id="when-having-a-spectral-cube-makes-sense" class="level3">
+<h3 class="anchored" data-anchor-id="when-having-a-spectral-cube-makes-sense">When having a spectral cube makes sense</h3>
 <p>When human visualization or detailed scientific analysis is required, we use our <strong>Inverse Solver</strong> algorithms to decode the diffractogram back into a spectral Cube.</p>
 <p>However, unlike traditional cameras where the bands are fixed by the hardware filters (e.g., “you only get these 10 bands”), Lumos offers <strong>Software-Defined Spectral Imaging</strong>. This means that we can dynamically select the bands we need after the signal has been acquired. This opens up a world of possibilities for on-demand spectral analysis.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -310,10 +314,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Need 25 bands for geology? We generate them from the <em>same</em> raw file.</li>
 <li>Need to simulate a specific astronomical filter set (e.g., Johnson-Cousins)? We can do that mathematically.</li>
 </ul></li>
+<li><strong>Flexibility:</strong> The reconstruction can be done on-demand, on the entire image or on a region of interest.</li>
 <li><strong>Legacy Compatibility:</strong> The output can be saved as standard <code>.HDR</code> or <code>.ENVI</code> files, making Lumos data compatible with decades of existing spectral analysis software.</li>
 </ul>
 </div>
 <hr>
+</section>
 </section>
 <section id="workflow-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="workflow-comparison">Workflow Comparison</h2>

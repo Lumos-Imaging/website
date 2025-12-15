@@ -2,35 +2,28 @@
   {
     "objectID": "lumos_algorithms.html",
     "href": "lumos_algorithms.html",
-    "title": "Software & Algorithms",
+    "title": "A Paradigm Shift in Spectral Imaging: Accessible Optical Compression",
     "section": "",
-    "text": "In traditional spectral imaging, the hardware dictates the data format. You are forced to capture, store, and process massive 3D data cubes, even if you only need a fraction of that information.\nLumos flips this model.\nOur hardware captures a Diffractogram—a raw, 2D grayscale image where spatial and spectral information is inextricably encoded by the laws of physics.\nThink of the Diffractogram as a “Universal Container.” It is an optically compressed file (typically &lt;1MB) that holds the full complexity of the scene. Because this container is so efficient, it opens up two distinct computational pathways: Direct Inference for modern data-driven machine learning situations, and Reconstruction for traditional spectral inspection of data and analysis.\n\n\nThe following video illustrates the encoding process for a dynamic scene (a butterfly).\n\n\n\n\n\nHyperspectral (Left): The full 3D spectral cube is massive. In the video, you see the “unfolded” bands. We display only 25 spectral bands, but often systems acquire 100+ bands.\nRGB (Top Right): The standard color image we are used to. Low bandwidth, but low spectral information.\nDiffractogram (Bottom Right): This is the actual raw data captured by the Lumos sensor.\n\nResolution: It is a single monochrome frame, identical in pixel count (HD)to a standard monochrome camera.\nInformation Density: Despite being just one frame (smaller than RGB), it encodes the entire spectral complexity of the scene shown in the Hyperspectral view."
+    "text": "In traditional spectral imaging, the hardware dictates the data format. You are forced to capture, store, and process massive 3D data cubes, even if you only need a fraction of that information.\nLumos flips this model.\nOur hardware captures a Diffractogram—a raw, 2D grayscale image where spatial and spectral information is inextricably encoded by the laws of physics.\nThink of the Diffractogram as a “Universal Container.” It is an optically compressed file (typically &lt;1MB) that holds the full complexity of the scene. Because this container is so efficient, it opens up two distinct computational pathways: Direct Inference for modern data-driven machine learning situations, and Reconstruction for traditional spectral inspection of data and analysis."
   },
   {
-    "objectID": "lumos_algorithms.html#the-paradigm-shift-optical-compression",
-    "href": "lumos_algorithms.html#the-paradigm-shift-optical-compression",
-    "title": "Software & Algorithms",
-    "section": "",
-    "text": "In traditional spectral imaging, the hardware dictates the data format. You are forced to capture, store, and process massive 3D data cubes, even if you only need a fraction of that information.\nLumos flips this model.\nOur hardware captures a Diffractogram—a raw, 2D grayscale image where spatial and spectral information is inextricably encoded by the laws of physics.\nThink of the Diffractogram as a “Universal Container.” It is an optically compressed file (typically &lt;1MB) that holds the full complexity of the scene. Because this container is so efficient, it opens up two distinct computational pathways: Direct Inference for modern data-driven machine learning situations, and Reconstruction for traditional spectral inspection of data and analysis.\n\n\nThe following video illustrates the encoding process for a dynamic scene (a butterfly).\n\n\n\n\n\nHyperspectral (Left): The full 3D spectral cube is massive. In the video, you see the “unfolded” bands. We display only 25 spectral bands, but often systems acquire 100+ bands.\nRGB (Top Right): The standard color image we are used to. Low bandwidth, but low spectral information.\nDiffractogram (Bottom Right): This is the actual raw data captured by the Lumos sensor.\n\nResolution: It is a single monochrome frame, identical in pixel count (HD)to a standard monochrome camera.\nInformation Density: Despite being just one frame (smaller than RGB), it encodes the entire spectral complexity of the scene shown in the Hyperspectral view."
-  },
-  {
-    "objectID": "lumos_algorithms.html#pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes",
-    "href": "lumos_algorithms.html#pathway-a-direct-inference-accessing-spectral-information-without-spectral-cubes",
-    "title": "Software & Algorithms",
-    "section": "Pathway A: Direct Inference (accessing spectral information without spectral cubes)",
-    "text": "Pathway A: Direct Inference (accessing spectral information without spectral cubes)\n“Why reconstruct a 50GB data cube just to answer a ‘Yes/No’ question?”\nFor all applications, the goal is not to see the spectrum; the goal is to act on it. A sorting robot needs to know “Is this plastic PVC?” A satellite needs to know “Is this crop stressed?” A microscope needs to know “Is this cell cancerous?”\nLumos enables Direct Inference. We can use modern data-driven machine-learning frameworks and pipelines to use diffractograms directly, mapping the unique texture of the optical code to the desired answer, completely skipping the heavy reconstruction step. Unlike hyperspectral cubes which quickly become too big even for modern GPUs, diffractograms are even smaller than RGB images, making them ideal for edge devices, drones, satellites or on-demand cloud processing.\n\n\n\nDirect Inference Pipeline. Deep Learning models ingest the raw diffractogram and directly output the desired variable (Class, Abundance, etc.), skipping the reconstruction step.\n\n\n\nGamechanging advantages of Direct Inference\n\nLatency:: The small signal allows inference to take place on the edge.\nBandwidth: Ideal for drones and satellites. Transmit the answer (bytes) or the compressed diffractogram (kilobytes) instead of the raw cube (gigabytes).\nEfficiency: Eliminates redundant computation. You don’t waste energy calculating spectral bands you don’t need. Storage is efficient and on-demand processing on the cloud becomes a possibility."
+    "objectID": "lumos_algorithms.html#pathway-a-direct-inference",
+    "href": "lumos_algorithms.html#pathway-a-direct-inference",
+    "title": "A Paradigm Shift in Spectral Imaging: Accessible Optical Compression",
+    "section": "Pathway A: Direct Inference",
+    "text": "Pathway A: Direct Inference\n\nAccessing spectral information without spectral cubes\n“Why reconstruct a 50GB data cube just to answer a ‘Yes/No’ question?”\nFor all applications, the goal is not to see the spectrum; the goal is to act on it. A sorting facility needs to know “Is this glass or plastic?” A satellite needs to know “Is this crop stressed?” A microscope needs to know “Is this cell cancerous?”\nLumos enables Direct Inference from its lean data format, the diffractogram. We can use modern data-driven machine-learning frameworks and pipelines to use diffractograms directly, mapping the unique texture of the optical code to the desired answer, completely skipping the heavy reconstruction step. Unlike hyperspectral cubes which quickly become too big even for modern GPUs, diffractograms are even smaller than RGB images, making them ideal for edge devices, drones, satellites or on-demand cloud processing.\n\n\n\nDirect Inference Pipeline. Deep Learning models ingest the raw diffractogram and directly output the desired variable (Class, Abundance, etc.), skipping the reconstruction step.\n\n\n\nGamechanging advantages of Direct Inference\n\nLatency:: The small signal allows inference to take place on the edge.\nBandwidth: Ideal for drones and satellites. Transmit the answer (bytes) or the compressed diffractogram (kilobytes) instead of the raw cube (gigabytes).\nEfficiency: Eliminates redundant computation. You don’t waste energy calculating spectral bands you don’t need. Storage is efficient and on-demand processing on the cloud becomes a possibility."
   },
   {
     "objectID": "lumos_algorithms.html#pathway-b-traditional-spectral-cube-reconstruction",
     "href": "lumos_algorithms.html#pathway-b-traditional-spectral-cube-reconstruction",
-    "title": "Software & Algorithms",
+    "title": "A Paradigm Shift in Spectral Imaging: Accessible Optical Compression",
     "section": "Pathway B: Traditional Spectral Cube Reconstruction",
-    "text": "Pathway B: Traditional Spectral Cube Reconstruction\nWhen human visualization or detailed scientific analysis is required, we use our Inverse Solver algorithms to decode the diffractogram back into a spectral Cube.\nHowever, unlike traditional cameras where the bands are fixed by the hardware filters (e.g., “you only get these 10 bands”), Lumos offers Software-Defined Spectral Imaging. This means that we can dynamically select the bands we need after the signal has been acquired. This opens up a world of possibilities for on-demand spectral analysis.\n\n\n\nReconstruction Pipeline. The raw diffractogram is processed by the inverse solver to recover the spatio-spectral 3D cube.\n\n\n\nGamechanging advantages of Direct Inference\n\nA Posteriori Selection: You can decide after taking the picture what spectral data you need.\n\nNeed 4 bands for agriculture? We generate them.\nNeed 25 bands for geology? We generate them from the same raw file.\nNeed to simulate a specific astronomical filter set (e.g., Johnson-Cousins)? We can do that mathematically.\n\nLegacy Compatibility: The output can be saved as standard .HDR or .ENVI files, making Lumos data compatible with decades of existing spectral analysis software."
+    "text": "Pathway B: Traditional Spectral Cube Reconstruction\n\nWhen having a spectral cube makes sense\nWhen human visualization or detailed scientific analysis is required, we use our Inverse Solver algorithms to decode the diffractogram back into a spectral Cube.\nHowever, unlike traditional cameras where the bands are fixed by the hardware filters (e.g., “you only get these 10 bands”), Lumos offers Software-Defined Spectral Imaging. This means that we can dynamically select the bands we need after the signal has been acquired. This opens up a world of possibilities for on-demand spectral analysis.\n\n\n\nReconstruction Pipeline. The raw diffractogram is processed by the inverse solver to recover the spatio-spectral 3D cube.\n\n\n\nGamechanging advantages of Direct Inference\n\nA Posteriori Selection: You can decide after taking the picture what spectral data you need.\n\nNeed 4 bands for agriculture? We generate them.\nNeed 25 bands for geology? We generate them from the same raw file.\nNeed to simulate a specific astronomical filter set (e.g., Johnson-Cousins)? We can do that mathematically.\n\nFlexibility: The reconstruction can be done on-demand, on the entire image or on a region of interest.\nLegacy Compatibility: The output can be saved as standard .HDR or .ENVI files, making Lumos data compatible with decades of existing spectral analysis software."
   },
   {
     "objectID": "lumos_algorithms.html#workflow-comparison",
     "href": "lumos_algorithms.html#workflow-comparison",
-    "title": "Software & Algorithms",
+    "title": "A Paradigm Shift in Spectral Imaging: Accessible Optical Compression",
     "section": "Workflow Comparison",
     "text": "Workflow Comparison\n\n\n\n\n\n\n\n\nFeature\nTraditional HSI Workflow\nLumos Direct Inference\n\n\n\n\nCapture\nScan scene (slow) or Snapshot (low res)\nHigh-Resolution Snapshot\n\n\nData Size\nHuge (GBs per minute)\nTiny (smaller than RGB)\n\n\nProcessing\nMust process full 3D cube\nProcess only what matters\n\n\nFlexibility\nHardware-fixed bands\nUser-defined bands, easily changed after capture\n\n\nVideo\nTypically not possible\nSame as CMOS sensor (e.g. 30 FPS\n\n\n\nSee our algorithms in action →"
   },
@@ -65,23 +58,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The End of the RGB Era",
+    "title": "Spectral Intelligence, Unbound",
     "section": "",
-    "text": "High Definition. Low Cost. Snapshot.Historically, you could only pick two. Lumos delivers all three.We democratize access to material intelligence by combining nanophotonics with physics-aware AI."
+    "text": "Smart sensing is about extracting information, not creating data.Scalable. High-Resolution. Machine-learning friendly. Efficient."
   },
   {
     "objectID": "index.html#the-data-bottleneck",
     "href": "index.html#the-data-bottleneck",
-    "title": "The End of the RGB Era",
+    "title": "Spectral Intelligence, Unbound",
     "section": "The Data Bottleneck",
     "text": "The Data Bottleneck\nHyperspectral imaging has long been trapped by the “Dimensionality Curse.” See for yourself how quickly raw data becomes unmanageable—and how Lumos solves it.\n\n    \n        \n            Data Explosion Calculator\n            \n            \n                \n                    Image Resolution\n                    \n                        128 x 128 px\n                        256 x 256 px\n                        512 x 512 px\n                        1024 x 1024 px\n                    \n                \n                \n                \n                    Video Duration\n                    \n                        30 Seconds\n                        1 Minute\n                        5 Minutes\n                        30 Minutes\n                    \n                \n            \n        \n\n        \n            \n\n\n\nFormat\nChannels in image\nSpectral Bands\nBits per pixel\nRelative Size\nSingle Frame\nVideo Stream\n\n\n\n\n\n\n        \n        \n            * Note on Lumos Bands: Unlike traditional sensors that capture specific, pre-defined wavebands (which increases data size linearly), Lumos captures the entire continuous light field compressed into a single 16-bit diffractogram. We do not capture \"bands\"; we capture the physics of light itself. Any number of bands can be mathematically reconstructed, if desired, from this single frame later, meaning our raw data footprint remains constant regardless of spectral resolution. However, we have shown that the intrinsic dimensionality of the spectral space is at least 25."
   },
   {
     "objectID": "index.html#choose-your-journey",
     "href": "index.html#choose-your-journey",
-    "title": "The End of the RGB Era",
+    "title": "Spectral Intelligence, Unbound",
     "section": "Choose Your Journey",
-    "text": "Choose Your Journey\n\n\n\n\n🌈\n\n\nNew to Spectral Imaging?\nDiscover how the “Chemistry of Light” is revolutionizing healthcare, agriculture, and robotics.\nExplore the Power of Light →\n\n\n\n\n\n\n🚧\n\n\nWhy hasn’t it scaled?\nLearn about the three engineering bottlenecks—Cost, Mechanics, and Data—that have kept HSI in the lab.\nUnderstand the Barriers →\n\n\n\n\n\n\n💡\n\n\nThe Lumos Solution\nSee how we combine Nanofabrication and Computational Imaging to break the Iron Triangle.\nDiscover the Tech →"
+    "text": "Choose Your Journey\n\n\n\n\n🌈\n\n\nNew to Spectral Imaging?\nDiscover how the “Chemistry of Light” is revolutionizing healthcare, agriculture, and robotics.\nExplore the Power of Light →\n\n\n\n\n\n\n🚧\n\n\nWhy hasn’t it scaled?\nLearn about the three barriers that have kept spectral imaging mostly in the lab.\nUnderstand the Barriers →\n\n\n\n\n\n\n💡\n\n\nThe Lumos Solution\nSee how we combine Nanofabrication and Computational Imaging to break the Iron Triangle.\nDiscover the Tech →"
   },
   {
     "objectID": "about_us.html",
@@ -193,7 +186,7 @@
     "href": "lumos_solution.html#the-result-the-diffractogram",
     "title": "The Lumos Hardware",
     "section": "The Result: The Diffractogram",
-    "text": "The Result: The Diffractogram\nThe output of this hardware is not a heavy 3D data cube, nor is it a simple RGB image. It is a Diffractogram—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.\nThis signal is the key to our “Direct Inference” capabilities.\nSee how we decode the light →"
+    "text": "The Result: The Diffractogram\nThe output of this hardware is not a heavy 3D data cube, nor is it a simple RGB image. It is a Diffractogram—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.\nThis signal is the key to our unique approach to spectral imaging.\nSee how we decode the light →"
   },
   {
     "objectID": "why_spectral_imaging.html",
@@ -235,6 +228,6 @@
     "href": "why_spectral_imaging.html#the-adoption-gap",
     "title": "The Untapped Power of Light",
     "section": "The Adoption Gap",
-    "text": "The Adoption Gap\nIf Spectral Imaging provides such a massive advantage over RGB, why isn’t it on every drone, tractor, and production line?\nWhy is it still largely confined to research labs?\nThe answer lies in Three Engineering Barriers that have historically made the technology too expensive, too fragile, and too data-heavy for the real world.\nUncover the Barriers →"
+    "text": "The Adoption Gap\nIf Spectral Imaging provides such a massive advantage over RGB, why isn’t it on every drone, tractor, and production line?\nWhy is it still largely confined to research labs or niche applications?\nThe answer lies in Three Barriers that have historically made the technology too expensive, too fragile, and too data-heavy for the real world.\nUncover the Barriers →"
   }
 ]
