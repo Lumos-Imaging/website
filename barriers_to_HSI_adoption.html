@@ -301,57 +301,6 @@ window.Quarto = {
 <section id="the-dimensionality-curse-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-dimensionality-curse-data">3. The Dimensionality Curse (Data)</h2>
 <p><img src="assets/images/icon_barrier_bandwidth.png" class="section-icon-large-round img-fluid"> One understated barrier to widespread spectral adoption is the massive size of hyperpectral volumes. An uncompressed image array must be stored and processed for every spectral band.</p>
-<p>For a standard <span class="math inline">\(512 \times 512\)</span> pixel sensor, the uncompressed data requirements vary drastically:</p>
-<div class="dimensionality-curse-table">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Architecture</th>
-<th style="text-align: center;">Channels</th>
-<th style="text-align: center;">Bit Depth</th>
-<th style="text-align: center;">Frame Size</th>
-<th style="text-align: center;">1000-Frame Video</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Standard RGB</strong></td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">8-bit</td>
-<td style="text-align: center;">0.75 MB</td>
-<td style="text-align: center;">0.75 GB</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Common HSI</strong></td>
-<td style="text-align: center;">25</td>
-<td style="text-align: center;">16-bit</td>
-<td style="text-align: center;">12.5 MB</td>
-<td style="text-align: center;">12.5 GB</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>High-Res HSI</strong></td>
-<td style="text-align: center;">120</td>
-<td style="text-align: center;">16-bit</td>
-<td style="text-align: center;">60.0 MB</td>
-<td style="text-align: center;">60.0 GB</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Lumos Diffractogram</strong></td>
-<td style="text-align: center;"><strong>1</strong></td>
-<td style="text-align: center;"><strong>12-bit</strong></td>
-<td style="text-align: center;"><strong>0.50 MB</strong></td>
-<td style="text-align: center;"><strong>0.50 GB</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
 <p><strong>Consequences:</strong></p>
 <ul>
 <li><strong>Satellite Downlinks:</strong> An earth-observation satellite creates terabytes of data. Downlinking this via limited radio bandwidth is prohibitively expensive or slow. Operators often discard 90% of the data. Ironically, analysts sometimes discard a lot of these data which is unnecessary for some applications since they’re only interested in a few wavelengths, or end up combining them to an end product that is much smaller than the original datasets. Spectral data cubes are not only huge, but information is encoded very redundantly in them, making it inefficient!</li>
@@ -359,6 +308,61 @@ window.Quarto = {
 <li><strong>Edge Compute:</strong> Embedded processors cannot reconstruct and analyze heavy 3D data cubes in real-time (60 FPS).</li>
 <li><strong>Archival:</strong> Storing petabytes of raw hyperspectral cubes for historical analysis is very expensive.</li>
 </ul>
+<p>For a standard <span class="math inline">\(512 \times 512\)</span> pixel sensor, the uncompressed data requirements vary drastically:</p>
+<div class="card shadow-sm mb-5">
+    <div class="card-body p-4">
+        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between mb-4 gap-3">
+            <h3 class="card-title h5 fw-bold mb-0 text-nowrap anchored">Data Explosion Calculator</h3>
+            
+            <div class="d-flex align-items-center gap-2">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text">Image Resolution</span>
+                    <select id="side-length" class="form-select" style="max-width: 190px;">
+                        <option value="128">128 x 128 px</option>
+                        <option value="256">256 x 256 px</option>
+                        <option value="512" selected="">512 x 512 px</option>
+                        <option value="1024">1024 x 1024 px</option>
+                    </select>
+                </div>
+                
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text">Video Duration</span>
+                    <select id="duration" class="form-select" style="max-width: 150px;">
+                        <option value="0.5">30 Seconds</option>
+                        <option value="1" selected="">1 Minute</option>
+                        <option value="5">5 Minutes</option>
+                        <option value="30">30 Minutes</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            
+<table id="data-table" class="table table-hover align-middle caption-top">
+<thead class="table-light">
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="width: 25%">Format</th>
+<th class="text-center" data-quarto-table-cell-role="th">Channels in image</th>
+<th class="text-center" data-quarto-table-cell-role="th">Spectral Bands</th>
+<th class="text-center" data-quarto-table-cell-role="th">Bits per pixel</th>
+<th data-quarto-table-cell-role="th" style="width: 20%">Relative Size</th>
+<th class="text-end" data-quarto-table-cell-role="th">Single Frame</th>
+<th class="text-end" data-quarto-table-cell-role="th">Video Stream</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+        </div>
+        <p class="small text-muted mt-2">
+            * <strong>Note on Lumos Bands:</strong> Unlike traditional sensors that capture specific, pre-defined wavebands (which increases data size linearly), Lumos captures the <em>entire continuous light field</em> compressed into a single 16-bit diffractogram. We do not capture "bands"; we capture the physics of light itself. Any number of bands can be mathematically reconstructed, if desired, from this single frame later, meaning our raw data footprint remains constant regardless of spectral resolution. However, we have shown that the intrinsic dimensionality of the spectral space is at least 25. 
+        </p>
+    </div>
+</div>
+
+<script src="assets/js/data_calculator.js"></script>
 <div class="lumos-solution">
 <p><strong>Lumos Solution:</strong> <strong>Analog Optical Compression.</strong> Spectral “cubes” are known to be highly redundant and users of these data often throw away most of it. The Lumos Camera captures instead a lean signal that encodes spatial and spectral content in a very information-dense manner. Not to be confused with software compression, this represents a massive reduction in raw data volume, enabling the use in modern machine learning pipelines, efficient transmission from space, cloud archival and retrieval, and real-time processing for edge AI applications. Even HD video streams are possible, whereas traditional approaches are still unfeasible.</p>
 </div>

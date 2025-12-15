@@ -207,17 +207,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#choose-your-journey" id="toc-choose-your-journey" class="nav-link active" data-scroll-target="#choose-your-journey">Choose Your Journey</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
 <div class="hero-section text-center">
-<p><img src="assets/images/lumos_artwork.jpg" alt="Lumos Artwork" class="hero-image" style="width: 80%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+<p><img src="assets/images/lumos_artwork.jpg" alt="Lumos Artwork" class="hero-image" style="max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
 <section id="spectral-intelligence-unbound" class="level1">
 <h1>Spectral Intelligence, Unbound</h1>
 <p class="lead">
@@ -245,66 +251,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<!-- THE TEASER: Calculator -->
-<div class="container py-4">
-<section id="the-data-bottleneck" class="level2">
-<h2 class="anchored" data-anchor-id="the-data-bottleneck">The Data Bottleneck</h2>
-<p>Hyperspectral imaging has long been trapped by the “Dimensionality Curse.” See for yourself how quickly raw data becomes unmanageable—and how Lumos solves it.</p>
-<div class="card shadow-sm mb-5">
-    <div class="card-body p-4">
-        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between mb-4 gap-3">
-            <h3 class="card-title h5 fw-bold mb-0 text-nowrap anchored">Data Explosion Calculator</h3>
-            
-            <div class="d-flex align-items-center gap-2">
-                <div class="input-group input-group-sm">
-                    <span class="input-group-text">Image Resolution</span>
-                    <select id="side-length" class="form-select" style="max-width: 190px;">
-                        <option value="128">128 x 128 px</option>
-                        <option value="256">256 x 256 px</option>
-                        <option value="512" selected="">512 x 512 px</option>
-                        <option value="1024">1024 x 1024 px</option>
-                    </select>
-                </div>
-                
-                <div class="input-group input-group-sm">
-                    <span class="input-group-text">Video Duration</span>
-                    <select id="duration" class="form-select" style="max-width: 150px;">
-                        <option value="0.5">30 Seconds</option>
-                        <option value="1" selected="">1 Minute</option>
-                        <option value="5">5 Minutes</option>
-                        <option value="30">30 Minutes</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="table-responsive">
-            
-<table id="data-table" class="table table-hover align-middle caption-top">
-<thead class="table-light">
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="width: 25%">Format</th>
-<th class="text-center" data-quarto-table-cell-role="th">Channels in image</th>
-<th class="text-center" data-quarto-table-cell-role="th">Spectral Bands</th>
-<th class="text-center" data-quarto-table-cell-role="th">Bits per pixel</th>
-<th data-quarto-table-cell-role="th" style="width: 20%">Relative Size</th>
-<th class="text-end" data-quarto-table-cell-role="th">Single Frame</th>
-<th class="text-end" data-quarto-table-cell-role="th">Video Stream</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-        </div>
-        <p class="small text-muted mt-2">
-            * <strong>Note on Lumos Bands:</strong> Unlike traditional sensors that capture specific, pre-defined wavebands (which increases data size linearly), Lumos captures the <em>entire continuous light field</em> compressed into a single 16-bit diffractogram. We do not capture "bands"; we capture the physics of light itself. Any number of bands can be mathematically reconstructed, if desired, from this single frame later, meaning our raw data footprint remains constant regardless of spectral resolution. However, we have shown that the intrinsic dimensionality of the spectral space is at least 25. 
-        </p>
-    </div>
-</div>
-
-<script src="assets/js/data_calculator.js"></script>
-</section>
 <section id="choose-your-journey" class="level2">
 <h2 class="anchored" data-anchor-id="choose-your-journey">Choose Your Journey</h2>
 <div class="grid gap-4">
@@ -345,10 +291,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>:::</p>
+
+
 </section>
-</div>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
