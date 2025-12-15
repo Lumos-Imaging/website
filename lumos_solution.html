@@ -245,7 +245,10 @@ window.Quarto = {
   <li><a href="#system-architecture-a-drop-in-revolution" id="toc-system-architecture-a-drop-in-revolution" class="nav-link" data-scroll-target="#system-architecture-a-drop-in-revolution">System Architecture: A Drop-In Revolution</a></li>
   <li><a href="#innovative-wafer-level-nanofabrication" id="toc-innovative-wafer-level-nanofabrication" class="nav-link" data-scroll-target="#innovative-wafer-level-nanofabrication">Innovative Wafer-Level Nanofabrication</a></li>
   <li><a href="#breaking-the-resolution-limit-true-hd" id="toc-breaking-the-resolution-limit-true-hd" class="nav-link" data-scroll-target="#breaking-the-resolution-limit-true-hd">Breaking the Resolution Limit (True HD)</a></li>
-  <li><a href="#comparing-the-architectures" id="toc-comparing-the-architectures" class="nav-link" data-scroll-target="#comparing-the-architectures">Comparing the Architectures</a></li>
+  <li><a href="#not-all-snapshot-sensors-are-equal" id="toc-not-all-snapshot-sensors-are-equal" class="nav-link" data-scroll-target="#not-all-snapshot-sensors-are-equal">Not All Snapshot Sensors Are Equal</a>
+  <ul class="collapse">
+  <li><a href="#technology-comparison-with-a-few-alternatives" id="toc-technology-comparison-with-a-few-alternatives" class="nav-link" data-scroll-target="#technology-comparison-with-a-few-alternatives">Technology Comparison with a Few Alternatives</a></li>
+  </ul></li>
   <li><a href="#the-result-the-diffractogram" id="toc-the-result-the-diffractogram" class="nav-link" data-scroll-target="#the-result-the-diffractogram">The Result: The Diffractogram</a></li>
   </ul>
 </nav>
@@ -325,8 +328,19 @@ window.Quarto = {
 <p>This allows Lumos sensors to be used in applications requiring fine detail, such as detecting small defects on a production line or identifying features from high-altitude drones.</p>
 <hr>
 </section>
-<section id="comparing-the-architectures" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-the-architectures">Comparing the Architectures</h2>
+<section id="not-all-snapshot-sensors-are-equal" class="level2">
+<h2 class="anchored" data-anchor-id="not-all-snapshot-sensors-are-equal">Not All Snapshot Sensors Are Equal</h2>
+<p>Some approaches use <strong>Fabry-Pérot</strong> (Interference/Resonance) or <strong>Extended Bayer</strong> (Absorption) architectures. While these are “snapshot” capable, they suffer from some physical limitations:</p>
+<ol type="1">
+<li><strong>Sensitivity:</strong> Absorptive filters block most of the light (often &gt;90%), performing poorly in low light.</li>
+<li><strong>Tunnel Vision:</strong> Fabry-Pérot filters rely on resonance. If light enters at an angle, the color shifts (blue shift). This restricts them to very narrow Fields of View (FOV) and requires telecentric lenses.</li>
+<li><strong>Manufacturing Risk:</strong> Resonance structures require nanometer-level tolerances, making them expensive and difficult to yield.</li>
+<li><strong>Cost:</strong> These systems are typically expensive to build and maintain.</li>
+<li><strong>Resolution:</strong> These systems are typically limited to a few hundred pixels.</li>
+</ol>
+<p><strong>Lumos uses Diffraction (Phase Modulation).</strong> Our optics are transparent (high sensitivity), work at wide angles (large FOV), and use robust micro-scale features that are easy to manufacture.</p>
+<section id="technology-comparison-with-a-few-alternatives" class="level3">
+<h3 class="anchored" data-anchor-id="technology-comparison-with-a-few-alternatives">Technology Comparison with a Few Alternatives</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -337,43 +351,43 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Traditional Push-broom</th>
-<th style="text-align: left;">Snapshot Mosaic</th>
-<th style="text-align: left;">Lumos Diffractive</th>
+<th style="text-align: left;">Lumos (Diffractive)</th>
+<th style="text-align: left;">Fabry-Pérot (e.g.&nbsp;IMEC)</th>
+<th style="text-align: left;">Extended Bayer (5x5)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Mechanics</strong></td>
-<td style="text-align: left;"><strong>Line-Scan</strong> (Needs motion)</td>
-<td style="text-align: left;">Snapshot</td>
-<td style="text-align: left;"><strong>Snapshot</strong></td>
+<td style="text-align: left;"><strong>Physics</strong></td>
+<td style="text-align: left;"><strong>Phase Modulation</strong> (Transparent)</td>
+<td style="text-align: left;">Resonance (Interference)</td>
+<td style="text-align: left;">Amplitude (Absorption)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Resolution</strong></td>
-<td style="text-align: left;">High (Linear)</td>
-<td style="text-align: left;">Low (Spatial decimation)</td>
-<td style="text-align: left;"><strong>High (HD Reconstructed)</strong></td>
+<td style="text-align: left;"><strong>Sensitivity</strong></td>
+<td style="text-align: left;"><strong>High</strong> (≥90% photons reach sensor)</td>
+<td style="text-align: left;">Medium (Bandwidth limited)</td>
+<td style="text-align: left;"><strong>Low</strong> (~1/25th of photons)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Light Throughput</strong></td>
-<td style="text-align: left;">Low (Slit-limited)</td>
-<td style="text-align: left;">Low (Absorptive Filters)</td>
-<td style="text-align: left;"><strong>High (Transparent Phase Optic)</strong></td>
+<td style="text-align: left;"><strong>Field of View</strong></td>
+<td style="text-align: left;"><strong>Large</strong> (Standard Lenses)</td>
+<td style="text-align: left;"><strong>Small</strong> (Angle Sensitive)</td>
+<td style="text-align: left;">Large</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Data Output</strong></td>
-<td style="text-align: left;">Massive Raw Cube</td>
-<td style="text-align: left;">Massive Raw Cube</td>
-<td style="text-align: left;"><strong>Compressed Diffractogram</strong></td>
+<td style="text-align: left;"><strong>Fabrication</strong></td>
+<td style="text-align: left;"><strong>Robust</strong> (Micron-scale features)</td>
+<td style="text-align: left;"><strong>Difficult</strong> (Nanometer tolerance)</td>
+<td style="text-align: left;">Complex (Multi-layer pigment)</td>
 </tr>
 </tbody>
 </table>
-<hr>
+</section>
 </section>
 <section id="the-result-the-diffractogram" class="level2">
 <h2 class="anchored" data-anchor-id="the-result-the-diffractogram">The Result: The Diffractogram</h2>
-<p>The output of this hardware is not a heavy 3D data cube, nor is it a simple RGB image. It is a <strong>Diffractogram</strong>—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.</p>
+<p>The output of our system is not a large 3D data cube as most hyperspectral systems do. It is a <strong>Diffractogram</strong>—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.</p>
 <p>This signal is the key to our unique approach to spectral imaging.</p>
 <p><a href="./lumos_algorithms.html" class="btn btn-primary btn-lg mt-3"><strong>See how we decode the light →</strong></a></p>
 

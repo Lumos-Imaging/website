@@ -175,18 +175,18 @@
     "text": "Breaking the Resolution Limit (True HD)\nOne of the greatest compromises in snapshot spectral imaging has always been resolution. Traditional “Mosaic” cameras (using pixel-level filters) trade spatial resolution for spectral bands, often resulting in grainy, low-fidelity images (e.g., \\(400 \\times 400\\) pixels).\nLumos delivers True High Definition.\nBecause our diffractive encoding is continuous and distributed, we preserve high-frequency spatial details that other systems lose. As validated in our recent Optica publication, we achieve:\n\n~1 Megapixel Resolution: \\(1304 \\times 744\\) spatial pixels.\nFull Spectral Context: 25+ bands across the Vis-NIR range.\n\nThis allows Lumos sensors to be used in applications requiring fine detail, such as detecting small defects on a production line or identifying features from high-altitude drones."
   },
   {
-    "objectID": "lumos_solution.html#comparing-the-architectures",
-    "href": "lumos_solution.html#comparing-the-architectures",
+    "objectID": "lumos_solution.html#not-all-snapshot-sensors-are-equal",
+    "href": "lumos_solution.html#not-all-snapshot-sensors-are-equal",
     "title": "The Lumos Hardware",
-    "section": "Comparing the Architectures",
-    "text": "Comparing the Architectures\n\n\n\n\n\n\n\n\n\nFeature\nTraditional Push-broom\nSnapshot Mosaic\nLumos Diffractive\n\n\n\n\nMechanics\nLine-Scan (Needs motion)\nSnapshot\nSnapshot\n\n\nResolution\nHigh (Linear)\nLow (Spatial decimation)\nHigh (HD Reconstructed)\n\n\nLight Throughput\nLow (Slit-limited)\nLow (Absorptive Filters)\nHigh (Transparent Phase Optic)\n\n\nData Output\nMassive Raw Cube\nMassive Raw Cube\nCompressed Diffractogram"
+    "section": "Not All Snapshot Sensors Are Equal",
+    "text": "Not All Snapshot Sensors Are Equal\nSome approaches use Fabry-Pérot (Interference/Resonance) or Extended Bayer (Absorption) architectures. While these are “snapshot” capable, they suffer from some physical limitations:\n\nSensitivity: Absorptive filters block most of the light (often &gt;90%), performing poorly in low light.\nTunnel Vision: Fabry-Pérot filters rely on resonance. If light enters at an angle, the color shifts (blue shift). This restricts them to very narrow Fields of View (FOV) and requires telecentric lenses.\nManufacturing Risk: Resonance structures require nanometer-level tolerances, making them expensive and difficult to yield.\nCost: These systems are typically expensive to build and maintain.\nResolution: These systems are typically limited to a few hundred pixels.\n\nLumos uses Diffraction (Phase Modulation). Our optics are transparent (high sensitivity), work at wide angles (large FOV), and use robust micro-scale features that are easy to manufacture.\n\nTechnology Comparison with a Few Alternatives\n\n\n\n\n\n\n\n\n\nFeature\nLumos (Diffractive)\nFabry-Pérot (e.g. IMEC)\nExtended Bayer (5x5)\n\n\n\n\nPhysics\nPhase Modulation (Transparent)\nResonance (Interference)\nAmplitude (Absorption)\n\n\nSensitivity\nHigh (≥90% photons reach sensor)\nMedium (Bandwidth limited)\nLow (~1/25th of photons)\n\n\nField of View\nLarge (Standard Lenses)\nSmall (Angle Sensitive)\nLarge\n\n\nFabrication\nRobust (Micron-scale features)\nDifficult (Nanometer tolerance)\nComplex (Multi-layer pigment)"
   },
   {
     "objectID": "lumos_solution.html#the-result-the-diffractogram",
     "href": "lumos_solution.html#the-result-the-diffractogram",
     "title": "The Lumos Hardware",
     "section": "The Result: The Diffractogram",
-    "text": "The Result: The Diffractogram\nThe output of this hardware is not a heavy 3D data cube, nor is it a simple RGB image. It is a Diffractogram—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.\nThis signal is the key to our unique approach to spectral imaging.\nSee how we decode the light →"
+    "text": "The Result: The Diffractogram\nThe output of our system is not a large 3D data cube as most hyperspectral systems do. It is a Diffractogram—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.\nThis signal is the key to our unique approach to spectral imaging.\nSee how we decode the light →"
   },
   {
     "objectID": "why_spectral_imaging.html",
