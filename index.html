@@ -174,23 +174,23 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./why_spectral_imaging.html"> 
-<span class="menu-text">Why Spectral Imaging?</span></a>
+<span class="menu-text">Why Spectral?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./barriers_to_HSI_adoption.html"> 
-<span class="menu-text">Barriers to Wider Adoption</span></a>
+<span class="menu-text">The Barriers</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./lumos_solution.html"> 
-<span class="menu-text">The Lumos Solution</span></a>
+<span class="menu-text">Lumos Hardware</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
-<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+    <a class="nav-link" href="./lumos_algorithms.html"> 
+<span class="menu-text">Lumos Algorithms</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./validation_and_examples.html"> 
-<span class="menu-text">Validation and Examples</span></a>
+<span class="menu-text">Demos &amp; Validation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about_us.html"> 
@@ -216,84 +216,137 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="hero-section">
-<!-- add lumos_artwork.png -->
-<p><img src="assets/images/lumos_artwork.jpg" alt="Lumos Artwork" class="hero-image" style="width: 70%;"></p>
-<section id="democratizing-spectral-intelligence" class="level1">
-<h1>Democratizing Spectral Intelligence</h1>
+<div class="hero-section text-center">
+<p><img src="assets/images/lumos_artwork.jpg" alt="Lumos Artwork" class="hero-image" style="width: 80%; max-width: 1000px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+<section id="the-end-of-the-rgb-era" class="level1">
+<h1>The End of the RGB Era</h1>
 <p class="lead">
-Lumos Imaging replaces complex optical assemblies with a <strong>Hardware-Software Co-Design</strong>. We combine diffractive nanophotonics with inverse algorithms to democratize access to spectral intelligence.
+<strong>High Definition. Low Cost. Snapshot.</strong><br>Historically, you could only pick two. Lumos delivers all three.<br>We democratize access to material intelligence by combining nanophotonics with physics-aware AI.
 </p>
 </section>
 </div>
+<!-- THE VALUE PROP: 3-Column Grid -->
+<div class="bg-light py-5 my-4 rounded">
 <div class="container">
-<p class="lead">
-Lumos Imaging replaces complex optical assemblies with a <strong>Hardware-Software Co-Design</strong>. We combine diffractive nanophotonics with inverse algorithms to democratize access to spectral intelligence.
-</p>
-</div>
-<div class="container">
-<section id="the-engineering-problem-the-data-hardware-economics-paradox" class="level2">
-<h2 class="anchored" data-anchor-id="the-engineering-problem-the-data-hardware-economics-paradox">The Engineering Problem: The Data-Hardware-Economics Paradox</h2>
-<p>In the field of optical sensing, there has historically been a zero-sum trade-off between <strong>Information Density</strong>, <strong>System Scalability</strong>, and <strong>Economic Viability</strong>.</p>
-<ul>
-<li><strong>RGB Sensors</strong> are highly scalable (low cost, high speed, robust) and economically viable but suffer from low information density (<span class="interactive-term" data-definition="Metamerism: The phenomenon where different spectral compositions appear identical to the human eye or RGB sensors under specific lighting.">metamerism</span>, <span class="interactive-term" data-definition="Chemical specificity: The ability to identify or differentiate between specific chemical compounds based on their unique spectral signatures.">chemical specificity</span>).</li>
-<li><strong>Hyperspectral Imagers (HSI)</strong> offer high information density (<span class="interactive-term" data-definition="Chemical specificity: The ability to identify or differentiate between specific chemical compounds based on their unique spectral signatures.">chemical specificity</span>) but suffer from poor scalability (mechanical fragility, massive data bandwidth) and low economic viability (high cost).</li>
-</ul>
-<p>As industries move toward <strong>Autonomous Sensing</strong>, <strong>Satellite Constellations</strong>, and <strong>Cloud Analytics</strong>, this three-way trade-off has become a critical bottleneck. Systems require the chemical discrimination of HSI but demand the form factor, data efficiency, and cost-effectiveness of RGB.</p>
+<div class="grid gap-4">
+<section id="see-chemistry-not-just-color" class="level3 g-col-12 g-col-md-4">
+<h3 class="anchored" data-anchor-id="see-chemistry-not-just-color">👁️ See Chemistry, Not Just Color</h3>
+<p>Standard cameras are blind to the real world. They compress infinite complexity into three broad channels (Red, Green, Blue).</p>
+<p><strong>Lumos sees the chemistry.</strong> By resolving material composition, moisture, and biological stress invisible to the naked eye, we allow machines to distinguish between healthy tissue and tumors, or real fruit and plastic replicas.</p>
 </section>
-<section id="the-lumos-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="the-lumos-architecture">The Lumos Architecture</h2>
-<p>Lumos Imaging addresses this paradox through <strong>Computational Imaging</strong>. Instead of relying solely on complex glass optics to separate light, we utilize a hybrid approach that distributes the workload between nanophotonic hardware and algorithmic software.</p>
-<p>Our core innovation is the <strong>Diffractive Filter Array (DFA)</strong>—a passive, transparent optical element that encodes spectral information into the spatial domain. This allows us to convert standard monochrome sensors (CMOS or InGaAs) into high-definition snapshot hyperspectral cameras.</p>
-<section id="key-architectural-advantages" class="level3">
-<h3 class="anchored" data-anchor-id="key-architectural-advantages">Key Architectural Advantages</h3>
-<ol type="1">
-<li><strong>Solid-State Physics:</strong> We replace prisms, gratings, and moving filter wheels with a single wafer-level optic. This eliminates mechanical failure modes and drastically reduces unit cost.</li>
-<li><strong>Optical Compression:</strong> By encoding spectral data into a 2D “Diffractogram” rather than a 3D data cube, we achieve native compression at the optical level, reducing data volume by orders of magnitude.</li>
-<li><strong>Snapshot Acquisition:</strong> Unlike push-broom scanners that require relative motion, the Lumos architecture captures the full spatial-spectral field in a single integration period, making it immune to vibration and motion artifacts.</li>
-</ol>
+<section id="answers-not-terabytes" class="level3 g-col-12 g-col-md-4">
+<h3 class="anchored" data-anchor-id="answers-not-terabytes">🚀 Answers, Not Terabytes</h3>
+<p>Why capture a 50GB data cube just to answer a “Yes/No” question? Traditional spectral cameras generate unmanageable mountains of data that clog pipelines. <strong>We solve this at the source.</strong> We capture <strong>optically compressed signals</strong> that can reduce bandwidth by ~50x, enabling real-time answers at the edge or on-demand processing from the cloud. Ideal for many modern applications.</p>
 </section>
-<div class="grid mt-5">
-<section id="why-spectral-imaging" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="why-spectral-imaging"><a href="./why_spectral_imaging.html">Why Spectral Imaging? →</a></h3>
-<p>Understanding the limitations of RGB sensors (Metamerism) and the hidden data in the spectrum.</p>
-</section>
-<section id="barriers-to-spectral-imaging" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="barriers-to-spectral-imaging"><a href="./barriers_to_HSI_adoption.html">Barriers to Spectral Imaging →</a></h3>
-<p>Why traditional HSI has failed to scale: Cost, Complexity, and Bandwidth bottlenecks.</p>
-</section>
-<section id="the-lumos-solution" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="the-lumos-solution"><a href="./lumos_solution.html">The Lumos Solution →</a></h3>
-<p>Hardware-Software Co-Design: The Diffractive Filter Array (DFA) and computational encoding.</p>
-</section>
-<section id="data-efficiency" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="data-efficiency"><a href="./reconstruction_and_direct_inference.html">Data Efficiency →</a></h3>
-<p>Multispectral Reconstruction and Direct Inference pipelines for cloud and edge applications.</p>
-</section>
-<section id="validation-examples" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="validation-examples"><a href="./validation_and_examples.html">Validation &amp; Examples →</a></h3>
-<p>Experimental results, video demonstrations, and scientific publications.</p>
-</section>
-<section id="about-us" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="about-us"><a href="./about_us.html">About Us →</a></h3>
-<p>Our Team, Vision, and Patent Portfolio.</p>
+<section id="true-hd-at-consumer-scale" class="level3 g-col-12 g-col-md-4">
+<h3 class="anchored" data-anchor-id="true-hd-at-consumer-scale">📉 True HD at Consumer Scale</h3>
+<p>Snapshot spectral cameras have historically been low-resolution (often VGA) and prohibitively expensive ($20k+). <strong>We break this barrier.</strong> By replacing complex glass optical trains with a single wafer-level chip on a standard CMOS sensor, we deliver <strong>1 Megapixel</strong> spectral resolution at semiconductor economies of scale.</p>
 </section>
 </div>
+</div>
+</div>
+<!-- THE TEASER: Calculator -->
+<div class="container py-4">
+<section id="the-data-bottleneck" class="level2">
+<h2 class="anchored" data-anchor-id="the-data-bottleneck">The Data Bottleneck</h2>
+<p>Hyperspectral imaging has long been trapped by the “Dimensionality Curse.” See for yourself how quickly raw data becomes unmanageable—and how Lumos solves it.</p>
+<div class="card shadow-sm mb-5">
+    <div class="card-body p-4">
+        <div class="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between mb-4 gap-3">
+            <h3 class="card-title h5 fw-bold mb-0 text-nowrap anchored">Data Explosion Calculator</h3>
+            
+            <div class="d-flex align-items-center gap-2">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text">Image Resolution</span>
+                    <select id="side-length" class="form-select" style="max-width: 150px;">
+                        <option value="128">128 x 128 px</option>
+                        <option value="256">256 x 256 px</option>
+                        <option value="512" selected="">512 x 512 px</option>
+                        <option value="1024">1024 x 1024 px</option>
+                    </select>
+                </div>
+                
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text">Video Duration</span>
+                    <select id="duration" class="form-select" style="max-width: 150px;">
+                        <option value="0.5">30 Seconds</option>
+                        <option value="1" selected="">1 Minute</option>
+                        <option value="5">5 Minutes</option>
+                        <option value="30">30 Minutes</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            
+<table id="data-table" class="table table-hover align-middle caption-top">
+<thead class="table-light">
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="width: 25%">Format</th>
+<th class="text-center" data-quarto-table-cell-role="th">Channels in image</th>
+<th class="text-center" data-quarto-table-cell-role="th">Spectral Bands</th>
+<th class="text-center" data-quarto-table-cell-role="th">Bits per pixel</th>
+<th data-quarto-table-cell-role="th" style="width: 20%">Relative Size</th>
+<th class="text-end" data-quarto-table-cell-role="th">Single Frame</th>
+<th class="text-end" data-quarto-table-cell-role="th">Video Stream</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+        </div>
+        <p class="small text-muted mt-2">
+            * <strong>Note on Lumos Bands:</strong> Unlike traditional sensors that capture specific, pre-defined wavebands (which increases data size linearly), Lumos captures the <em>entire continuous light field</em> compressed into a single 16-bit diffractogram. We do not capture "bands"; we capture the physics of light itself. Any number of bands can be mathematically reconstructed, if desired, from this single frame later, meaning our raw data footprint remains constant regardless of spectral resolution. However, we have shown that the intrinsic dimensionality of the spectral space is at least 25. 
+        </p>
+    </div>
+</div>
+
+<script src="assets/js/data_calculator.js"></script>
+</section>
+<section id="choose-your-journey" class="level2">
+<h2 class="anchored" data-anchor-id="choose-your-journey">Choose Your Journey</h2>
+<div class="grid gap-4">
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100 border-0 shadow-sm p-4 text-center">
+<div class="mb-3" style="font-size: 3rem;">
+🌈
+</div>
+<section id="new-to-spectral-imaging" class="level3">
+<h3 class="anchored" data-anchor-id="new-to-spectral-imaging">New to Spectral Imaging?</h3>
+<p>Discover how the “Chemistry of Light” is revolutionizing healthcare, agriculture, and robotics.</p>
+<p><a href="./lumos_algorithms.html" class="btn btn-outline-primary mt-3">Explore the Power of Light →</a></p>
 </section>
 </div>
-<script>
-// Global handler for interactive terms
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('interactive-term')) {
-        e.target.classList.toggle('active');
-    } else {
-        // Close all tooltips if clicking outside
-        document.querySelectorAll('.interactive-term.active').forEach(el => {
-            el.classList.remove('active');
-        });
-    }
-});
-</script>
+</div>
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100 border-0 shadow-sm p-4 text-center">
+<div class="mb-3" style="font-size: 3rem;">
+🚧
+</div>
+<section id="why-hasnt-it-scaled" class="level3">
+<h3 class="anchored" data-anchor-id="why-hasnt-it-scaled">Why hasn’t it scaled?</h3>
+<p>Learn about the three engineering bottlenecks—Cost, Mechanics, and Data—that have kept HSI in the lab.</p>
+<p><a href="./barriers_to_HSI_adoption.html" class="btn btn-outline-primary mt-3">Understand the Barriers →</a></p>
+</section>
+</div>
+</div>
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100 border-0 shadow-sm p-4 text-center">
+<div class="mb-3" style="font-size: 3rem;">
+💡
+</div>
+<section id="the-lumos-solution" class="level3">
+<h3 class="anchored" data-anchor-id="the-lumos-solution">The Lumos Solution</h3>
+<p>See how we combine Nanofabrication and Computational Imaging to break the Iron Triangle.</p>
+<p><a href="./lumos_solution.html" class="btn btn-outline-primary mt-3">Discover the Tech →</a></p>
+</section>
+</div>
+</div>
+</div>
+</section>
+</div>
 
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Barriers to Wider Adoption – Lumos Imaging</title>
+<title>Current Barriers to Wider Adoption of Spectral Imaging – Lumos Imaging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -203,23 +203,23 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./why_spectral_imaging.html"> 
-<span class="menu-text">Why Spectral Imaging?</span></a>
+<span class="menu-text">Why Spectral?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./barriers_to_HSI_adoption.html" aria-current="page"> 
-<span class="menu-text">Barriers to Wider Adoption</span></a>
+<span class="menu-text">The Barriers</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./lumos_solution.html"> 
-<span class="menu-text">The Lumos Solution</span></a>
+<span class="menu-text">Lumos Hardware</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
-<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+    <a class="nav-link" href="./lumos_algorithms.html"> 
+<span class="menu-text">Lumos Algorithms</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./validation_and_examples.html"> 
-<span class="menu-text">Validation and Examples</span></a>
+<span class="menu-text">Demos &amp; Validation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about_us.html"> 
@@ -252,7 +252,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Barriers to Wider Adoption</h1>
+<h1 class="title">Current Barriers to Wider Adoption of Spectral Imaging</h1>
 <p class="subtitle lead">The HSI Bottleneck &amp; Engineering Constraints</p>
 </div>
 
@@ -270,30 +270,33 @@ window.Quarto = {
 </header>
 
 
-<p>While the utility of hyperspectral data is well-established in the laboratory, three fundamental engineering barriers have prevented its widespread adoption in deployed environments. These barriers are <strong>Cost</strong>, <strong>Mechanics</strong>, and <strong>Data</strong>.</p>
 <section id="the-optical-complexity-barrier-cost" class="level2">
 <h2 class="anchored" data-anchor-id="the-optical-complexity-barrier-cost">1. The Optical Complexity Barrier (Cost)</h2>
-<p><img src="assets/images/icon_barrier_cost.png" class="section-icon-large-round img-fluid"> Traditional high-performance hyperspectral cameras (such as Offner or Dyson spectrometers) rely on complex optical trains.</p>
+<p><img src="assets/images/icon_barrier_cost.png" class="section-icon-large-round img-fluid"> Traditional high-performance hyperspectral cameras rely on complex optical trains. This translates into high costs in hardware: depending on the specs, the cameras can range typically from $30k to $150k USD!</p>
 <ul>
 <li><strong>Components:</strong> These systems require precision slits, collimating mirrors, diffraction gratings, and re-focusing optics.</li>
 <li><strong>Alignment:</strong> The optical path requires sub-micron alignment stability across a wide temperature range.</li>
 <li><strong>Consequence:</strong> This complexity drives high unit costs ($20k–$150k USD) and makes miniaturization extremely difficult. It effectively limits HSI to high-budget research labs or military assets.</li>
 </ul>
-<p><strong>Lumos Solution:</strong> We replace the entire optical train with a single, wafer-level diffractive chip. By leveraging semiconductor manufacturing techniques (Nano-Imprint Lithography), we drive the cost structure down to a level compatible with mass-market sensors.</p>
+<div class="lumos-solution">
+<p><strong>Lumos Solution:</strong> We replace complex optical trains with a single, nanofabricated diffractive optical element placed on top of an inexpensive, off-the-shelf CMOS camera. By leveraging semiconductor manufacturing techniques (Nano-Imprint Lithography), we drive the cost structure down to a level compatible with mass-market sensors.</p>
+</div>
 </section>
 <section id="the-acquisition-constraint-mechanics" class="level2">
 <h2 class="anchored" data-anchor-id="the-acquisition-constraint-mechanics">2. The Acquisition Constraint (Mechanics)</h2>
 <p><img src="assets/images/icon_barrier_linescan.png" class="section-icon-large-round img-fluid"> The dominant architecture for high-resolution HSI is the <strong>Push-broom</strong> (Line-scan) sensor.</p>
 <ul>
-<li><strong>Mechanism:</strong> The sensor captures one spatial line (<span class="math inline">\(\lambda-x\)</span>) at a time. To build a 2D image (<span class="math inline">\(x, y, \lambda\)</span>), the sensor must move relative to the scene (or vice versa) in a perfectly linear fashion.</li>
+<li><strong>Mechanism:</strong> The sensor captures one line at a time. To build a 3D spectral volume (<span class="math inline">\(x, y, \lambda\)</span>), the image must be stitched afterwards.</li>
 <li><strong>Failure Modes:</strong>
 <ul>
-<li><strong>Vibration:</strong> Any unmodeled vibration (e.g., from a drone or vehicle) results in “wobbly” images that are geometrically distorted.</li>
+<li><strong>Vibration:</strong> Any unmodeled vibration (e.g., from a drone or vehicle) results in “wobbly” images that are geometrically distorted. Rectification can be a challenge.</li>
 <li><strong>Dynamic Scenes:</strong> If objects in the scene move during the scan, they become sheared or artifacted.</li>
 </ul></li>
 <li><strong>Consequence:</strong> Push-broom sensors are notoriously difficult to deploy on UAVs, handheld devices, or in dynamic industrial settings.</li>
 </ul>
+<div class="lumos-solution">
 <p><strong>Lumos Solution:</strong> We utilize a <strong>Snapshot</strong> architecture. We capture the full spatial-spectral volume <span class="math inline">\((x, y, \lambda)\)</span> in a single integration period. This makes the system immune to vibration and motion artifacts, treating spectral video just like standard video.</p>
+</div>
 </section>
 <section id="the-dimensionality-curse-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-dimensionality-curse-data">3. The Dimensionality Curse (Data)</h2>
@@ -356,7 +359,10 @@ window.Quarto = {
 <li><strong>Edge Compute:</strong> Embedded processors cannot reconstruct and analyze heavy 3D data cubes in real-time (60 FPS).</li>
 <li><strong>Archival:</strong> Storing petabytes of raw hyperspectral cubes for historical analysis is very expensive.</li>
 </ul>
-<p><strong>Lumos Solution:</strong> <strong>Analog Optical Compression.</strong> Instead of digitizing redundant data, our optics compress the signal <em>before</em> it hits the sensor. The Lumos Diffractogram is a 2D grayscale image (~1.3 MB) that encodes the full spectral context. This represents a <strong>~50x reduction</strong> in raw data volume, enabling efficient transmission from space, cloud archival, and real-time processing.</p>
+<div class="lumos-solution">
+<p><strong>Lumos Solution:</strong> <strong>Analog Optical Compression.</strong> Spectral “cubes” are known to be highly redundant and users of these data often throw away most of it. The Lumos Camera captures instead a lean signal that encodes spatial and spectral content in a very information-dense manner. Not to be confused with software compression, this represents a massive reduction in raw data volume, enabling the use in modern machine learning pipelines, efficient transmission from space, cloud archival and retrieval, and real-time processing for edge AI applications. Even HD video streams are possible, whereas traditional approaches are still unfeasible.</p>
+</div>
+<p><a href="./lumos_solution.html" class="btn btn-primary btn-lg mt-3"><strong>Learn more about the Lumos Solution</strong></a></p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Hardware-Software Co-Design – Lumos Imaging</title>
+<title>The Lumos Hardware – Lumos Imaging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,8 +41,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-ef9176d5b3a494f395673aa65efdea21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -205,23 +203,23 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./why_spectral_imaging.html"> 
-<span class="menu-text">Why Spectral Imaging?</span></a>
+<span class="menu-text">Why Spectral?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./barriers_to_HSI_adoption.html"> 
-<span class="menu-text">Barriers to Wider Adoption</span></a>
+<span class="menu-text">The Barriers</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./lumos_solution.html" aria-current="page"> 
-<span class="menu-text">The Lumos Solution</span></a>
+<span class="menu-text">Lumos Hardware</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
-<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+    <a class="nav-link" href="./lumos_algorithms.html"> 
+<span class="menu-text">Lumos Algorithms</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./validation_and_examples.html"> 
-<span class="menu-text">Validation and Examples</span></a>
+<span class="menu-text">Demos &amp; Validation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about_us.html"> 
@@ -243,18 +241,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-hardware-stack" id="toc-the-hardware-stack" class="nav-link active" data-scroll-target="#the-hardware-stack">1. The Hardware Stack</a>
-  <ul class="collapse">
-  <li><a href="#the-diffractive-filter-array-dfa" id="toc-the-diffractive-filter-array-dfa" class="nav-link" data-scroll-target="#the-diffractive-filter-array-dfa">The Diffractive Filter Array (DFA)</a></li>
-  </ul></li>
-  <li><a href="#the-physics-of-encoding-the-diffractogram" id="toc-the-physics-of-encoding-the-diffractogram" class="nav-link" data-scroll-target="#the-physics-of-encoding-the-diffractogram">2. The Physics of Encoding (The Diffractogram)</a>
-  <ul class="collapse">
-  <li><a href="#advantages-of-the-diffractogram" id="toc-advantages-of-the-diffractogram" class="nav-link" data-scroll-target="#advantages-of-the-diffractogram">Advantages of the Diffractogram</a></li>
-  <li><a href="#video-demonstration-encoding-in-motion" id="toc-video-demonstration-encoding-in-motion" class="nav-link" data-scroll-target="#video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</a></li>
-  </ul></li>
-  <li><a href="#calibration" id="toc-calibration" class="nav-link" data-scroll-target="#calibration">3. Calibration</a></li>
-  <li><a href="#system-comparison" id="toc-system-comparison" class="nav-link" data-scroll-target="#system-comparison">4. System Comparison</a></li>
-  <li><a href="#manufacturing-scalability" id="toc-manufacturing-scalability" class="nav-link" data-scroll-target="#manufacturing-scalability">5. Manufacturing &amp; Scalability</a></li>
+  <li><a href="#the-hardware-software-co-design" id="toc-the-hardware-software-co-design" class="nav-link active" data-scroll-target="#the-hardware-software-co-design">The Hardware-Software Co-Design</a></li>
+  <li><a href="#system-architecture-a-drop-in-revolution" id="toc-system-architecture-a-drop-in-revolution" class="nav-link" data-scroll-target="#system-architecture-a-drop-in-revolution">System Architecture: A Drop-In Revolution</a></li>
+  <li><a href="#innovative-wafer-level-nanofabrication" id="toc-innovative-wafer-level-nanofabrication" class="nav-link" data-scroll-target="#innovative-wafer-level-nanofabrication">Innovative Wafer-Level Nanofabrication</a></li>
+  <li><a href="#breaking-the-resolution-limit-true-hd" id="toc-breaking-the-resolution-limit-true-hd" class="nav-link" data-scroll-target="#breaking-the-resolution-limit-true-hd">Breaking the Resolution Limit (True HD)</a></li>
+  <li><a href="#comparing-the-architectures" id="toc-comparing-the-architectures" class="nav-link" data-scroll-target="#comparing-the-architectures">Comparing the Architectures</a></li>
+  <li><a href="#the-result-the-diffractogram" id="toc-the-result-the-diffractogram" class="nav-link" data-scroll-target="#the-result-the-diffractogram">The Result: The Diffractogram</a></li>
   </ul>
 </nav>
     </div>
@@ -263,8 +255,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hardware-Software Co-Design</h1>
-<p class="subtitle lead">Diffractive Optical Element + Computational Imaging</p>
+<h1 class="title">The Lumos Hardware</h1>
+<p class="subtitle lead">Replacing Complex Optics with Nanophotonics</p>
 </div>
 
 
@@ -281,122 +273,60 @@ window.Quarto = {
 </header>
 
 
-<p>Lumos employs <strong>Computational Imaging</strong>. We shift the complexity from the hardware (optics) to the software (algorithms). By coupling a specialized diffractive element with rigorous inverse-problem solvers, we can recover high-fidelity spatial-spectral information using simple, robust hardware.</p>
-<section id="the-hardware-stack" class="level2">
-<h2 class="anchored" data-anchor-id="the-hardware-stack">1. The Hardware Stack</h2>
-<p>The physical architecture is a “Drop-In” replacement for standard machine vision cameras. It consists of three layers, designed for modularity and scalability:</p>
+<section id="the-hardware-software-co-design" class="level2">
+<h2 class="anchored" data-anchor-id="the-hardware-software-co-design">The Hardware-Software Co-Design</h2>
+<p>To break the barriers of cost and complexity, we didn’t just shrink a traditional spectrometer. We reimagined the physics of imaging.</p>
+<p>Lumos employs a <strong>Computational Imaging</strong> approach. We shift the burden of complexity from bulky hardware (prisms, mirrors, moving parts) to sophisticated software. This allows us to use simple, robust, and scalable components to achieve performance that was previously impossible at this price point.</p>
+<hr>
+</section>
+<section id="system-architecture-a-drop-in-revolution" class="level2">
+<h2 class="anchored" data-anchor-id="system-architecture-a-drop-in-revolution">System Architecture: A Drop-In Revolution</h2>
+<p>The Lumos camera looks, acts, and connects just like a standard machine vision camera. There are no slit-scanners, no heavy gimbals, and no fragile alignment mechanisms.</p>
+<p>The physical stack consists of three layers:</p>
 <ol type="1">
-<li><strong>Standard Lens:</strong> We utilize off-the-shelf refractive optics (C-Mount). The system is compatible with a wide range of focal lengths.</li>
-<li><strong>The DFA (Diffractive Filter Array):</strong> This is the core IP. It is a nanofabricated, transparent, phase-modulating optical element.</li>
-<li><strong>Standard Sensor:</strong> The system works with off-the-shelf monochrome sensors.
+<li><strong>Standard Optics:</strong> Compatible with off-the-shelf C-Mount lenses.</li>
+<li><strong>The Diffractive Filter Array (DFA):</strong> Our core IP. A transparent, nanofabricated optical element bonded directly to the sensor.</li>
+<li><strong>Commodity Sensors:</strong> We leverage the massive R&amp;D economies of the mobile phone and industrial sensor markets.
 <ul>
-<li><strong>Visible/NIR:</strong> Standard CMOS sensors (e.g., Sony IMX series).</li>
-<li><strong>SWIR:</strong> InGaAs sensors.</li>
+<li><strong>Vis-NIR:</strong> Standard high-resolution CMOS sensors (e.g., Sony IMX).</li>
+<li><strong>SWIR:</strong> InGaAs sensors for industrial sorting.</li>
 </ul></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/butterfly_dfa_sensor_with_diffractogram.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Figure 1: The Acquisition Hardware.</strong> Light from the object (e.g., a butterfly) passes through the transparent DFA placed ~50µm from the sensor. The DFA diffracts the light, creating a wavelength-dependent interference pattern on the sensor pixels.</figcaption>
+<figcaption><strong>The Optical Architecture.</strong> Light from the scene passes through the transparent DFA placed ~50µm from the sensor pixels. The DFA creates a micro-scale diffraction pattern that encodes spectral data into the image.</figcaption>
 </figure>
 </div>
-<section id="the-diffractive-filter-array-dfa" class="level3">
-<h3 class="anchored" data-anchor-id="the-diffractive-filter-array-dfa">The Diffractive Filter Array (DFA)</h3>
-<p>The DFA is fundamentally different from the Bayer filters found in consumer cameras.</p>
-<ul>
-<li><strong>Phase Modulation:</strong> Bayer filters work by <strong>Amplitude Modulation</strong> (absorption)—they block photons that don’t match the color filter. This wastes ~66% of the light. The Lumos DFA works by <strong>Phase Modulation</strong>—it delays the light to create diffraction patterns. It is transparent and transmits <span class="math inline">\(\ge 90\%\)</span> of the incident photons.</li>
-<li><strong>Fabrication:</strong> The DFA is a surface-relief microstructure fabricated using <strong>Nano-Imprint Lithography (NIL)</strong>. This is a wafer-level process, allowing thousands of optics to be stamped simultaneously, similar to semiconductor manufacturing.</li>
-<li><strong>Integration:</strong> The DFA is bonded in close proximity (<span class="math inline">\(\sim 50\mu m\)</span>) to the sensor pixels. This specific gap distance is optimized to balance spatial resolution with spectral dispersion.</li>
-</ul>
+<hr>
 </section>
-</section>
-<section id="the-physics-of-encoding-the-diffractogram" class="level2">
-<h2 class="anchored" data-anchor-id="the-physics-of-encoding-the-diffractogram">2. The Physics of Encoding (The Diffractogram)</h2>
-<p><img src="assets/images/butterfly_diffractogram.png" class="section-icon-large-square img-fluid"> When light from the scene passes through the DFA, it is diffracted. The angle at which light bends is strictly determined by its wavelength. Blue light bends at a shallow angle; Red light bends at a steep angle.</p>
-<p>Instead of forming a direct “sharp” image, the system forms a <strong>Diffractogram</strong>. This is a 12-bit grayscale image where spectral information is encoded into local spatial interference patterns.</p>
-<ul>
-<li><strong>Information Content:</strong> The patterned <em>blur</em> is actually a deterministic feature which encodes the spatial and spectral information in the scene.</li>
-</ul>
-<section id="advantages-of-the-diffractogram" class="level3">
-<h3 class="anchored" data-anchor-id="advantages-of-the-diffractogram">Advantages of the Diffractogram</h3>
-<ul>
-<li><strong>Data Efficiency:</strong> The Diffractogram is a single 2D array. It is significantly smaller (10x-100x) than the 3D data cube it represents.</li>
-<li><strong>Snapshot Acquisition:</strong> Because the encoding happens optically and instantaneously, the system captures the full spatial-spectral volume in a single integration period.</li>
-</ul>
-<div class="card shadow-sm mb-5">
-    <div class="card-body p-4">
-        <h3 class="card-title h4 fw-bold anchored">Data Explosion Calculator</h3>
-        <p class="card-text text-muted mb-4">See how quickly hyperspectral data scales compared to Lumos.</p>
-        
-        <div class="row g-3 bg-light p-3 rounded mb-4">
-            <div class="col-md-6">
-                <label for="side-length" class="form-label text-uppercase fw-bold small text-secondary">Resolution (Side Length)</label>
-                <select id="side-length" class="form-select">
-                    <option value="128">128 x 128 px</option>
-                    <option value="256">256 x 256 px</option>
-                    <option value="512" selected="">512 x 512 px</option>
-                    <option value="1024">1024 x 1024 px</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="duration" class="form-label text-uppercase fw-bold small text-secondary">Video Duration</label>
-                <select id="duration" class="form-select">
-                    <option value="0.5">30 Seconds</option>
-                    <option value="1" selected="">1 Minute</option>
-                    <option value="5">5 Minutes</option>
-                    <option value="30">30 Minutes</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="table-responsive">
-            
-<table id="data-table" class="table table-hover align-middle caption-top">
-<thead class="table-light">
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="width: 25%">Format</th>
-<th class="text-center" data-quarto-table-cell-role="th">Channels</th>
-<th class="text-center" data-quarto-table-cell-role="th">Bits per pixel</th>
-<th data-quarto-table-cell-role="th" style="width: 20%">Relative Size</th>
-<th class="text-end" data-quarto-table-cell-role="th">Single Frame</th>
-<th class="text-end" data-quarto-table-cell-role="th">Video Stream</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-        </div>
-    </div>
+<section id="innovative-wafer-level-nanofabrication" class="level2">
+<h2 class="anchored" data-anchor-id="innovative-wafer-level-nanofabrication">Innovative Wafer-Level Nanofabrication</h2>
+<p>Traditional hyperspectral cameras are expensive because they are built like watches: precision glass components, hand-assembled and aligned.</p>
+<p>Lumos cameras are built like microchips.</p>
+<p>We utilize <strong>Nano-Imprint Lithography (NIL)</strong> to fabricate the Diffractive Filter Arrays. * <strong>Scalability:</strong> We print optics on standard wafers. Thousands of DFAs are produced in a single step. * <strong>Cost:</strong> This semiconductor-based approach drives the unit cost down by orders of magnitude compared to traditional interference filters or prisms. * <strong>Robustness:</strong> The DFA is a solid-state surface relief structure. It is immune to vibration and thermal drift.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/dfa_microscopic_photo.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Microscopic view of the DFA.</strong> These micro-scale ridges diffract light based on wavelength, encoding the spectrum into the spatial domain.</figcaption>
+</figure>
 </div>
-
-<script src="assets/js/data_calculator.js"></script>
+<hr>
 </section>
-<section id="video-demonstration-encoding-in-motion" class="level3">
-<h3 class="anchored" data-anchor-id="video-demonstration-encoding-in-motion">Video Demonstration: Encoding in Motion</h3>
-<p>The following video illustrates the encoding process for a dynamic scene (a butterfly).</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="assets/videos/butterfly.mp4"></video></div>
-<p><strong>Note on Frame Sizes &amp; Data Volume:</strong></p>
+<section id="breaking-the-resolution-limit-true-hd" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-the-resolution-limit-true-hd">Breaking the Resolution Limit (True HD)</h2>
+<p>One of the greatest compromises in snapshot spectral imaging has always been resolution. Traditional “Mosaic” cameras (using pixel-level filters) trade spatial resolution for spectral bands, often resulting in grainy, low-fidelity images (e.g., <span class="math inline">\(400 \times 400\)</span> pixels).</p>
+<p><strong>Lumos delivers True High Definition.</strong></p>
+<p>Because our diffractive encoding is continuous and distributed, we preserve high-frequency spatial details that other systems lose. As validated in our recent <em>Optica</em> publication, we achieve:</p>
 <ul>
-<li><strong>Hyperspectral (Top Right):</strong> The full 3D spectral cube is massive. In the video, you see the “unfolded” bands. Storing or transmitting this raw stream requires gigabits per second.</li>
-<li><strong>RGB (Top Left):</strong> The standard color image we are used to. Low bandwidth, but low spectral information.</li>
-<li><strong>Diffractogram (Bottom):</strong> This is the actual raw data captured by the Lumos sensor.
-<ul>
-<li><strong>Resolution:</strong> It is a single monochrome frame, identical in pixel count to a standard b/w camera.</li>
-<li><strong>Information Density:</strong> Despite being just one frame (like the RGB or smaller), it encodes the <em>entire</em> spectral complexity of the scene shown in the Hyperspectral view.</li>
-<li><strong>Compression:</strong> This illustrates the massive optical compression: we capture the complexity of the top-right video using the data budget of the bottom video.</li>
-</ul></li>
+<li><strong>~1 Megapixel Resolution:</strong> <span class="math inline">\(1304 \times 744\)</span> spatial pixels.</li>
+<li><strong>Full Spectral Context:</strong> 25+ bands across the Vis-NIR range.</li>
 </ul>
+<p>This allows Lumos sensors to be used in applications requiring fine detail, such as detecting small defects on a production line or identifying features from high-altitude drones.</p>
+<hr>
 </section>
-</section>
-<section id="calibration" class="level2">
-<h2 class="anchored" data-anchor-id="calibration">3. Calibration</h2>
-<p>To decode the Diffractogram, we must perfectly characterize the optical system. We perform a one-time <strong>Point Spread Function (PSF) Calibration</strong>.</p>
-<p>We measure the system’s response to point sources at various wavelengths and spatial positions. This builds the <strong>Forward Model</strong>—a rigorous mathematical description of exactly how the optics transform a spectral scene into a Diffractogram. This calibration step allows us to treat the camera not just as an imager, but as a precise linear measurement operator.</p>
-</section>
-<section id="system-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="system-comparison">4. System Comparison</h2>
-<p>We position Lumos not merely as a cost-reduction play, but as a fundamentally different architectural approach to spectral acquisition suited for modern data pipelines.</p>
+<section id="comparing-the-architectures" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-the-architectures">Comparing the Architectures</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -407,66 +337,45 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Traditional HSI (Push-broom)</th>
-<th style="text-align: left;">Snapshot Mosaic (Fabry-Pérot)</th>
-<th style="text-align: left;">Lumos Imaging (Diffractive)</th>
+<th style="text-align: left;">Traditional Push-broom</th>
+<th style="text-align: left;">Snapshot Mosaic</th>
+<th style="text-align: left;">Lumos Diffractive</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Acquisition Mode</strong></td>
-<td style="text-align: left;">Line-Scan (Requires precise motion)</td>
+<td style="text-align: left;"><strong>Mechanics</strong></td>
+<td style="text-align: left;"><strong>Line-Scan</strong> (Needs motion)</td>
 <td style="text-align: left;">Snapshot</td>
 <td style="text-align: left;"><strong>Snapshot</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Optical Efficiency</strong></td>
+<td style="text-align: left;"><strong>Resolution</strong></td>
+<td style="text-align: left;">High (Linear)</td>
+<td style="text-align: left;">Low (Spatial decimation)</td>
+<td style="text-align: left;"><strong>High (HD Reconstructed)</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Light Throughput</strong></td>
 <td style="text-align: left;">Low (Slit-limited)</td>
-<td style="text-align: left;">Low (Resonant/Absorptive)</td>
-<td style="text-align: left;"><strong>High</strong> (Transparent Phase Mask)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Angle Sensitivity</strong></td>
-<td style="text-align: left;">Low</td>
-<td style="text-align: left;">High (Blue shift at edges)</td>
-<td style="text-align: left;"><strong>Low</strong> (Wide FOV compatible)</td>
+<td style="text-align: left;">Low (Absorptive Filters)</td>
+<td style="text-align: left;"><strong>High (Transparent Phase Optic)</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Fabrication</strong></td>
-<td style="text-align: left;">Precision Assembly</td>
-<td style="text-align: left;">Multi-layer Deposition</td>
-<td style="text-align: left;"><strong>Single-Step Lithography</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Data Format</strong></td>
-<td style="text-align: left;">Raw Data Cube (Heavy)</td>
-<td style="text-align: left;">Raw Data Cube (Heavy)</td>
-<td style="text-align: left;"><strong>Encoded Diffractogram</strong> (Light)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Spectral Bands</strong></td>
-<td style="text-align: left;">Fixed by Hardware</td>
-<td style="text-align: left;">Fixed by Hardware</td>
-<td style="text-align: left;"><strong>Software-Defined</strong> (Post-Capture)</td>
+<td style="text-align: left;"><strong>Data Output</strong></td>
+<td style="text-align: left;">Massive Raw Cube</td>
+<td style="text-align: left;">Massive Raw Cube</td>
+<td style="text-align: left;"><strong>Compressed Diffractogram</strong></td>
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="manufacturing-scalability" class="level2">
-<h2 class="anchored" data-anchor-id="manufacturing-scalability">5. Manufacturing &amp; Scalability</h2>
-<p>A key differentiator of the Lumos approach is the fabrication method. Traditional spectral cameras require the assembly of discrete optical components (prisms, gratings, lenses) with tight mechanical tolerances. This manual assembly limits scalability.</p>
-<p>Lumos utilizes <strong>Nano-Imprint Lithography (NIL)</strong> to fabricate the Diffractive Filter Arrays (DFA).</p>
-<ul>
-<li><strong>Wafer-Level Optics:</strong> The DFAs are manufactured on standard 8-inch or 12-inch wafers. Thousands of optics are created in a single process step.</li>
-<li><strong>Robustness:</strong> The diffractive features are surface-relief structures on the order of micrometers. This scale makes them robust to minor fabrication errors, unlike metasurfaces which require nanometer-precision and are extremely sensitive to fabrication variance.</li>
-<li><strong>Cost Structure:</strong> This process allows the optics to be produced at volumes and costs comparable to standard consumer electronics components, enabling a path to ubiquity.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/dfa_microscopic_photo.png" class="img-fluid figure-img"></p>
-<figcaption><em>Microscope view of a fabricated DFA. The scale bar indicates the micro-scale features that diffract light.</em></figcaption>
-</figure>
-</div>
+<section id="the-result-the-diffractogram" class="level2">
+<h2 class="anchored" data-anchor-id="the-result-the-diffractogram">The Result: The Diffractogram</h2>
+<p>The output of this hardware is not a heavy 3D data cube, nor is it a simple RGB image. It is a <strong>Diffractogram</strong>—a raw, optically compressed signal that contains the full complexity of the scene in a highly efficient format.</p>
+<p>This signal is the key to our “Direct Inference” capabilities.</p>
+<p><a href="./lumos_algorithms.html" class="btn btn-primary btn-lg mt-3"><strong>See how we decode the light →</strong></a></p>
 
 
 </section>
@@ -873,7 +782,6 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

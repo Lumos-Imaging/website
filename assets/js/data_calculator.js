@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Reordered: Lumos first
     const scenarios = [
-        { name: "Lumos Diffractogram", bpp: 16, channels: 1, type: "uint16", isLumos: true },
-        { name: "RGB Standard", bpp: 8, channels: 3, type: "uint8" },
-        { name: "Hyperspectral (Low)", bpp: 16, channels: 25, type: "float16" },
-        { name: "Hyperspectral (Med)", bpp: 16, channels: 100, type: "float16" },
-        { name: "Hyperspectral (High)", bpp: 16, channels: 200, type: "float16" }
+        { name: "Lumos Diffractogram", bpp: 16, channels: 1, bands: "N/A*", type: "uint16", isLumos: true },
+        { name: "RGB Standard", bpp: 8, channels: 3, bands: "3", type: "uint8" },
+        { name: "Hyperspectral (Low)", bpp: 16, channels: 25, bands: "25", type: "float16" },
+        { name: "Hyperspectral (Med)", bpp: 16, channels: 100, bands: "100", type: "float16" },
+        { name: "Hyperspectral (High)", bpp: 16, channels: 200, bands: "200", type: "float16" }
     ];
 
     const lSelect = document.getElementById("side-length");
@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const tr = document.createElement("tr");
             if (r.isLumos) {
                 tr.classList.add("table-success");
+            } else {
+                tr.classList.add("table-danger");
             }
 
             // Calculate bar width (min 1% visible)
@@ -56,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <span class="fw-bold">${r.name}</span>
                 </td>
                 <td class="text-center">${r.channels}</td>
+                <td class="text-center">${r.bands}</td>
                 <td class="text-center">${r.bpp}-bit <span class="text-muted small">(${r.type})</span></td>
                 <td>
                     <div class="progress" style="height: 6px;">

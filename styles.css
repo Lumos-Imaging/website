@@ -375,3 +375,25 @@ h3 {
   font-weight: bold;
   /* Optional: make it pop a bit more */
 }
+
+/* Data Calculator Table Styling Override */
+#data-table tr.table-success,
+#data-table tr.table-success>td {
+  background-color: #e8f5e9 !important;
+}
+
+#data-table tr.table-danger,
+#data-table tr.table-danger>td {
+  background-color: #ffecec !important;
+}
+
+/* Custom Lumos Solution Box */
+.lumos-solution {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #007bff;
+}

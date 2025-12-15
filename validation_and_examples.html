@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Gallery of Experiments – Lumos Imaging</title>
+<title>Validation &amp; Demos – Lumos Imaging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,6 +143,35 @@ ul.task-list li input[type="checkbox"] {
   })(window, document, "clarity", "script", "uklxny5jsc");
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -174,23 +203,23 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./why_spectral_imaging.html"> 
-<span class="menu-text">Why Spectral Imaging?</span></a>
+<span class="menu-text">Why Spectral?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./barriers_to_HSI_adoption.html"> 
-<span class="menu-text">Barriers to Wider Adoption</span></a>
+<span class="menu-text">The Barriers</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./lumos_solution.html"> 
-<span class="menu-text">The Lumos Solution</span></a>
+<span class="menu-text">Lumos Hardware</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
-<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+    <a class="nav-link" href="./lumos_algorithms.html"> 
+<span class="menu-text">Lumos Algorithms</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./validation_and_examples.html" aria-current="page"> 
-<span class="menu-text">Validation and Examples</span></a>
+<span class="menu-text">Demos &amp; Validation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about_us.html"> 
@@ -212,14 +241,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#validated-performance-optica-2025" id="toc-validated-performance-optica-2025" class="nav-link active" data-scroll-target="#validated-performance-optica-2025">Validated Performance (Optica 2025)</a></li>
-  <li><a href="#industrial-quality-control-detecting-invisible-contaminants" id="toc-industrial-quality-control-detecting-invisible-contaminants" class="nav-link" data-scroll-target="#industrial-quality-control-detecting-invisible-contaminants">1. Industrial Quality Control: Detecting Invisible Contaminants</a></li>
-  <li><a href="#biomedical-imaging-label-free-tissue-classification" id="toc-biomedical-imaging-label-free-tissue-classification" class="nav-link" data-scroll-target="#biomedical-imaging-label-free-tissue-classification">2. Biomedical Imaging: Label-Free Tissue Classification</a></li>
-  <li><a href="#smart-agriculture-predicting-shelf-life" id="toc-smart-agriculture-predicting-shelf-life" class="nav-link" data-scroll-target="#smart-agriculture-predicting-shelf-life">3. Smart Agriculture: Predicting Shelf-Life</a></li>
-  <li><a href="#astronomy-simultaneous-multi-band-photometry" id="toc-astronomy-simultaneous-multi-band-photometry" class="nav-link" data-scroll-target="#astronomy-simultaneous-multi-band-photometry">4. Astronomy: Simultaneous Multi-Band Photometry</a></li>
-  <li><a href="#remote-sensing-on-orbit-intelligence" id="toc-remote-sensing-on-orbit-intelligence" class="nav-link" data-scroll-target="#remote-sensing-on-orbit-intelligence">5. Remote Sensing: “On-Orbit” Intelligence</a></li>
-  <li><a href="#dynamic-3d-analysis-the-rotating-avocado" id="toc-dynamic-3d-analysis-the-rotating-avocado" class="nav-link" data-scroll-target="#dynamic-3d-analysis-the-rotating-avocado">6. Dynamic 3D Analysis: The Rotating Avocado</a></li>
-  <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a></li>
+  <li><a href="#direct-inference-demonstrations" id="toc-direct-inference-demonstrations" class="nav-link active" data-scroll-target="#direct-inference-demonstrations">Direct Inference Demonstrations</a></li>
+  <li><a href="#applications-using-spectral-reconstructions-from-diffractogram-data" id="toc-applications-using-spectral-reconstructions-from-diffractogram-data" class="nav-link" data-scroll-target="#applications-using-spectral-reconstructions-from-diffractogram-data">Applications using Spectral Reconstructions from Diffractogram data</a></li>
+  <li><a href="#scientific-validation-optica-2025" id="toc-scientific-validation-optica-2025" class="nav-link" data-scroll-target="#scientific-validation-optica-2025">Scientific Validation (Optica 2025)</a></li>
   </ul>
 </nav>
     </div>
@@ -228,8 +252,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gallery of Experiments</h1>
-<p class="subtitle lead">Validation Experiments: From Lab to Real-World Applications</p>
+<h1 class="title">Validation &amp; Demos</h1>
+<p class="subtitle lead">From Lab to Field: Proven Performance</p>
 </div>
 
 
@@ -247,101 +271,51 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Our technology transforms standard cameras into high-definition spectral sensors. Below are validation experiments demonstrating how Lumos diffractograms capture invisible decision-making information across industrial, medical, agricultural, and scientific fields.</p>
-<section id="validated-performance-optica-2025" class="level2">
-<h2 class="anchored" data-anchor-id="validated-performance-optica-2025">Validated Performance (Optica 2025)</h2>
-<p>Our technology has been validated through rigorous peer-reviewed research, most notably in our 2025 <em>Optica</em> publication (“High-definition (HD) snapshot diffractive computational spectral imaging and inferencing”).</p>
+<p>Lumos technology is versatile. Depending on the application, we can optimize for <strong>Speed/Efficiency</strong> (Direct Inference) or <strong>Scientific Detail</strong> (Spectral Reconstruction). Explore the examples below to see both workflows in action.</p>
+<section id="direct-inference-demonstrations" class="level2">
+<h2 class="anchored" data-anchor-id="direct-inference-demonstrations">Direct Inference Demonstrations</h2>
+<p><strong>The Paradigm Shift: Answers, Not Cubes.</strong> In these examples, the system bypasses the heavy generation of 3D data cubes. Instead, algorithms extract the answer directly from the raw, compressed Diffractogram. This enables real-time performance on edge devices.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Industrial Sorting</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Agricultural Monitoring</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Orbital Edge AI</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>The Challenge:</strong> In manufacturing, contaminants often look identical to the product.</p>
+<p><strong>The Demo:</strong> We imaged a stream of mixed plastic pellets. Half were pure, half were “tainted” with a clear varnish invisible to the naked eye.</p>
 <ul>
-<li><strong>Resolution:</strong> We have demonstrated High-Definition (HD) reconstruction at <strong>1 Megapixel</strong> (1304×744 spatial pixels). This is a significant leap over previous snapshot spectral cameras which were often limited to very low resolutions (e.g., 64x64 or 512x512).</li>
-<li><strong>Spectral Bands:</strong> The system is configurable, typically demonstrating 25+ bands in the Vis-NIR range (440–800 nm).</li>
-<li><strong>Field of View (FOV):</strong> Validated with standard C-mount lenses. The system maintains spectral accuracy across the FOV, overcoming the angle-sensitivity issues (blue shift) common in Fabry-Pérot or Interference-based filters.</li>
-<li><strong>Accuracy:</strong> Spectral reproduction error is consistently &lt;15%, which is sufficient for the vast majority of classification and discrimination tasks.</li>
+<li><strong>RGB Camera:</strong> Failed. Pure and tainted look identical.</li>
+<li><strong>Hyperspectral Camera:</strong> Succeeded, but required <strong>15.87 MB</strong> per frame.</li>
+<li><strong>Lumos Camera:</strong> Succeeded with just <strong>0.37 MB</strong> per frame (<strong>43:1 compression</strong>).</li>
 </ul>
-</section>
-<section id="industrial-quality-control-detecting-invisible-contaminants" class="level2">
-<h2 class="anchored" data-anchor-id="industrial-quality-control-detecting-invisible-contaminants">1. Industrial Quality Control: Detecting Invisible Contaminants</h2>
-<p><strong>The Challenge:</strong> In manufacturing, contaminants often look identical to the product in the visible spectrum. Traditional RGB cameras cannot distinguish them, and traditional hyperspectral cameras are too slow and data-heavy for high-speed sorting.</p>
-<p><strong>The Experiment:</strong> We imaged a stream of mixed plastic pellets. Half were pure, and half were “tainted” with a clear varnish invisible to the naked eye.</p>
-<ul>
-<li><strong>RGB Camera:</strong> Failed. The pure and tainted pellets appear identical.</li>
-<li><strong>Hyperspectral Camera:</strong> Succeeded, but required <strong>15.87 MB</strong> of data per frame.</li>
-<li><strong>Lumos Camera:</strong> Succeeded with just <strong>0.37 MB</strong> per frame (a <strong>43:1</strong> compression ratio).</li>
-</ul>
-<p><strong>The Result:</strong> Despite the massive data compression, the Lumos diffractogram retained the distinct spectral signature of the varnish. We achieved accurate, real-time classification of the “fake” pellets matching the ground truth.</p>
-<p><strong>Why it Matters:</strong> This proves that high-speed optical sorting and anomaly detection can be achieved with low-bandwidth hardware, reducing infrastructure costs for factories.</p>
 <div class="wide-media">
 <video src="assets/videos/pellets.mp4" controls="" loop="" autoplay="" muted="" playsinline="">
 </video>
+<p class="text-center text-muted small mt-2">
+<em>Real-time classification of moving pellets using &lt;1MB of data.</em>
+</p>
 </div>
-<hr>
-</section>
-<section id="biomedical-imaging-label-free-tissue-classification" class="level2">
-<h2 class="anchored" data-anchor-id="biomedical-imaging-label-free-tissue-classification">2. Biomedical Imaging: Label-Free Tissue Classification</h2>
-<p><strong>The Challenge:</strong> Distinguishing between different tissue types during surgery often requires invasive biopsies or chemical dyes. Surgeons need real-time, label-free tools to identify tissue boundaries.</p>
-<p><strong>The Experiment:</strong> We imaged ex-vivo chicken tissue containing both <strong>lung</strong> and <strong>trachea</strong>. While visually similar (both are pink/red tissues), they have different chemical compositions and light absorption properties.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>The Challenge:</strong> Traditional “Push-broom” scanners require objects to be perfectly still or moving on a flat belt. They fail with tumbling, rotating 3D objects.</p>
+<p><strong>The Demo:</strong> We captured an avocado rotating on a turntable every 10 minutes for 7 days.</p>
 <ul>
-<li><strong>Method:</strong> We captured a single snapshot diffractogram and reconstructed the spectral data.</li>
-<li><strong>Analysis:</strong> Using Linear Discriminant Analysis (LDA), we mapped the spectral signatures of the pixels.</li>
-<li><strong>Outcome:</strong> The system successfully segmented the image, clearly differentiating the trachea (red overlay) from the lungs (green overlay) based solely on their spectral fingerprints.</li>
+<li><strong>Snapshot Advantage:</strong> Because Lumos captures the whole scene instantly (<span class="math inline">\(x, y, \lambda\)</span>), it is immune to the motion artifacts (shearing/wobble) that plague line-scanners.</li>
+<li><strong>4D Data:</strong> We successfully mapped the ripening process in both space (3D surface) and time.</li>
 </ul>
-<p><strong>Why it Matters:</strong> This validates the potential for <strong>computational staining</strong>—giving surgeons “superhuman” vision to differentiate healthy tissue from tumors or critical structures without dyes or delays.</p>
 <div class="wide-media">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/chicken_lungs.png" class="img-fluid figure-img"></p>
-<figcaption><em>Tissue Classification Results. (A) RGB image with classification overlay (Trachea=Red, Lung=Green). (B) Spectral curves showing distinct signatures for each tissue type.</em></figcaption>
-</figure>
+<video src="assets/videos/avocado.mp4" controls="" loop="" autoplay="" muted="" playsinline="">
+</video>
+<p class="text-center text-muted small mt-2">
+<em>Snapshot acquisition allows for distortion-free imaging of rotating 3D objects.</em>
+</p>
 </div>
 </div>
-<hr>
-</section>
-<section id="smart-agriculture-predicting-shelf-life" class="level2">
-<h2 class="anchored" data-anchor-id="smart-agriculture-predicting-shelf-life">3. Smart Agriculture: Predicting Shelf-Life</h2>
-<p><strong>The Challenge:</strong> Visual inspection of produce is reactive—you only see rot after it has happened. Supply chains need to predict spoilage <em>before</em> it becomes visible to optimize routing and reduce waste.</p>
-<p><strong>The Experiment:</strong> We monitored 21 strawberries continuously over an 8-day period as they aged.</p>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>The Challenge:</strong> Satellites generate Terabytes of data, but radio downlinks are slow.</p>
+<p><strong>The Demo:</strong> We simulated a Lumos sensor in orbit using Landsat 8 data.</p>
 <ul>
-<li><strong>Spectral Evolution:</strong> The Lumos sensor detected a decline in the “Green Peak” (chlorophyll fluorescence/reflectance) and a shift in the “Red Edge” days before the fruit appeared spoiled to the eye.</li>
-<li><strong>Predictive Modeling:</strong> We trained a regression model on the reconstructed spectra.</li>
-<li><strong>Outcome:</strong> The system could predict the exact age of the fruit (in days) and classify it as “Fresh” vs.&nbsp;“Spoiled” with high accuracy.</li>
+<li><strong>Task:</strong> Estimate vegetation abundance (0-100%) directly from the compressed diffractogram.</li>
+<li><strong>Result:</strong> The Deep Neural Network mapped the monochromatic diffractogram directly to an abundance map. The data required was <strong>~1000x smaller</strong> than the raw hyperspectral file, solving the downlink bottleneck.</li>
 </ul>
-<p><strong>Why it Matters:</strong> This enables <strong>predictive quality control</strong>. Distributors can route produce based on its physiological ripeness (e.g., “sell immediately” vs.&nbsp;“safe to ship”), significantly reducing global food waste.</p>
-<div class="wide-media">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/strawberry_experiment.png" class="img-fluid figure-img"></p>
-<figcaption><em>Strawberry Aging. (Left) Spectral decay over 8 days. (Right) ROC curve showing high accuracy in fresh vs.&nbsp;spoiled classification.</em></figcaption>
-</figure>
-</div>
-</div>
-<hr>
-</section>
-<section id="astronomy-simultaneous-multi-band-photometry" class="level2">
-<h2 class="anchored" data-anchor-id="astronomy-simultaneous-multi-band-photometry">4. Astronomy: Simultaneous Multi-Band Photometry</h2>
-<p><strong>The Challenge:</strong> Astronomers typically use filter wheels to capture stars in different wavebands (Blue, Visual, Red, Infrared). This mechanical process is slow, risks motion artifacts, and discards photons (light) at the filter.</p>
-<p><strong>The Experiment:</strong> We simulated a stellar field using pinholes and specific color filters (Johnson-Cousins BVRI standards) to mimic stars with different spectral temperatures.</p>
-<ul>
-<li><strong>Snapshot Capture:</strong> Instead of rotating a filter wheel 4 times, the Lumos sensor captured all spectral data in a <strong>single snapshot</strong>.</li>
-<li><strong>A Posteriori Selection:</strong> We computationally applied the B, V, R, and I transmission curves <em>after</em> capture.</li>
-<li><strong>Outcome:</strong> We recovered accurate photometric ratios for the “stars” that matched reference measurements from a traditional spectrometer.</li>
-</ul>
-<p><strong>Why it Matters:</strong> This increases observation efficiency. Telescopes can capture multi-band data simultaneously, maximizing the utility of expensive observation time and eliminating complex moving parts.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/stellar_photometry.png" class="img-fluid figure-img"></p>
-<figcaption><em>Synthetic Stellar Imaging. (Top) Raw Diffractograms of simulated stars. (Bottom) Accurate recovery of photometric data across B, V, R, and I bands.</em></figcaption>
-</figure>
-</div>
-<hr>
-</section>
-<section id="remote-sensing-on-orbit-intelligence" class="level2">
-<h2 class="anchored" data-anchor-id="remote-sensing-on-orbit-intelligence">5. Remote Sensing: “On-Orbit” Intelligence</h2>
-<p><strong>The Challenge:</strong> Satellites generate massive amounts of hyperspectral data (Terabytes), but downlinking this data to Earth is slow and expensive.</p>
-<p><strong>The Experiment:</strong> We simulated a Lumos sensor in orbit using public <strong>Landsat 8</strong> data.</p>
-<ul>
-<li><strong>Task:</strong> Estimate the abundance (0-100%) of vegetation directly from the compressed diffractogram, without sending the full data cube to Earth.</li>
-<li><strong>Method:</strong> A Deep Neural Network mapped the monochromatic diffractogram directly to an abundance map.</li>
-<li><strong>Outcome:</strong> The predicted vegetation map matched the ground truth with high fidelity, but the data required to generate it was <strong>~1000x smaller</strong> than the raw hyperspectral file.</li>
-</ul>
-<p><strong>Why it Matters:</strong> This enables <strong>direct inference</strong>. Satellites can process data on the edge and transmit only the actionable intelligence (e.g., “crop yield map”) rather than raw noise, solving the downlink bottleneck.</p>
 <div class="wide-media">
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
@@ -349,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/rs_ex1_input.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Input:</strong> Simulated Diffractogram</figcaption>
+<figcaption><strong>Input:</strong> Compressed Diffractogram</figcaption>
 </figure>
 </div>
 </div>
@@ -365,33 +339,57 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/rs_ex1_ground_truth.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Ground Truth:</strong> From Full Spectrum</figcaption>
+<figcaption><strong>Ground Truth:</strong> Full Spectrum</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="applications-using-spectral-reconstructions-from-diffractogram-data" class="level2">
+<h2 class="anchored" data-anchor-id="applications-using-spectral-reconstructions-from-diffractogram-data">Applications using Spectral Reconstructions from Diffractogram data</h2>
+<p><strong>The Traditional View: High-Fidelity Cubes.</strong> For scientific analysis, medical diagnostics, or legacy software compatibility, we reconstruct the full 3D Hyperspectral Cube.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Medical Imaging</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Smart Ag</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Astronomy</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><strong>The Challenge:</strong> Distinguishing healthy tissue from critical structures without dyes.</p>
+<p><strong>The Demo:</strong> We imaged ex-vivo chicken tissue containing both <strong>lung</strong> and <strong>trachea</strong>. While visually similar (pink tissue), they have distinct chemical signatures.</p>
+<ul>
+<li><strong>Method:</strong> Reconstructed spectral cube + Linear Discriminant Analysis (LDA).</li>
+<li><strong>Result:</strong> The system successfully segmented the image, clearly differentiating the trachea (red) from the lungs (green) based solely on spectral fingerprints.</li>
+</ul>
+<div class="wide-media">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/images/rs_ex2_input.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Input (Ex 2):</strong> Simulated Diffractogram</figcaption>
+<p><img src="assets/images/chicken_lungs.png" class="img-fluid figure-img"></p>
+<figcaption><em>Tissue Classification. (A) RGB image with classification overlay. (B) Spectral curves showing distinct signatures for Lung vs.&nbsp;Trachea.</em></figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><strong>The Challenge:</strong> You only see rot after it’s too late. <strong>The Demo:</strong> We monitored 21 strawberries continuously over 8 days. * <strong>Spectral Evolution:</strong> The sensor detected a decline in the “Green Peak” (chlorophyll) and shifts in the “Red Edge” days before visual spoilage. * <strong>Result:</strong> We could predict the exact age of the fruit and classify “Fresh” vs.&nbsp;“Spoiled” with high accuracy before visible signs appeared.</p>
+<div class="wide-media">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/images/rs_ex2_predicted.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Prediction (Ex 2):</strong> Estimated Abundance</figcaption>
+<p><img src="assets/images/strawberry_experiment.png" class="img-fluid figure-img"></p>
+<figcaption><em>Strawberry Aging. (Left) Spectral decay over 8 days. (Right) ROC curve showing high classification accuracy.</em></figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p><strong>The Challenge:</strong> Changing physical filters on a telescope is slow and discards light. <strong>The Demo:</strong> We simulated a stellar field and captured all data in a single snapshot. * <strong>A Posteriori Selection:</strong> Instead of a physical filter wheel, we applied the standard Johnson-Cousins (BVRI) transmission curves <em>mathematically</em> after capture. * <strong>Result:</strong> We recovered accurate photometric ratios for the stars, proving that one Lumos sensor can replace a multi-filter mechanical assembly.</p>
+<div class="wide-media">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/images/rs_ex2_ground_truth.png" class="img-fluid figure-img"></p>
-<figcaption><strong>Ground Truth (Ex 2):</strong> From Full Spectrum</figcaption>
+<p><img src="assets/images/stellar_photometry.png" class="img-fluid figure-img"></p>
+<figcaption><em>Synthetic Stellar Imaging. (Top) Raw Diffractograms. (Bottom) Accurate recovery of B, V, R, and I bands from a single exposure.</em></figcaption>
 </figure>
 </div>
 </div>
@@ -400,24 +398,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <hr>
 </section>
-<section id="dynamic-3d-analysis-the-rotating-avocado" class="level2">
-<h2 class="anchored" data-anchor-id="dynamic-3d-analysis-the-rotating-avocado">6. Dynamic 3D Analysis: The Rotating Avocado</h2>
-<p><strong>The Challenge:</strong> Many spectral scanning technologies (like push-broom scanners) require the object to be perfectly still or moving on a flat belt. They fail with complex, rotating 3D objects.</p>
-<p><strong>The Experiment:</strong> We captured an avocado rotating on a turntable every 10 minutes for 7 days.</p>
+<section id="scientific-validation-optica-2025" class="level2">
+<h2 class="anchored" data-anchor-id="scientific-validation-optica-2025">Scientific Validation (Optica 2025)</h2>
+<p>Our technology is backed by rigorous peer-reviewed research.</p>
+<p><strong>Paper:</strong> Apratim Majumder, Monjurul Meem, Fernando Gonzalez del Cueto, Fernando Guevara Vasquez, Syed N. Qadri, Freddie Santiago, and Rajesh Menon, <strong>“High-definition (HD) snapshot diffractive computational spectral imaging and inferencing,”</strong> <em>Optica</em> 12, 1539-1547 (2025). <a href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-12-9-1539">Read Paper</a></p>
+<p><strong>Key Performance Metrics:</strong></p>
 <ul>
-<li><strong>Snapshot Capability:</strong> Because the Lumos technology captures the whole scene instantly (2D snapshot), it is immune to the motion artifacts that plague scanning lines.</li>
-<li><strong>4D Data:</strong> We successfully mapped the ripening process in both space (3D surface) and time.</li>
-</ul>
-<p><strong>Why it Matters:</strong> This proves the technology is robust enough for complex, dynamic environments—from tumbling fruit on a conveyor belt to drone-based inspection of moving targets.</p>
-<div class="wide-media">
-<video src="assets/videos/avocado.mp4" controls="" loop="" autoplay="" muted="" playsinline="">
-</video>
-</div>
-</section>
-<section id="publications" class="level2">
-<h2 class="anchored" data-anchor-id="publications">Publications</h2>
-<ul>
-<li>Apratim Majumder, Monjurul Meem, Fernando Gonzalez del Cueto, Fernando Guevara Vasquez, Syed N. Qadri, Freddie Santiago, and Rajesh Menon, <strong>“High-definition (HD) snapshot diffractive computational spectral imaging and inferencing,”</strong> <em>Optica</em> 12, 1539-1547 (2025). <a href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-12-9-1539">Read Paper</a></li>
+<li><strong>True HD Resolution:</strong> Unlike competitors limited to VGA (<span class="math inline">\(640 \times 480\)</span>), we demonstrated reconstruction at <strong>1304 × 744 pixels (~1 Megapixel)</strong>.</li>
+<li><strong>Spectral Fidelity:</strong> We consistently achieve <strong>&lt;15% spectral reproduction error</strong>, sufficient for the vast majority of discrimination tasks.</li>
+<li><strong>Broadband &amp; Narrowband:</strong> Validated performance on both continuous broad spectra (natural light) and discrete narrow bands (lasers/LEDs).</li>
 </ul>
 
 

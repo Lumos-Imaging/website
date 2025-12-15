@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Power of Spectral Intelligence – Lumos Imaging</title>
+<title>The Untapped Power of Light – Lumos Imaging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,35 +143,6 @@ ul.task-list li input[type="checkbox"] {
   })(window, document, "clarity", "script", "uklxny5jsc");
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -203,23 +174,23 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./why_spectral_imaging.html" aria-current="page"> 
-<span class="menu-text">Why Spectral Imaging?</span></a>
+<span class="menu-text">Why Spectral?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./barriers_to_HSI_adoption.html"> 
-<span class="menu-text">Barriers to Wider Adoption</span></a>
+<span class="menu-text">The Barriers</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./lumos_solution.html"> 
-<span class="menu-text">The Lumos Solution</span></a>
+<span class="menu-text">Lumos Hardware</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./reconstruction_and_direct_inference.html"> 
-<span class="menu-text">Data Efficiency &amp; Direct Inference</span></a>
+    <a class="nav-link" href="./lumos_algorithms.html"> 
+<span class="menu-text">Lumos Algorithms</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./validation_and_examples.html"> 
-<span class="menu-text">Validation and Examples</span></a>
+<span class="menu-text">Demos &amp; Validation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about_us.html"> 
@@ -241,17 +212,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-information-gap-in-modern-sensing" id="toc-the-information-gap-in-modern-sensing" class="nav-link active" data-scroll-target="#the-information-gap-in-modern-sensing">The information gap in modern sensing</a></li>
-  <li><a href="#the-chemistry-of-light" id="toc-the-chemistry-of-light" class="nav-link" data-scroll-target="#the-chemistry-of-light">The chemistry of light</a></li>
-  <li><a href="#industrial-impact-solving-the-invisible-problems" id="toc-industrial-impact-solving-the-invisible-problems" class="nav-link" data-scroll-target="#industrial-impact-solving-the-invisible-problems">Industrial impact: Solving the invisible problems</a>
+  <li><a href="#the-blind-spot-in-modern-sensing" id="toc-the-blind-spot-in-modern-sensing" class="nav-link active" data-scroll-target="#the-blind-spot-in-modern-sensing">The Blind Spot in Modern Sensing</a></li>
+  <li><a href="#the-chemistry-of-light" id="toc-the-chemistry-of-light" class="nav-link" data-scroll-target="#the-chemistry-of-light">The “Chemistry” of Light</a></li>
+  <li><a href="#solving-the-invisible-problems" id="toc-solving-the-invisible-problems" class="nav-link" data-scroll-target="#solving-the-invisible-problems">Solving the “Invisible” Problems</a>
   <ul class="collapse">
-  <li><a href="#healthcare-label-free-diagnostics" id="toc-healthcare-label-free-diagnostics" class="nav-link" data-scroll-target="#healthcare-label-free-diagnostics">1. Healthcare: Label-free diagnostics</a></li>
-  <li><a href="#precision-agriculture-predicting-the-future" id="toc-precision-agriculture-predicting-the-future" class="nav-link" data-scroll-target="#precision-agriculture-predicting-the-future">2. Precision agriculture: Predicting the future</a></li>
-  <li><a href="#machine-vision-sorting-the-indistinguishable" id="toc-machine-vision-sorting-the-indistinguishable" class="nav-link" data-scroll-target="#machine-vision-sorting-the-indistinguishable">3. Machine vision: Sorting the indistinguishable</a></li>
-  <li><a href="#remote-sensing-quantitative-earth-observation" id="toc-remote-sensing-quantitative-earth-observation" class="nav-link" data-scroll-target="#remote-sensing-quantitative-earth-observation">4. Remote Sensing: Quantitative Earth Observation</a></li>
+  <li><a href="#precision-agriculture-agro-tech" id="toc-precision-agriculture-agro-tech" class="nav-link" data-scroll-target="#precision-agriculture-agro-tech">Precision Agriculture (Agro-tech)</a></li>
+  <li><a href="#healthcare" id="toc-healthcare" class="nav-link" data-scroll-target="#healthcare">Healthcare</a></li>
+  <li><a href="#industrial-sorting" id="toc-industrial-sorting" class="nav-link" data-scroll-target="#industrial-sorting">Industrial Sorting</a></li>
   </ul></li>
-  <li><a href="#the-universality-of-spectral-intelligence" id="toc-the-universality-of-spectral-intelligence" class="nav-link" data-scroll-target="#the-universality-of-spectral-intelligence">The Universality of Spectral Intelligence</a></li>
-  <li><a href="#the-lumos-difference" id="toc-the-lumos-difference" class="nav-link" data-scroll-target="#the-lumos-difference">The Lumos Difference</a></li>
+  <li><a href="#a-growing-economic-engine" id="toc-a-growing-economic-engine" class="nav-link" data-scroll-target="#a-growing-economic-engine">A Growing Economic Engine</a></li>
+  <li><a href="#the-adoption-gap" id="toc-the-adoption-gap" class="nav-link" data-scroll-target="#the-adoption-gap">The Adoption Gap</a></li>
   </ul>
 </nav>
     </div>
@@ -260,8 +230,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Power of Spectral Intelligence</h1>
-<p class="subtitle lead">From Computer Vision to Material Intelligence</p>
+<h1 class="title">The Untapped Power of Light</h1>
+<p class="subtitle lead">Moving from Computer Vision to Material Intelligence</p>
 </div>
 
 
@@ -278,191 +248,85 @@ window.Quarto = {
 </header>
 
 
-<section id="the-information-gap-in-modern-sensing" class="level2">
-<h2 class="anchored" data-anchor-id="the-information-gap-in-modern-sensing">The information gap in modern sensing</h2>
-<p>Most computer vision systems use RGB cameras built for photography, mimicking human vision, rather than for true sensing. By compressing the spectrum into three broad channels, RGB throws away crucial physical information from light. This often means different materials can appear identical to a machine, creating a fundamental spectral ambiguity that undermines critical applications like sorting, agriculture, and diagnostics.</p>
+<section id="the-blind-spot-in-modern-sensing" class="level2">
+<h2 class="anchored" data-anchor-id="the-blind-spot-in-modern-sensing">The Blind Spot in Modern Sensing</h2>
+<p>Most of the physical world is invisible to our eyes and to standard RGB cameras.</p>
+<p>Conventional imaging systems—whether in your phone or an industrial robot—are designed to mimic <strong>Human Vision</strong>. They capture light in three broad channels: <strong>Red, Green, and Blue (RGB)</strong>. While this is perfect for photography, it is a sub-optimal approach for sensing.</p>
+<p>By averaging light into these three broad buckets, RGB cameras throw away 99% of the physical information contained in the spectrum. This creates a dangerous ambiguity: a red plastic apple and a real red apple may look very similar to an RGB sensor, yet they are chemically distinct.</p>
 </section>
 <section id="the-chemistry-of-light" class="level2">
-<h2 class="anchored" data-anchor-id="the-chemistry-of-light">The chemistry of light</h2>
-<p><img src="assets/images/icon_chemistry_of_light.png" class="section-icon img-fluid"> Hyperspectral imaging (HSI) pivots from imaging (appearance) to spectroscopy (composition). Molecules have unique spectral signatures: electronic transitions in the visible–NIR reveal pigments like chlorophyll, melanin, and hemoglobin, while SWIR vibrational overtones of bonds (C–H, O–H) expose plastics, water, and lipids. Resolving light into many narrow bands lets machines “see” chemistry rather than color.</p>
-<hr>
-</section>
-<section id="industrial-impact-solving-the-invisible-problems" class="level2">
-<h2 class="anchored" data-anchor-id="industrial-impact-solving-the-invisible-problems">Industrial impact: Solving the invisible problems</h2>
-<p>Spectral imaging detects properties that standard cameras cannot, enabling quantitative, label-free assessment across critical sectors.</p>
-<section id="healthcare-label-free-diagnostics" class="level3">
-<h3 class="anchored" data-anchor-id="healthcare-label-free-diagnostics">1. Healthcare: Label-free diagnostics</h3>
-<p><img src="assets/images/icon_applicability_healthcare.png" class="section-icon img-fluid"></p>
-<p>Spectral imaging uses intrinsic biomarkers as contrast, mapping hemoglobin dynamics and tissue chemistry non-invasively. This enables real-time perfusion and oxygenation mapping, dye-free tumor margin assessment, retinal biomarker screening, and digital histopathology on unstained slides.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<h2 class="anchored" data-anchor-id="the-chemistry-of-light">The “Chemistry” of Light</h2>
+<p><img src="assets/images/icon_chemistry_of_light.png" class="section-icon-large-square float-start me-4 img-fluid"></p>
+<p>Every molecule in the universe interacts with light in a unique way, absorbing and reflecting specific wavelengths of the incoming light to create a distinct spectral “fingerprint.”</p>
+<ul>
+<li><strong>Chlorophyll</strong> has a specific signature in the Near-Infrared.</li>
+<li><strong>Hemoglobin</strong> changes its absorption based on oxygenation levels.</li>
+<li><strong>Polymers</strong> (plastics) have distinct vibrational overtones in the infrared.</li>
+</ul>
+<p>This allows us to infer the composition of the objects being observed.</p>
+<p>By resolving light into dozens or hundreds of narrow bands, we don’t just take a picture of an object; we can identify what it is made of, detect contaminants, and many other tasks that are otherwise very hard or impossible.</p>
+<p><br style="clear:both;"></p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Clinical applications: Examples and sources
+<span class="screen-reader-only">Note</span>Visualizing the Difference
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>Perfusion &amp; oxygenation (SpO₂ mapping):</strong><br>
-Reflectance spectra of oxy-/deoxyhemoglobin enable surface oxygenation and burn-depth assessment through total hemoglobin and saturation maps.<br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4727700/">Hyperspectral Imaging for Burn Depth Assessment in an Animal Model (NIH/PMC)</a><br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5572439/">Label-free reflectance HSI for tumor margin assessment (NIH/PMC)</a></p></li>
-<li><p><strong>Tumor margin assessment (label-free):</strong><br>
-Malignant tissue shows altered scattering and absorption from metabolic and structural changes, allowing discrimination without dyes.<br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5572439/">Label-free reflectance HSI for tumor margin assessment (NIH/PMC)</a><br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12649839/">Review: HSI in Medical Endoscopy (NIH/PMC)</a></p></li>
-<li><p><strong>Retinal screening (early biomarkers):</strong><br>
-Spectral markers of vascular and protein aggregation changes support early detection of diabetic retinopathy and neurodegenerative risk via ocular imaging.<br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12649839/">Review: HSI in Medical Endoscopy (NIH/PMC)</a><br>
-[Ophthalmic spectroscopy reviews and diagnostics via reputable journals—example scope via MDPI/Frontiers/IOVS]</p></li>
-<li><p><strong>Digital histopathology (unstained slides):</strong><br>
-Biochemical spectral signatures differentiate tissue components (e.g., cancer vs.&nbsp;stroma), expediting analysis without staining.<br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5572439/">Label-free reflectance HSI for tumor margin assessment (NIH/PMC)</a></p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="precision-agriculture-predicting-the-future" class="level3">
-<h3 class="anchored" data-anchor-id="precision-agriculture-predicting-the-future">2. Precision agriculture: Predicting the future</h3>
-<p><img src="assets/images/icon_applicability_agrotech.png" class="section-icon img-fluid"></p>
-<p>HSI detects plant stress before visual symptoms. Red-edge shifts track chlorophyll dynamics, SWIR water bands quantify canopy moisture, and NIR/SWIR spectra differentiate weeds for targeted spraying. Light scattering correlates with internal fruit quality, enabling sorting by taste, not appearance.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Plant physiology: Examples and sources
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>Stress detection (red-edge shifts):</strong><br>
-Early spectral changes in the 670–780 nm region anticipate chlorophyll fluorescence alterations and stress before yellowing.<br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7760370/">Proximal Methods for Plant Stress Detection (NIH/PMC)</a></p></li>
-<li><p><strong>Moisture content (970 nm O–H overtone):</strong><br>
-Water absorption features enable retrieval of Equivalent Water Thickness for precision irrigation.<br>
-<a href="https://www.researchgate.net/publication/283118548_Vegetation_Water_Content_at_970_nm_Estimation_Using_Hyperspectral_Vegetation_Indices">Vegetation Water Content at 970 nm (ResearchGate)</a></p></li>
-<li><p><strong>Smart spraying (weed detection):</strong><br>
-“Green-on-green” spectral discrimination reduces herbicide use by targeting weeds amid crops.<br>
-<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7760370/">Proximal Methods for Plant Stress Detection (NIH/PMC)</a><br>
-[Additional agronomic HSI studies via Elsevier/MDPI/IEEE GRSS]</p></li>
-<li><p><strong>Fruit quality (Brix &amp; firmness proxies):</strong><br>
-Scattering and spectral indices correlate with sugar content and texture for taste-aligned sorting.<br>
-[Representative postharvest HSI literature via MDPI/Elsevier—fruits quality and internal defects]</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="machine-vision-sorting-the-indistinguishable" class="level3">
-<h3 class="anchored" data-anchor-id="machine-vision-sorting-the-indistinguishable">3. Machine vision: Sorting the indistinguishable</h3>
-<p><img src="assets/images/icon_applicability_industrial_machine_vision.png" class="section-icon img-fluid"></p>
-<p>HSI separates lookalike materials through their chemistry. SWIR bands distinguish polymers like PET vs.&nbsp;PVC, reveal foreign objects in food streams, and quantify process moisture for energy-efficient drying.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Material sorting: Examples and sources
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>Polymer sorting (SWIR):</strong><br>
-C–H overtone features in 1000–1700 nm discriminate PET, PVC, and other clear plastics for high-speed recycling.<br>
-<a href="https://www.researchgate.net/publication/269045631_PET_and_PVC_Separation_with_Hyperspectral_Imaging">PET and PVC Separation with HSI (ResearchGate)</a></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="remote-sensing-quantitative-earth-observation" class="level3">
-<h3 class="anchored" data-anchor-id="remote-sensing-quantitative-earth-observation">4. Remote Sensing: Quantitative Earth Observation</h3>
-<p><img src="assets/images/icon_applicability_remotesensing.png" class="section-icon img-fluid"></p>
-<p>Satellites today are excellent at mapping <em>where</em> things are. Spectral imaging allows them to measure <em>what</em> is there.</p>
-<ul>
-<li><strong>Mineralogy:</strong> Different minerals (lithium, copper, iron oxides) have distinct spectral reflectance curves, allowing for efficient geological surveying from orbit.</li>
-<li><strong>Environmental Monitoring:</strong> Tracking algal blooms, methane leaks, or oil spills based on their specific spectral absorption features rather than just their visual presence.</li>
-<li><strong>On-Orbit Edge AI:</strong> Addressing the “Data Bottleneck”. Lumos enables satellites to process spectral cubes <em>on-orbit</em> and downlink only actionable alerts (e.g., “Fire Detected”) instead of raw terabytes.</li>
-<li><strong>UAV Sensing:</strong> The snapshot architecture eliminates the motion artifacts (“wobble”) common in push-broom scanners, facilitating drone-based monitoring without heavy gimbals.</li>
-</ul>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Earth Observation: Examples and sources
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>Geology:</strong> <em>Hyperspectral Imaging for Lithology Mapping</em> outlines the identification of alteration minerals (e.g., <span class="math inline">\(Fe^{3+}\)</span> transitions) using VNIR-SWIR bands. <a href="https://hyspex.com/use-cases-application-notes/lithology-mapping">Read Technical Note (HySpex)</a></li>
-<li><strong>Methane:</strong> <em>Methane Mapping with Future Satellite Imaging Spectrometers</em> discusses the detection of <span class="math inline">\(CH_4\)</span> absorption features approx. 2300 nm for leak quantification. <a href="https://www.mdpi.com/2072-4292/11/24/3054">Read Paper (MDPI)</a></li>
-</ul>
-</div>
+<p>![PLACEHOLDER: Schematic comparing RGB (three broad humps) vs Spectral (many narrow spikes). Description: Show how two different materials might look the same in RGB (same area under the curve) but have totally different spectral spikes.]</p>
 </div>
 </div>
 <hr>
 </section>
+<section id="solving-the-invisible-problems" class="level2">
+<h2 class="anchored" data-anchor-id="solving-the-invisible-problems">Solving the “Invisible” Problems</h2>
+<p>Spectral imaging transforms vague visual data into <strong>Actionable Intelligence</strong>. It is already revolutionizing high-value industries by solving problems that standard computer vision simply cannot touch. A few examples:</p>
+<section id="precision-agriculture-agro-tech" class="level3">
+<h3 class="anchored" data-anchor-id="precision-agriculture-agro-tech">Precision Agriculture (Agro-tech)</h3>
+<p><img src="assets/images/icon_applicability_agrotech.png" class="section-icon mb-3 img-fluid"> <strong>Pre-Symptomatic Detection</strong> Plants react to stress chemically long before they wilt or turn yellow.</p>
+<ul>
+<li><strong>Water Stress:</strong> Detect canopy moisture levels to optimize irrigation.</li>
+<li><strong>Disease:</strong> Identify fungal infections days before they are visible to the human eye.</li>
+<li><strong>Ripeness:</strong> Grade fruit based on internal sugar content (Brix) rather than external color.</li>
+</ul>
 </section>
-<section id="the-universality-of-spectral-intelligence" class="level2">
-<h2 class="anchored" data-anchor-id="the-universality-of-spectral-intelligence">The Universality of Spectral Intelligence</h2>
-<p>Hyperspectral imaging is a platform technology. Beyond the major pillars above, it is rapidly disrupting niche high-value verticals.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<section id="microscopy-endoscopy" class="level3">
-<h3 class="anchored" data-anchor-id="microscopy-endoscopy">🔬 Microscopy &amp; Endoscopy</h3>
-<p><strong>In-Vivo Biopsy:</strong> Bringing the lab to the patient. HSI endoscopes can identify tumor boundaries in real-time during surgery, reducing the need for repeat excisions. In microscopy, it allows for label-free histopathology, identifying cell types without staining.</p>
-<p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12649839/">📄 <em>Review: HSI in Medical Endoscopy</em></a></p>
+<section id="healthcare" class="level3">
+<h3 class="anchored" data-anchor-id="healthcare">Healthcare</h3>
+<p><img src="assets/images/icon_applicability_healthcare.png" class="section-icon mb-3 img-fluid"></p>
+<p>Surgeons currently rely on invasive biopsies or chemical dyes to identify tissues. HSI provides a non-invasive alternative.</p>
+<ul>
+<li><strong>Tumor Margins:</strong> Distinguish between healthy cells and cancerous tissue in real-time during surgery.</li>
+<li><strong>Oxygenation:</strong> Map tissue perfusion to assess wound healing or diabetic ulcers without touching the patient.</li>
+</ul>
 </section>
-<section id="defense-security" class="level3">
-<h3 class="anchored" data-anchor-id="defense-security">🛡️ Defense &amp; Security</h3>
-<p><strong>De-Camouflage:</strong> Seeing the unseen. Man-made camouflage materials (nets, paints) attempt to mimic natural backgrounds in the visible spectrum but fail to match the complex spectral curves of chlorophyll in the NIR/SWIR. HSI makes camouflaged targets “pop” against natural foliage.</p>
-<p><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13673/1367308/Evaluation-of-military-camouflage-using-hyperspectral-satellite-data/10.1117/12.3069545.full">📄 <em>Military Camouflage Evaluation via HSI</em></a></p>
-</section>
-<section id="forensics" class="level3">
-<h3 class="anchored" data-anchor-id="forensics">🕵️ Forensics</h3>
-<p><strong>Trace Evidence Analysis:</strong> Non-destructive investigation. From estimating the age of bloodstains (via hemoglobin oxidation states) to visualizing gunshot residue and detecting forged signatures on documents where different inks were used.</p>
-<p><a href="https://www.specim.com/forensics-with-hyperspectral-imaging/">📄 <em>Forensics with Hyperspectral Imaging</em></a></p>
-</section>
-</div><div class="column" style="width:50%;">
-<section id="pharmaceuticals" class="level3">
-<h3 class="anchored" data-anchor-id="pharmaceuticals">💊 Pharmaceuticals</h3>
-<p><strong>Quality Assurance:</strong> 100% Inspection. Regulatory standards require uniform API distribution. Lumos provides 100% inspection of blister packs, identifying mixing errors or counterfeits based on chemical composition rather than color.</p>
-<p><a href="https://hyspex.com/use-cases-application-notes/pharmaceuticals">📄 <em>Pharmaceutical Quality Control with HSI</em></a></p>
-</section>
-<section id="art-conservation" class="level3">
-<h3 class="anchored" data-anchor-id="art-conservation">🎨 Art Conservation</h3>
-<p><strong>Non-Invasive Restoration:</strong> Identifying pigments and binders used by old masters without taking physical samples. HSI reveals underdrawings (sketches beneath the paint) and previous restoration attempts.</p>
-<p><a href="https://www.specim.com/hyperspectral-imaging-applications/art-and-archaeology/">📄 <em>HSI in Art and Archaeology</em></a></p>
-</section>
-<section id="cosmetics-skin-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="cosmetics-skin-analysis">💄 Cosmetics &amp; Skin Analysis</h3>
-<p><strong>Quantifying Efficacy:</strong> Measuring skin hydration, melanin distribution, and collagen structure to objectively quantify the effects of cosmetic products, moving beyond subjective “before and after” photos.</p>
-<p><a href="https://www.livingoptics.com/demonstrating-the-capabilities-of-hyperspectral-imaging-for-dermatological-diagnostics/">📄 <em>HSI for Dermatological Diagnostics</em></a></p>
-</section>
-</div>
-</div>
+<section id="industrial-sorting" class="level3">
+<h3 class="anchored" data-anchor-id="industrial-sorting">Industrial Sorting</h3>
+<p><img src="assets/images/icon_applicability_industrial_machine_vision.png" class="section-icon mb-3 img-fluid"> In a recycling stream, clear PVC and clear PET plastic look identical.</p>
+<ul>
+<li><strong>Recycling:</strong> Sort plastics by chemical polymer type to ensure purity.</li>
+<li><strong>Quality Control:</strong> Detect invisible foreign contaminants (like clear varnish or moisture pockets) in food and pharmaceutical production lines.</li>
+</ul>
 <hr>
 </section>
-<section id="the-lumos-difference" class="level2">
-<h2 class="anchored" data-anchor-id="the-lumos-difference">The Lumos Difference</h2>
-<p>Traditionally, accessing this “Material Intelligence” required bulky, expensive ($50k+), and slow line-scanning cameras.</p>
-<p><strong>Lumos democratizes this power.</strong> By packaging a high-performance spectrometer into a snapshot camera form factor, we allow these advanced diagnostic capabilities to be deployed on drones, production lines, and handheld devices for the first time.</p>
+</section>
+<section id="a-growing-economic-engine" class="level2">
+<h2 class="anchored" data-anchor-id="a-growing-economic-engine">A Growing Economic Engine</h2>
+<p>The value of this “Material Intelligence” is driving explosive market growth. As industries automate, the need for sensors that can discern chemistry is becoming critical.</p>
+<blockquote class="blockquote">
+<p><strong>Market Forecast:</strong> The Global Hyperspectral Imaging market is valued at <strong>$219.69M</strong> in 2026 and is expected to reach <strong>$772.74M</strong> by 2035, growing at a <strong>15% CAGR</strong>.</p>
+<p><small class="text-muted">— Source: <a href="https://www.marketgrowthreports.com/market-reports/hyperspectral-imaging-market-101302">MarketGrowthReports (2025)</a></small></p>
+</blockquote>
+<hr>
+</section>
+<section id="the-adoption-gap" class="level2">
+<h2 class="anchored" data-anchor-id="the-adoption-gap">The Adoption Gap</h2>
+<p>If Spectral Imaging provides such a massive advantage over RGB, why isn’t it on every drone, tractor, and production line?</p>
+<p>Why is it still largely confined to research labs?</p>
+<p>The answer lies in <strong>Three Engineering Barriers</strong> that have historically made the technology too expensive, too fragile, and too data-heavy for the real world.</p>
+<p><a href="./barriers_to_HSI_adoption.html" class="btn btn-primary btn-lg mt-3"><strong>Uncover the Barriers →</strong></a></p>
 
 
 </section>
