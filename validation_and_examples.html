@@ -214,7 +214,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#pathway-a-direct-inference" id="toc-pathway-a-direct-inference" class="nav-link active" data-scroll-target="#pathway-a-direct-inference">Pathway A: Direct Inference</a></li>
-  <li><a href="#pathway-b-spectral-reconstruction" id="toc-pathway-b-spectral-reconstruction" class="nav-link" data-scroll-target="#pathway-b-spectral-reconstruction">Pathway B: Spectral Reconstruction</a>
+  <li><a href="#pathway-b-spectral-reconstruction" id="toc-pathway-b-spectral-reconstruction" class="nav-link" data-scroll-target="#pathway-b-spectral-reconstruction">Pathway B: Spectral Reconstruction</a></li>
+  <li><a href="#scientific-validation-optica-2025" id="toc-scientific-validation-optica-2025" class="nav-link" data-scroll-target="#scientific-validation-optica-2025">Scientific Validation (Optica 2025)</a>
   <ul class="collapse">
   <li><a href="#ready-to-deploy-this-technology" id="toc-ready-to-deploy-this-technology" class="nav-link" data-scroll-target="#ready-to-deploy-this-technology">Ready to deploy this technology?</a></li>
   </ul></li>
@@ -280,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 <video src="assets/videos/pellets.mp4" controls="" loop="" autoplay="" muted="" playsinline="">
 </video>
 <p class="text-center text-muted small mt-2">
-<em><strong>Real-time Inference:</strong> The video shows the system correctly identifying <em>Tainted</em> (red) vs.&nbsp;<em>Pure</em> (green) pellets despite them looking identical in RGB.<br>Note the massive file size difference of Lumos Diffractogram vs 25-band hyperspectral cube (15.87 MB vs 0.37 MB per frame).</em>
+<em><strong>Real-time Inference:</strong> The video shows the system correctly identifying <em>Tainted</em> (red) vs.&nbsp;<em>Pure</em> (green) pellets despite them looking identical in RGB. Note the massive file size difference of Lumos Diffractogram vs 25-band hyperspectral cube (15.87 MB vs 0.37 MB per frame).</em>
 </p>
 </div>
 </div>
@@ -403,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For a detailed breakdown of the reconstruction accuracy and the Linear Discriminant Analysis (LDA) classification, please refer to our published paper in <em>Optica</em>.</p>
+<p>For a detailed breakdown of the reconstruction accuracy and the Linear Discriminant Analysis (LDA) classification, please refer to our published paper <a href="#scientific-validation-optica-2025">Optica 2025</a>.</p>
 </div>
 </div>
 </div>
@@ -411,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/chicken_lungs.png" class="img-fluid figure-img"></p>
-<figcaption><em><strong>Tissue Classification:</strong> (A) Reconstructed image with classification overlay. (B) Spectral curves showing distinct signatures for Lung vs.&nbsp;Trachea which enabled the clean segmentation.</em></figcaption>
+<figcaption><em><strong>Tissue Classification:</strong> (A) Reconstructed image with classification overlay. (B) Spectral curves showing distinct signatures for Lung vs.&nbsp;Trachea which enabled the clean segmentation. (Source: <a href="#scientific-validation-optica-2025">Optica 2025</a>)</em></figcaption>
 </figure>
 </div>
 </div>
@@ -422,13 +423,13 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The Lumos Result:</strong> We monitored strawberries continuously over 8 days.</p>
 <ul>
 <li><strong>Method:</strong> By reconstructing the spectral cubes, we tracked the degradation of the “Green Peak” (chlorophyll) and shifts in the “Red Edge.”</li>
-<li><strong>Outcome:</strong> A regression analysis performed on the reconstructed spectra could predict the exact age of the fruit and classify “Fresh” vs.&nbsp;“Spoiled” with high accuracy before visible mold appeared. This proves the reconstructed spectra has sufficient fidelity for predictive regression models.</li>
+<li><strong>Outcome:</strong> A regression analysis performed on the reconstructed spectra could predict the exact age of the fruit and classify “Fresh” vs.&nbsp;“Spoiled” with high accuracy before visible mold appeared. This proves the reconstructed spectra has sufficient fidelity for predictive regression models. For more details, see our <a href="#scientific-validation-optica-2025">Optica 2025 paper</a>.</li>
 </ul>
 <div class="wide-media">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/strawberry_experiment.png" class="img-fluid figure-img"></p>
-<figcaption><em><strong>Predictive Aging:</strong> (Left) The spectral evolution of the fruit over 8 days. (Right) ROC curve demonstrating high accuracy in classifying freshness states.</em></figcaption>
+<figcaption><em><strong>Predictive Aging:</strong> (Left) The spectral evolution of the fruit over 8 days. (Right) ROC curve demonstrating high accuracy in classifying freshness states. (Source: <a href="#scientific-validation-optica-2025">Optica 2025</a>)</em></figcaption>
 </figure>
 </div>
 </div>
@@ -439,7 +440,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The Lumos Result:</strong> We simulated a stellar field and captured the data in a single snapshot.</p>
 <ul>
 <li><strong>Software-Defined Bands:</strong> Instead of using physical filters, we reconstructed the spectral response curves mathematically. We didn’t need to reconstruct 100 arbitrary bands; we solved directly for the B, V, R, and I transmission curves.</li>
-<li><strong>Outcome:</strong> We recovered accurate photometric ratios from a single exposure, proving that one Lumos sensor can replicate the function of a multi-filter mechanical assembly without the moving parts.</li>
+<li><strong>Outcome:</strong> We recovered accurate photometric ratios from a single exposure, proving that one Lumos sensor can replicate the function of a multi-filter mechanical assembly without the moving parts. For more details, see our <a href="#scientific-validation-optica-2025">Optica 2025 paper</a>.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -461,13 +462,19 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images/astronomy_application.jpg" class="img-fluid figure-img"></p>
-<figcaption><em><strong>Synthetic Stellar Imaging:</strong> (Top) Raw Diffractograms of three stars. (Bottom) Accurate recovery of B, V, R, and I photometric coefficients from a single exposure, matching the ground truth.</em></figcaption>
+<figcaption><em><strong>Synthetic Stellar Imaging:</strong> (Top) Raw Diffractograms of three stars. (Bottom) Accurate recovery of B, V, R, and I photometric coefficients from a single exposure, matching the ground truth. (Source: <a href="#scientific-validation-optica-2025">Optica 2025</a>)</em></figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
+<hr>
+</section>
+<section id="scientific-validation-optica-2025" class="level2">
+<h2 class="anchored" data-anchor-id="scientific-validation-optica-2025">Scientific Validation (Optica 2025)</h2>
+<p>Our technology is backed by rigorous peer-reviewed research.</p>
+<p><strong>Paper:</strong> Apratim Majumder, Monjurul Meem, Fernando Gonzalez del Cueto, Fernando Guevara Vasquez, Syed N. Qadri, Freddie Santiago, and Rajesh Menon, <strong>“High-definition (HD) snapshot diffractive computational spectral imaging and inferencing,”</strong> <em>Optica</em> 12, 1539-1547 (2025). <a href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-12-9-1539">Read Paper</a></p>
 <hr>
 <section id="ready-to-deploy-this-technology" class="level3 bg-light p-5 rounded my-5 text-center border">
 <h3 class="anchored" data-anchor-id="ready-to-deploy-this-technology">Ready to deploy this technology?</h3>
