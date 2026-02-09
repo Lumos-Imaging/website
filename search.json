@@ -100,37 +100,37 @@
   {
     "objectID": "about_us.html",
     "href": "about_us.html",
-    "title": "About Us",
+    "title": "About Us & Strategic Focus",
     "section": "",
-    "text": "Lumos Imaging is a spin-off from the University of Utah. We sit at the intersection of Nanophotonics, Applied Mathematics, and Commercial Product Strategy.\nOur mission is to translate the complex physics of diffractive optics into scalable, robust imaging solutions that solve real-world industrial problems."
+    "text": "The technology is validated. The IP is secured. The platform is ready for scale.\n\n\nLumos Imaging has successfully de-risked the fundamental hardware and software stack for High-Definition Snapshot Spectral Imaging. We are now transitioning from R&D to commercial deployment.\nWe are currently exploring strategic alternatives to bring this platform to mass production. We invite sensor manufacturers, industrial integrators, and strategic investors to discuss:\n\nFull Technology Acquisition: Transfer of the complete IP portfolio, software stack, and trade secrets.\nExclusive Licensing: Vertical-specific rights (e.g., exclusive license for AgTech, Medical, or Satellite applications).\nTechnology Transfer: Partnership to integrate Lumos optical modules into existing sensor product lines."
   },
   {
-    "objectID": "about_us.html#leadership-team",
-    "href": "about_us.html#leadership-team",
-    "title": "About Us",
-    "section": "Leadership Team",
-    "text": "Leadership Team\n\n\n\n\n\n\nRajesh Menon \n\nRajesh is a Professor at the University of Utah with a PhD in Diffractive Optics from MIT. He is a Fellow of OSA and SPIE, and a serial entrepreneur having founded LumArray and PointSpectrum. With over 100 publications and 40+ patents in nanophotonics and lithography, Rajesh brings deep technical expertise and a proven track record of translating research into commercial products.\n\n\n\n\n\n\n\n\nLaurent Node-Langlois \n\nLaurent brings over 25 years of high-tech Product Management experience. Formerly in executive leadership at GE Healthcare, where he led Medical Imaging and Surgical Navigation products, his extensive P&L responsibility includes guiding deep-tech products from R&D through market exit, bringing critical commercial execution expertise to the team.\n\n\n\n\n\n\n\n\nFernando Guevara Vásquez, PhD \n\nFernando holds a PhD in Computational & Applied Mathematics from Rice University. His research in mathematical modeling of wave propagation and inverse problems has been fundamental to developing the theoretical foundations of Lumos’s diffractive computational imaging technology. His work on optimization algorithms enables the robust reconstruction of spectral information from optically encoded data.\n\n\n\n\n\n\n\n\nFernando González del Cueto, PhD \n\nFernando holds a PhD in Computational & Applied Mathematics from Rice University. His expertise in imaging science and numerical optimization has been instrumental in developing Lumos’s reconstruction algorithms and neural network architectures. His work bridges the gap between computational theory and practical implementation, creating the software foundation that makes Lumos technology viable."
+    "objectID": "about_us.html#who-we-are",
+    "href": "about_us.html#who-we-are",
+    "title": "About Us & Strategic Focus",
+    "section": "Who We Are",
+    "text": "Who We Are\nLumos Imaging is a spin-off from the University of Utah.\nOur mission has been to translate the complex physics of diffractive optics into scalable, robust imaging solutions. Having achieved our validation milestones, we are now focused on placing this technology into the hands of a partner capable of global scale."
   },
   {
     "objectID": "about_us.html#intellectual-property-portfolio",
     "href": "about_us.html#intellectual-property-portfolio",
-    "title": "About Us",
+    "title": "About Us & Strategic Focus",
     "section": "Intellectual Property Portfolio",
-    "text": "Intellectual Property Portfolio\nLumos Imaging holds an exclusive, worldwide license to a comprehensive patent portfolio developed at the University of Utah. This IP protects the entire vertical stack—from the nanofabrication of the optic to the algorithmic reconstruction of the image—creating a strong defensive moat.\n\nPatent Portfolio\n\n\n\n\n\n\n\nPatent ID\nTitle\nScope of Protection\n\n\n\n\nUS 9,723,230\nMulti-spectral imaging with diffractive optics\nHardware Architecture: Protects the physical combination of a sensor array and a diffractive element in the optical path.\n\n\nUS 11,300,449\nImaging device creating a spatially coded image\nData Format: Protects the “Diffractogram” data structure and the forward model logic.\n\n\nUS 8,953,239\nNanophotonic scattering structure\nDesign Algorithms: Protects the computational methods used to optimize the geometry of the DFA for specific spectral responses.\n\n\nUS 10,395,134\nExtraction of spectral information\nSoftware/Reconstruction: Protects the inverse problem algorithms used to recover the spectral cube from the raw data.\n\n\nUS 12,052,518\nMulti-modal computational imaging via metasurfaces\nAdvanced Modalities: Protects the extension of the DFA technology to other imaging modalities like Lightfield and Depth sensing."
+    "text": "Intellectual Property Portfolio\nLumos Imaging holds an exclusive, worldwide license to a comprehensive patent portfolio. This IP protects the entire vertical stack—from the nanofabrication of the optic to the algorithmic reconstruction of the image—creating a strong defensive moat for an acquirer or licensee.\n\nPatent Portfolio\n\n\n\n\n\n\n\nPatent ID\nTitle\nScope of Protection\n\n\n\n\nUS 9,723,230\nMulti-spectral imaging with diffractive optics\nHardware Architecture: Protects the physical combination of a sensor array and a diffractive element in the optical path.\n\n\nUS 11,300,449\nImaging device creating a spatially coded image\nData Format: Protects the “Diffractogram” data structure and the forward model logic.\n\n\nUS 8,953,239\nNanophotonic scattering structure\nDesign Algorithms: Protects the computational methods used to optimize the geometry of the DFA for specific spectral responses.\n\n\nUS 10,395,134\nExtraction of spectral information\nSoftware/Reconstruction: Protects the inverse problem algorithms used to recover the spectral cube from the raw data.\n\n\nUS 12,052,518\nMulti-modal computational imaging via metasurfaces\nAdvanced Modalities: Protects the extension of the DFA technology to other imaging modalities like Lightfield and Depth sensing."
   },
   {
-    "objectID": "about_us.html#commercialization-strategic-partnerships",
-    "href": "about_us.html#commercialization-strategic-partnerships",
-    "title": "About Us",
-    "section": "Commercialization & Strategic Partnerships",
-    "text": "Commercialization & Strategic Partnerships\nHaving secured our IP portfolio and validated the technology in key verticals, Lumos is now exploring strategic alternatives to accelerate commercialization.\nWe are open to discussions regarding exclusive licensing, technology transfer, or strategic acquisition of the Lumos platform. We invite sensor manufacturers and industrial integrators to discuss how this technology can differentiate their next-generation products."
+    "objectID": "about_us.html#leadership-team",
+    "href": "about_us.html#leadership-team",
+    "title": "About Us & Strategic Focus",
+    "section": "Leadership Team",
+    "text": "Leadership Team\nThe team that built the platform combines deep technical expertise with commercial execution experience.\n\n\n\n\n\n\nRajesh Menon \n\nRajesh is a Professor at the University of Utah with a PhD in Diffractive Optics from MIT. He is a Fellow of OSA and SPIE, and a serial entrepreneur having founded LumArray and PointSpectrum. With over 100 publications and 40+ patents in nanophotonics and lithography, Rajesh brings deep technical expertise and a proven track record of translating research into commercial products.\n\n\n\n\n\n\n\n\nLaurent Node-Langlois \n\nLaurent brings over 25 years of high-tech Product Management experience. Formerly in executive leadership at GE Healthcare, where he led Medical Imaging and Surgical Navigation products, his extensive P&L responsibility includes guiding deep-tech products from R&D through market exit, bringing critical commercial execution expertise to the team.\n\n\n\n\n\n\n\n\nFernando Guevara Vásquez, PhD \n\nFernando holds a PhD in Computational & Applied Mathematics from Rice University. His research in mathematical modeling of wave propagation and inverse problems has been fundamental to developing the theoretical foundations of Lumos’s diffractive computational imaging technology. His work on optimization algorithms enables the robust reconstruction of spectral information from optically encoded data.\n\n\n\n\n\n\n\n\nFernando González del Cueto, PhD \n\nFernando holds a PhD in Computational & Applied Mathematics from Rice University. His expertise in imaging science and numerical optimization has been instrumental in developing Lumos’s reconstruction algorithms and neural network architectures. His work bridges the gap between computational theory and practical implementation, creating the software foundation that makes Lumos technology viable."
   },
   {
     "objectID": "about_us.html#contact-us",
     "href": "about_us.html#contact-us",
-    "title": "About Us",
+    "title": "About Us & Strategic Focus",
     "section": "Contact Us",
-    "text": "Contact Us\n\n\n\n\nEmail Us\n\n\nInterested in partnering? Reach out directly.\n\ninfo@lumosimaging.com\n\n\n\n\n\nFollow Us\n\n\nKeep up with our latest technology updates.\n\n  Lumos Imaging"
+    "text": "Contact Us\n\n\n\n\nEmail Us\n\n\nFor specific inquiries regarding licensing or acquisition:\n\ninfo@lumosimaging.com\n\n\n\n\n\nFollow Us\n\n\nKeep up with our latest technology updates.\n\n  Lumos Imaging"
   },
   {
     "objectID": "barriers_to_HSI_adoption.html",
